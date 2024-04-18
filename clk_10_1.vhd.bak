@@ -10,23 +10,23 @@ end entity clk_10_1;
 architecture behaviour of clk_10_1 is
 begin
 	process(Clk_in, Start_in, Init_in)
-		signal count: integer := 1;
-		signal initial: integer := 0;
-		signal v_clk: std_logic := '0';
+		variable count: integer := 1;
+		variable initial: integer := 0;
+		variable v_clk: std_logic := '0';
 	begin
 		if (Start_in = '1' or Init_in = '1') then
-			initial <= 0;
-			v_clk <= '0';
-			count <= 1;
+			initial := 0;
+			v_clk := '0';
+			count := 1;
 			Clk_out <= '0', '1' after 1 ns, '0' after 2 ns;
 		elsif (rising_edge(Clk_in)) then
 			if (initial < 5) then
-				initial <= initial + 1;
+				initial := initial + 1;
 			elsif (count = 5) then
-				v_clk <= not v_clk;
-				count <= 1;
+				v_clk := not v_clk;
+				count := 1;
 			else
-				count <= count + 1;
+				count := count + 1;
 			end if;
 
 			Clk_out <= v_clk;
