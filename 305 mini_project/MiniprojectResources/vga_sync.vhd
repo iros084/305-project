@@ -13,12 +13,15 @@ END VGA_SYNC;
 ARCHITECTURE a OF VGA_SYNC IS
 	SIGNAL horiz_sync, vert_sync : STD_LOGIC;
 	SIGNAL video_on, video_on_v, video_on_h : STD_LOGIC;
-	SIGNAL h_count, v_count :STD_LOGIC_VECTOR(9 DOWNTO 0) := "0000000000";
+	SIGNAL h_count, v_count :STD_LOGIC_VECTOR(9 DOWNTO 0);
 
 BEGIN
 
 -- video_on is high only when RGB data is displayed
 video_on <= video_on_H AND video_on_V;
+
+
+
 PROCESS
 BEGIN
 	WAIT UNTIL(clock_25Mhz'EVENT) AND (clock_25Mhz='1');
