@@ -261,4 +261,5 @@ set_location_assignment PIN_L7 -to horiz_sync_out
 set_location_assignment PIN_K7 -to green_out
 set_location_assignment PIN_J7 -to CLK
 set_location_assignment PIN_J8 -to blue_out
+set_global_assignment -name VHDL_FILE "305 mini_project/clk_25M.vhd"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

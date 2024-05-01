@@ -1,5 +1,5 @@
 Analysis & Synthesis report for miniproject
-Wed May 01 14:49:38 2024
+Wed May 01 15:15:35 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -13,14 +13,13 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "VGA_SYNC:vga_design"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "VGA_SYNC:vga_design"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -46,13 +45,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 01 14:49:38 2024           ;
+; Analysis & Synthesis Status     ; Successful - Wed May 01 15:15:35 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; miniproject                                     ;
 ; Top-level Entity Name           ; miniproject                                     ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 0                                               ;
+; Total registers                 ; 62                                              ;
 ; Total pins                      ; 8                                               ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
@@ -162,10 +161,11 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -176,82 +176,47 @@ refer to the applicable agreement for further details.
 +-------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------+---------+
 ; 305 mini_project/Project_Flappy.vhd ; yes             ; User VHDL File  ; C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd ;         ;
 ; 305 mini_project/VGA_SYNC.vhd       ; yes             ; User VHDL File  ; C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/VGA_SYNC.vhd       ;         ;
+; 305 mini_project/clk_25M.vhd        ; yes             ; User VHDL File  ; C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/clk_25M.vhd        ;         ;
 +-------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 0     ;
-;                                             ;       ;
-; Combinational ALUT usage for logic          ; 0     ;
-;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 0     ;
-;     -- 5 input functions                    ; 0     ;
-;     -- 4 input functions                    ; 0     ;
-;     -- <=3 input functions                  ; 0     ;
-;                                             ;       ;
-; Dedicated logic registers                   ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 8     ;
-;                                             ;       ;
-; Total DSP Blocks                            ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; CLK   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 8     ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 45        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 80        ;
+;     -- 7 input functions                    ; 1         ;
+;     -- 6 input functions                    ; 7         ;
+;     -- 5 input functions                    ; 8         ;
+;     -- 4 input functions                    ; 4         ;
+;     -- <=3 input functions                  ; 60        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 62        ;
+;                                             ;           ;
+; I/O pins                                    ; 8         ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 33        ;
+; Total fan-out                               ; 421       ;
+; Average fan-out                             ; 2.66      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |miniproject               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 8    ; 0            ; |miniproject        ; miniproject ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
+; |miniproject               ; 80 (0)              ; 62 (0)                    ; 0                 ; 0          ; 8    ; 0            ; |miniproject                     ; miniproject ; work         ;
+;    |VGA_SYNC:vga_design|   ; 38 (38)             ; 29 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |miniproject|VGA_SYNC:vga_design ; VGA_SYNC    ; work         ;
+;    |clk_25M:div_design|    ; 42 (42)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |miniproject|clk_25M:div_design  ; clk_25M     ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                            ;
-+----------------------------------------+--------------------------------------+
-; Register name                          ; Reason for Removal                   ;
-+----------------------------------------+--------------------------------------+
-; VGA_SYNC:vga_design|red_out            ; Stuck at GND due to stuck port clock ;
-; VGA_SYNC:vga_design|green_out          ; Stuck at GND due to stuck port clock ;
-; VGA_SYNC:vga_design|blue_out           ; Stuck at GND due to stuck port clock ;
-; VGA_SYNC:vga_design|video_on_v         ; Lost fanout                          ;
-; VGA_SYNC:vga_design|video_on_h         ; Lost fanout                          ;
-; VGA_SYNC:vga_design|horiz_sync_out     ; Stuck at GND due to stuck port clock ;
-; VGA_SYNC:vga_design|horiz_sync         ; Lost fanout                          ;
-; VGA_SYNC:vga_design|vert_sync_out      ; Stuck at GND due to stuck port clock ;
-; VGA_SYNC:vga_design|vert_sync          ; Lost fanout                          ;
-; VGA_SYNC:vga_design|v_count[5..9]      ; Stuck at GND due to stuck port clock ;
-; VGA_SYNC:vga_design|h_count[0..9]      ; Stuck at GND due to stuck port clock ;
-; VGA_SYNC:vga_design|v_count[0..4]      ; Stuck at GND due to stuck port clock ;
-; Total Number of Removed Registers = 29 ;                                      ;
-+----------------------------------------+--------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                    ;
-+------------------------------------+-------------------------+-----------------------------------------------------------------+
-; Register name                      ; Reason for Removal      ; Registers Removed due to This Register                          ;
-+------------------------------------+-------------------------+-----------------------------------------------------------------+
-; VGA_SYNC:vga_design|h_count[7]     ; Stuck at GND            ; VGA_SYNC:vga_design|v_count[0], VGA_SYNC:vga_design|v_count[1], ;
-;                                    ; due to stuck port clock ; VGA_SYNC:vga_design|v_count[2], VGA_SYNC:vga_design|v_count[3], ;
-;                                    ;                         ; VGA_SYNC:vga_design|v_count[4]                                  ;
-; VGA_SYNC:vga_design|red_out        ; Stuck at GND            ; VGA_SYNC:vga_design|video_on_v, VGA_SYNC:vga_design|video_on_h  ;
-;                                    ; due to stuck port clock ;                                                                 ;
-; VGA_SYNC:vga_design|horiz_sync_out ; Stuck at GND            ; VGA_SYNC:vga_design|horiz_sync                                  ;
-;                                    ; due to stuck port clock ;                                                                 ;
-; VGA_SYNC:vga_design|vert_sync_out  ; Stuck at GND            ; VGA_SYNC:vga_design|vert_sync                                   ;
-;                                    ; due to stuck port clock ;                                                                 ;
-+------------------------------------+-------------------------+-----------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -259,14 +224,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 62    ;
+; Number of registers using Synchronous Clear  ; 50    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 10    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; clk_25M:div_design|counter[0]          ; 2       ;
+; clk_25M:div_design|counter[31]         ; 2       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -296,13 +272,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; arriav_ff             ; 62                          ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 40                          ;
+;     plain             ; 12                          ;
+; arriav_lcell_comb     ; 80                          ;
+;     arith             ; 52                          ;
+;         1 data inputs ; 52                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 27                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 4                           ;
+;         5 data inputs ; 8                           ;
+;         6 data inputs ; 7                           ;
 ; boundary_port         ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 2.88                        ;
 +-----------------------+-----------------------------+
 
 
@@ -321,28 +310,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 01 14:49:25 2024
+    Info: Processing started: Wed May 01 15:15:22 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off miniproject -c miniproject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file 305 mini_project/project_flappy.vhd
-    Info (12022): Found design unit 1: miniproject-Test File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 11
+    Info (12022): Found design unit 1: miniproject-Test File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 12
     Info (12023): Found entity 1: miniproject File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file 305 mini_project/vga_sync.vhd
     Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/VGA_SYNC.vhd Line: 13
     Info (12023): Found entity 1: VGA_SYNC File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/VGA_SYNC.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file 305 mini_project/clk_25m.vhd
+    Info (12022): Found design unit 1: clk_25M-behaviour File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/clk_25M.vhd Line: 10
+    Info (12023): Found entity 1: clk_25M File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/clk_25M.vhd Line: 5
 Info (12127): Elaborating entity "miniproject" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Project_Flappy.vhd(13): object "t_pixel_row" assigned a value but never read File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 13
-Warning (10036): Verilog HDL or VHDL warning at Project_Flappy.vhd(14): object "t_pixel_column" assigned a value but never read File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 14
-Warning (10541): VHDL Signal Declaration warning at Project_Flappy.vhd(15): used implicit default value for signal "t_clkDiv" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 15
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_design" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 31
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "red_out" is stuck at GND File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 7
-    Warning (13410): Pin "green_out" is stuck at GND File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 7
-    Warning (13410): Pin "blue_out" is stuck at GND File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 7
-    Warning (13410): Pin "horiz_sync_out" is stuck at GND File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 7
-    Warning (13410): Pin "vert_sync_out" is stuck at GND File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 7
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Warning (10036): Verilog HDL or VHDL warning at Project_Flappy.vhd(14): object "t_pixel_row" assigned a value but never read File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 14
+Warning (10036): Verilog HDL or VHDL warning at Project_Flappy.vhd(15): object "t_pixel_column" assigned a value but never read File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 15
+Info (12128): Elaborating entity "clk_25M" for hierarchy "clk_25M:div_design" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 38
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_design" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 39
+Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_CV_Default -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE0_CV_Default -section_id Top was ignored
@@ -370,16 +356,16 @@ Warning (20013): Ignored 24 assignments for entity "DE0_CV_Default" -- entity do
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLK" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 6
-    Warning (15610): No output dependent on input pin "pb1" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 6
-    Warning (15610): No output dependent on input pin "pb2" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 6
-Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "pb1" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 7
+    Warning (15610): No output dependent on input pin "pb2" File: C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd Line: 7
+Info (21057): Implemented 93 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 5 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
-    Info: Peak virtual memory: 4864 megabytes
-    Info: Processing ended: Wed May 01 14:49:38 2024
+    Info (21061): Implemented 85 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
+    Info: Peak virtual memory: 4889 megabytes
+    Info: Processing ended: Wed May 01 15:15:35 2024
     Info: Elapsed time: 00:00:13
     Info: Total CPU time (on all processors): 00:00:04
 
