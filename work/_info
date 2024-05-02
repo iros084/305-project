@@ -1,0 +1,204 @@
+m255
+K4
+z2
+!s11e vcom 2020.2 2020.04, Apr 19 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project
+T_opt
+!s110 1714609744
+VF8Q`0f2?z6M>63fZ9OgYI2
+04 11 4 work miniproject test 1
+=1-cc96e534b2f2-6632de4e-386-118c
+Z1 o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+Z3 OE;O;2020.2;71
+T_opt1
+!s110 1714609212
+VZ_fekZDD09XNZRBXckfgO0
+04 10 7 work test_bench tb_arch 1
+=1-cc96e534b2f2-6632dc3c-3c-330c
+R1
+R2
+n@_opt1
+R3
+R0
+Eclk_25m
+Z4 w1714608650
+Z5 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 15
+R0
+Z8 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/clk_25M.vhd
+Z9 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/clk_25M.vhd
+l0
+L5 1
+VdAhA67m:zVR@OA:oG]PHk1
+!s100 7Ud]g_OJPGX1F[ME[cD_a2
+Z10 OE;C;2020.2;71
+32
+Z11 !s110 1714609727
+!i10b 1
+Z12 !s108 1714609727.000000
+Z13 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/clk_25M.vhd|
+Z14 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/clk_25M.vhd|
+!i113 0
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Abehaviour
+R5
+R6
+R7
+DEx4 work 7 clk_25m 0 22 dAhA67m:zVR@OA:oG]PHk1
+!i122 15
+l11
+L10 18
+VMN=]oUSYaQ=L23m?7MYnQ3
+!s100 Il<W7S7oYnkD_2;Fk5e=z2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 0
+R15
+R16
+Eminiproject
+R4
+Z17 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z18 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R6
+R7
+!i122 12
+R0
+Z19 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd
+Z20 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd
+l0
+L5 1
+V;UDP3XASZ3[]O6IKQ6iO>1
+!s100 WAQzS[<>cg55KiR7MzT7:1
+R10
+32
+Z21 !s110 1714609721
+!i10b 1
+Z22 !s108 1714609721.000000
+Z23 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd|
+Z24 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/Project_Flappy.vhd|
+!i113 0
+R15
+R16
+Atest
+R17
+R18
+R6
+R7
+DEx4 work 11 miniproject 0 22 ;UDP3XASZ3[]O6IKQ6iO>1
+!i122 12
+l30
+L12 30
+VGj009Gi^WDc9XW]KQ]H;<0
+!s100 6F:hYSl56DOI0j=5B<=fG3
+R10
+32
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R15
+R16
+Etest_bench
+Z25 w1714609192
+R6
+R7
+!i122 13
+R0
+Z26 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/test_bench.vhd
+Z27 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/test_bench.vhd
+l0
+L4 1
+Vd4ac[5SD_4LY_Hj0Q>4H?1
+!s100 UC[eCPQHSz^bIOIz3ZFe92
+R10
+32
+Z28 !s110 1714609724
+!i10b 1
+Z29 !s108 1714609723.000000
+Z30 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/test_bench.vhd|
+Z31 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/test_bench.vhd|
+!i113 0
+R15
+R16
+Atb_arch
+R6
+R7
+DEx4 work 10 test_bench 0 22 d4ac[5SD_4LY_Hj0Q>4H?1
+!i122 13
+l27
+L7 58
+Vc6hQHV`GJ@S4W`MgD4K=j3
+!s100 GG7kC7:idH@8NZ[H?<@;H3
+R10
+32
+R28
+!i10b 1
+R29
+R30
+R31
+!i113 0
+R15
+R16
+Evga_sync
+R4
+R18
+R17
+R6
+R7
+!i122 14
+R0
+Z32 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/VGA_SYNC.vhd
+Z33 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/VGA_SYNC.vhd
+l0
+L7 1
+VMdI7Y31oA]60C@FFgoE0z1
+!s100 _l^FX8bbCD3IjI0S=_RTW3
+R10
+32
+Z34 !s110 1714609725
+!i10b 1
+Z35 !s108 1714609725.000000
+Z36 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/VGA_SYNC.vhd|
+Z37 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/305 mini_project/VGA_SYNC.vhd|
+!i113 0
+R15
+R16
+Aa
+R18
+R17
+R6
+R7
+DEx4 work 8 vga_sync 0 22 MdI7Y31oA]60C@FFgoE0z1
+!i122 14
+l18
+L13 74
+Vb5I60EEG52gKJc8EIQ8430
+!s100 ?lae2>9D<Kjl1ed<z[]?W0
+R10
+32
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 0
+R15
+R16
