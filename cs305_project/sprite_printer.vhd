@@ -6,7 +6,7 @@ USE IEEE.STD_LOGIC_UNSIGNED.all;
 entity SPRITE_PRINTER is
   
   -- pixel_row, pixel_col : current pixel row and column
-  -- anchor_row, anchor_col : where to place the text, the top left is the anchor of the 8x8 text tile
+  -- a_row, a_col : where to place the text, the top left is the anchor of the 8x8 text tile
   -- address: what character to display, please provide its address from the .mif file
   -- rom_mux_out : once character and position is set, it will send 1 or 0, according to current row and col pixel.
   
@@ -48,7 +48,7 @@ begin
           when 4 => range1 := 8;
          when others => range1 := 0;
        end case; 
-      
+      select_multiplier
         if((pixel_row < (a_row + 8*range1)) and (a_row <= pixel_row)) then
           if((pixel_col < (a_col + 8*range1)) and (a_col <= pixel_col)) then
             s_font_row <= (pixel_row(multiplier+1 downto multiplier-1) - a_row(multiplier+1 downto multiplier-1));

@@ -14,7 +14,7 @@ Z1 w1715572272
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 1
+!i122 8
 R0
 Z5 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/cs305_project.vhd
 Z6 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/cs305_project.vhd
@@ -24,9 +24,9 @@ V`^5?8bXl9N8NU4_2DmZ=^1
 !s100 Nk>Nzi_a:aRa`;0hQGa>Y1
 Z7 OE;C;2020.2;71
 32
-Z8 !s110 1715572277
+Z8 !s110 1715573863
 !i10b 1
-Z9 !s108 1715572277.000000
+Z9 !s108 1715573863.000000
 Z10 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/cs305_project.vhd|
 Z11 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/cs305_project.vhd|
 !i113 0
@@ -36,12 +36,12 @@ Astructural
 R2
 R3
 R4
-DEx4 work 13 cs305_project 0 22 `^5?8bXl9N8NU4_2DmZ=^1
-!i122 1
+Z14 DEx4 work 13 cs305_project 0 22 `^5?8bXl9N8NU4_2DmZ=^1
+!i122 8
 l65
-Z14 L13 83
-ViC2h7XY8fe<6L]3ZG5O^Z0
-!s100 V`agFXk7[??]PDY^PMJQX3
+Z15 L13 83
+Z16 ViC2h7XY8fe<6L]3ZG5O^Z0
+Z17 !s100 V`agFXk7[??]PDY^PMJQX3
 R7
 32
 R8
@@ -53,32 +53,32 @@ R11
 R12
 R13
 Esprite_printer
-Z15 w1715573742
-Z16 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z17 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z18 w1715573742
+Z19 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z20 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 R3
 R4
 !i122 6
 R0
-Z18 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd
-Z19 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd
+Z21 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd
+Z22 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd
 l0
 L6 1
 VSN0DeQkZMA=26<e;bkPUk1
 !s100 DACNdF_haPC=1nelMHbGS0
 R7
 32
-Z20 !s110 1715573747
+Z23 !s110 1715573747
 !i10b 1
-Z21 !s108 1715573747.000000
-Z22 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd|
-Z23 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd|
+Z24 !s108 1715573747.000000
+Z25 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd|
+Z26 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/sprite_printer.vhd|
 !i113 0
 R12
 R13
 Aa
-R16
-R17
+R19
+R20
 R3
 R4
 DEx4 work 14 sprite_printer 0 22 SN0DeQkZMA=26<e;bkPUk1
@@ -89,56 +89,56 @@ VQmO?bz5K^V=HH9fH<Ghz52
 !s100 zH99iN6TbkJdW8CEic5EB1
 R7
 32
-R20
-!i10b 1
-R21
-R22
 R23
+!i10b 1
+R24
+R25
+R26
 !i113 0
 R12
 R13
 Estart
-Z24 w1715573719
-Z25 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
-R17
+Z27 w1715573719
+Z28 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+R20
 R3
 R4
 !i122 7
 R0
-Z26 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd
-Z27 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd
+Z29 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd
+Z30 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd
 l0
 L6 1
 VUe=izYUF]Mc`ZHTnRoPW?2
 !s100 >4LS`iZAH8UNKKB^4jV8M3
 R7
 32
-Z28 !s110 1715573749
+Z31 !s110 1715573749
 !i10b 1
-Z29 !s108 1715573749.000000
-Z30 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd|
-Z31 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd|
+Z32 !s108 1715573749.000000
+Z33 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd|
+Z34 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project/start.vhd|
 !i113 0
 R12
 R13
 Abehaviour
-R25
-R17
+R28
+R20
 R3
 R4
-Z32 DEx4 work 5 start 0 22 Ue=izYUF]Mc`ZHTnRoPW?2
+DEx4 work 5 start 0 22 Ue=izYUF]Mc`ZHTnRoPW?2
 !i122 7
 l79
-R14
-Z33 VS2LDH]7W1[@7DdR0[G0RO3
-Z34 !s100 z`iMTI353N`4JaaPQH?Om2
+R15
+VS2LDH]7W1[@7DdR0[G0RO3
+!s100 z`iMTI353N`4JaaPQH?Om2
 R7
 32
-R28
-!i10b 1
-R29
-R30
 R31
+!i10b 1
+R32
+R33
+R34
 !i113 0
 R12
 R13
