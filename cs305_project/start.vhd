@@ -24,19 +24,6 @@ signal title_i_address : std_logic_vector(5 downto 0) := "001001";
 signal title_r_address : std_logic_vector(5 downto 0) := "010010";
 signal title_d_address : std_logic_vector(5 downto 0) := "000100";
 
-signal play_p_address : std_logic_vector(5 downto 0) := "010000";
-signal play_l_address : std_logic_vector(5 downto 0) := "001100";
-signal play_a_address : std_logic_vector(5 downto 0) := "000001";
-signal play_y_address : std_logic_vector(5 downto 0) := "011001";
-
-signal tut_t_address : std_logic_vector(5 downto 0) := "010100";
-signal tut_u_address : std_logic_vector(5 downto 0) := "010101";
-signal tut_t1_address : std_logic_vector(5 downto 0) := "010100";
-signal tut_o_address : std_logic_vector(5 downto 0) := "001111";
-signal tut_r_address : std_logic_vector(5 downto 0) := "010010";
-signal tut_i_address : std_logic_vector(5 downto 0) := "001001";
-signal tut_a_address : std_logic_vector(5 downto 0) := "000001";
-signal tut_l_address : std_logic_vector(5 downto 0) := "001100";
 
 -- Signals for Sprite printing 
 -- F L A P P Y B I R D
@@ -102,9 +89,6 @@ end component Sprite_printer;
 	  title_r: sprite_printer port map(pixel_row, pixel_col, title_r_row, title_r_col, Font_R, Font_G, Font_B, Font_Multiplier, title_r_address, enable, CLK, title_r_Red, title_r_Green, title_r_Blue);
 	  title_d: sprite_printer port map(pixel_row, pixel_col, title_d_row, title_d_col, Font_R, Font_G, Font_B, Font_Multiplier, title_d_address, enable, CLK, title_d_Red, title_d_Green, title_d_Blue);
 	
-	
-    play_RED <= not(mode_sel);
-    tut_RED <= mode_sel;
 	  
     Red_out <= title_f_R_out and title_l_R_out and title_a_R_out and title_p_R_out and title_p1_R_out and title_y_R_out and title_b_R_out and title_i_R_out and title_r_R_out and title_d_R_out; 
     Green_out <= title_f_G_out and title_l_G_out and title_a_G_out and title_p_G_out and title_p1_G_out and title_y_G_out and title_b_G_out and title_i_G_out and title_r_G_out and title_d_G_out; 
