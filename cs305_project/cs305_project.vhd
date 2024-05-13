@@ -52,10 +52,20 @@ architecture structural of cs305_project is
 		port (Q_in: in std_logic;
 			Q_out: out std_logic);
 	end component;
-	
-	signal s1, s2, s3, s4, s5, s8, a1, a2: std_logic;
+
+	component start is
+         port(pixel_row, pixel_col : in std_logic_vector(9 downto 0);
+	       Clk, enable, mode_sel  : in std_logic;  -- if mode sel is '1', its game mode/ '0' is tutorial mode
+         Red_out, Green_out, Blue_out : out std_logic);
+
+        end component;  
+ 
+	signal s1, s2, s3, s4, s5, s8, a1, a2,a3,a4,a5: std_logic;
 	signal s6, s7, s9, s10: std_logic_vector(9 downto 0);
 begin
+        Starting: start 
+                  port map (pixel_row => s6, pixel_col => s7, clk => s1, enable => a4, mode_sel => a5, red_out => red_out, green_out => green_out, blue_out => blue_out);
+
 	V1: vga_sync
 		port map(clock_25Mhz => s1, red => s2, green => s3, blue => s4, red_out => red_out, green_out => green_out, blue_out => blue_out, horiz_sync_out => horiz_sync_out, vert_sync_out => s5, pixel_row => s6, pixel_column => s7);
 	
