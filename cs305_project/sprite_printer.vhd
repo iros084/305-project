@@ -35,42 +35,40 @@ architecture a of SPRITE_PRINTER is
 begin
 
   SPRITE_ROM:CHAR_ROM port map (character_address => address, font_row => s_font_row, font_col => s_font_col,  clock => clk, rom_mux_output => s_rom_mux_output);
-  
   process (s_red, s_green, s_blue, pixel_row, a_row, pixel_col, a_col, s_rom_mux_output)
     variable range1 : integer range 0 to 8 := 0;
-    begin
-
-      if(enable = '1')then      
+begin
+    if(enable = '1') then      
         case multiplier is
-          when 1 => range1 := 1;
-          when 2 => range1 := 2;
-          when 3 => range1 := 4;
-          when 4 => range1 := 8;
-         when others => range1 := 0;
-       end case; 
-      select_multiplier
-        if((pixel_row < (a_row + 8*range1)) and (a_row <= pixel_row)) then
-          if((pixel_col < (a_col + 8*range1)) and (a_col <= pixel_col)) then
-            s_font_row <= (pixel_row(multiplier+1 downto multiplier-1) - a_row(multiplier+1 downto multiplier-1));
-            s_font_col <= (pixel_col(multiplier+1 downto multiplier-1) - a_col(multiplier+1 downto multiplier-1));
-          else
+            when 1 => range1 := 1;
+            when 2 => range1 := 2;
+            when 3 => range1 := 4;
+            when 4 => range1 := 8;
+            when others => range1 := 0;
+        end case; 
+        
+        if (pixel_row < (a_row + 8*range1)) and (a_row <= pixel_row) then
+            if(pixel_col < (a_col + 8*range1)) and (a_col <= pixel_col) then
+                s_font_row <= (pixel_row(multiplier+1 downto multiplier-1) - a_row(multiplier+1 downto multiplier-1));
+                s_font_col <= (pixel_col(multiplier+1 downto multiplier-1) - a_col(multiplier+1 downto multiplier-1));
+            else
+                s_font_col <= "000";
+                s_font_row <= "000";
+            end if;
+        else
             s_font_col <= "000";
             s_font_row <= "000";
-          end if;
-        else
-          s_font_col <= "000";
-          s_font_row <= "000";
         end if;
       
         red_out <= not(s_red and s_rom_mux_output);
         green_out <= not(s_green and s_rom_mux_output);
         blue_out <= not(s_blue and s_rom_mux_output); 
         
-      else
+    else
         red_out <= '1';
         green_out <= '1';
         blue_out <= '1';  
-      end if;
-      
-  end process;   
+    end if;
+end process;
+
 end a;
