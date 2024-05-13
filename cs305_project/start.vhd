@@ -63,6 +63,7 @@ signal title_f_Red, title_f_Green, title_f_Blue,
 signal Font_R : std_logic := '1';
 Signal Font_G : std_logic := '1';
 Signal Font_B : std_logic := '1';
+signal t_enable : std_logic := '1';
 
 Signal Font_Multiplier : integer := 4;
 signal select_multiplier : integer := 3;
@@ -77,16 +78,16 @@ component Sprite_Printer is
 end component Sprite_printer;
 
 	begin
-          title_f: sprite_printer port map(pixel_row, pixel_col, title_f_row, title_f_col, Font_R, Font_G, Font_B, Font_Multiplier, title_f_address, enable, CLK, title_f_Red, title_f_Green, title_f_Blue);
-	  title_l: sprite_printer port map(pixel_row, pixel_col, title_l_row, title_l_col, Font_R, Font_G, Font_B, Font_Multiplier, title_l_address, enable, CLK, title_l_Red, title_l_Green, title_l_Blue);
-	  title_a: sprite_printer port map(pixel_row, pixel_col, title_a_row, title_a_col, Font_R, Font_G, Font_B, Font_Multiplier, title_a_address, enable, CLK, title_a_Red, title_a_Green, title_a_Blue);
-	  title_p: sprite_printer port map(pixel_row, pixel_col, title_p_row, title_p_col, Font_R, Font_G, Font_B, Font_Multiplier, title_p_address, enable, CLK, title_p_Red, title_p_Green, title_p_Blue);
- 	  title_p1: sprite_printer port map(pixel_row, pixel_col, title_p1_row, title_p1_col, Font_R, Font_G, Font_B, Font_Multiplier, title_p1_address, enable, CLK, title_p1_Red, title_p1_Green, title_p1_Blue);
-	  title_y: sprite_printer port map(pixel_row, pixel_col, title_y_row, title_y_col, Font_R, Font_G, Font_B, Font_Multiplier, title_y_address, enable, CLK, title_y_Red, title_y_Green, title_y_Blue);
-	  title_b: sprite_printer port map(pixel_row, pixel_col, title_b_row, title_b_col, Font_R, Font_G, Font_B, Font_Multiplier, title_b_address, enable, CLK, title_b_Red, title_b_Green, title_b_Blue);
-	  title_i: sprite_printer port map(pixel_row, pixel_col, title_i_row, title_i_col, Font_R, Font_G, Font_B, Font_Multiplier, title_i_address, enable, CLK, title_i_Red, title_i_Green, title_i_Blue);
-	  title_r: sprite_printer port map(pixel_row, pixel_col, title_r_row, title_r_col, Font_R, Font_G, Font_B, Font_Multiplier, title_r_address, enable, CLK, title_r_Red, title_r_Green, title_r_Blue);
-	  title_d: sprite_printer port map(pixel_row, pixel_col, title_d_row, title_d_col, Font_R, Font_G, Font_B, Font_Multiplier, title_d_address, enable, CLK, title_d_Red, title_d_Green, title_d_Blue);
+          title_f: sprite_printer port map(pixel_row, pixel_col, title_f_row, title_f_col, Font_R, Font_G, Font_B, Font_Multiplier, title_f_address, t_enable, CLK, title_f_Red, title_f_Green, title_f_Blue);
+	  title_l: sprite_printer port map(pixel_row, pixel_col, title_l_row, title_l_col, Font_R, Font_G, Font_B, Font_Multiplier, title_l_address, t_enable, CLK, title_l_Red, title_l_Green, title_l_Blue);
+	  title_a: sprite_printer port map(pixel_row, pixel_col, title_a_row, title_a_col, Font_R, Font_G, Font_B, Font_Multiplier, title_a_address, t_enable, CLK, title_a_Red, title_a_Green, title_a_Blue);
+	  title_p: sprite_printer port map(pixel_row, pixel_col, title_p_row, title_p_col, Font_R, Font_G, Font_B, Font_Multiplier, title_p_address, t_enable, CLK, title_p_Red, title_p_Green, title_p_Blue);
+ 	  title_p1: sprite_printer port map(pixel_row, pixel_col, title_p1_row, title_p1_col, Font_R, Font_G, Font_B, Font_Multiplier, title_p1_address, t_enable, CLK, title_p1_Red, title_p1_Green, title_p1_Blue);
+	  title_y: sprite_printer port map(pixel_row, pixel_col, title_y_row, title_y_col, Font_R, Font_G, Font_B, Font_Multiplier, title_y_address, t_enable, CLK, title_y_Red, title_y_Green, title_y_Blue);
+	  title_b: sprite_printer port map(pixel_row, pixel_col, title_b_row, title_b_col, Font_R, Font_G, Font_B, Font_Multiplier, title_b_address, t_enable, CLK, title_b_Red, title_b_Green, title_b_Blue);
+	  title_i: sprite_printer port map(pixel_row, pixel_col, title_i_row, title_i_col, Font_R, Font_G, Font_B, Font_Multiplier, title_i_address, t_enable, CLK, title_i_Red, title_i_Green, title_i_Blue);
+	  title_r: sprite_printer port map(pixel_row, pixel_col, title_r_row, title_r_col, Font_R, Font_G, Font_B, Font_Multiplier, title_r_address, t_enable, CLK, title_r_Red, title_r_Green, title_r_Blue);
+	  title_d: sprite_printer port map(pixel_row, pixel_col, title_d_row, title_d_col, Font_R, Font_G, Font_B, Font_Multiplier, title_d_address, t_enable, CLK, title_d_Red, title_d_Green, title_d_Blue);
 	
 	  
     Red_out <= title_f_Red and title_l_Red and title_a_Red and title_p_Red and title_p1_Red and title_y_Red and title_b_Red and title_i_Red and title_r_Red and title_d_Red; 
