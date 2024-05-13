@@ -1,43 +1,47 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.std_logic_arith.all;
-use IEEE.std_logic_unsigned.all;
+-----
+--Pong game 2018
+-----
+LIBRARY IEEE;
+USE  IEEE.STD_LOGIC_1164.all;
+USE  IEEE.STD_LOGIC_ARITH.all;
+USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
-entity mouse is
-   port (clock_25Mhz, reset 		: IN std_logic;
-         MOUSE_DATA					: INOUT std_logic;
-         MOUSE_CLK 					: INOUT std_logic;
+ENTITY MOUSE IS
+   PORT( clock_25Mhz, reset 		: IN std_logic;
+         mouse_data					: INOUT std_logic;
+         mouse_clk 					: INOUT std_logic;
          left_button, right_button	: OUT std_logic;
 		 mouse_cursor_row 			: OUT std_logic_vector(9 DOWNTO 0); 
 		 mouse_cursor_column 		: OUT std_logic_vector(9 DOWNTO 0));       	
-END entity;
+END MOUSE;
 
-architecture behavior of mouse is
+ARCHITECTURE behavior OF MOUSE IS
 
 TYPE STATE_TYPE IS (INHIBIT_TRANS, LOAD_COMMAND,LOAD_COMMAND2, WAIT_OUTPUT_READY,
 					WAIT_CMD_ACK, INPUT_PACKETS);
 -- Signals for Mouse
-SIGNAL mouse_state							         : state_type;
-SIGNAL inhibit_wait_count					         : std_logic_vector(11 DOWNTO 0);
-SIGNAL CHARIN, CHAROUT						         : std_logic_vector(7 DOWNTO 0);
-SIGNAL new_cursor_row, new_cursor_column 	      : std_logic_vector(9 DOWNTO 0);
-SIGNAL cursor_row, cursor_column 			      : std_logic_vector(9 DOWNTO 0);
-SIGNAL INCNT, OUTCNT, mSB_OUT 				      : std_logic_vector(3 DOWNTO 0);
-SIGNAL PACKET_COUNT 						            : std_logic_vector(1 DOWNTO 0);
-SIGNAL SHIFTIN 								         : std_logic_vector(8 DOWNTO 0);
-SIGNAL SHIFTOUT 							            : std_logic_vector(10 DOWNTO 0);
-SIGNAL PACKET_CHAR1, PACKET_CHAR2, PACKET_CHAR3 : std_logic_vector(7 DOWNTO 0); 
-SIGNAL MOUSE_CLK_BUF, DATA_READY, READ_CHAR     : std_logic;
-SIGNAL i									               : integer;
+SIGNAL mouse_state							: state_type;
+SIGNAL inhibit_wait_count					: std_logic_vector(11 DOWNTO 0);
+SIGNAL CHARIN, CHAROUT						: std_logic_vector(7 DOWNTO 0);
+SIGNAL new_cursor_row, new_cursor_column 	: std_logic_vector(9 DOWNTO 0);
+SIGNAL cursor_row, cursor_column 			: std_logic_vector(9 DOWNTO 0);
+SIGNAL INCNT, OUTCNT, mSB_OUT 				: std_logic_vector(3 DOWNTO 0);
+SIGNAL PACKET_COUNT 						: std_logic_vector(1 DOWNTO 0);
+SIGNAL SHIFTIN 								: std_logic_vector(8 DOWNTO 0);
+SIGNAL SHIFTOUT 							: std_logic_vector(10 DOWNTO 0);
+SIGNAL PACKET_CHAR1, PACKET_CHAR2, 
+		PACKET_CHAR3 						: std_logic_vector(7 DOWNTO 0); 
+SIGNAL MOUSE_CLK_BUF, DATA_READY, READ_CHAR	: std_logic;
+SIGNAL i									: integer;
 SIGNAL cursor, iready_set, break, toggle_next, 
 		output_ready, send_char, send_data 	: std_logic;
 SIGNAL MOUSE_DATA_DIR, MOUSE_DATA_OUT, MOUSE_DATA_BUF, 
 		MOUSE_CLK_DIR 						: std_logic;
-SIGNAL MOUSE_CLK_FILTER 					         : std_logic;
-SIGNAL filter 								            : std_logic_vector(7 DOWNTO 0);
+SIGNAL MOUSE_CLK_FILTER 					: std_logic;
+SIGNAL filter 								: std_logic_vector(7 DOWNTO 0);
 
 
-begin
+BEGIN
 
 mouse_cursor_row <= cursor_row;
 mouse_cursor_column <= cursor_column;
@@ -256,8 +260,8 @@ ELSIF MOUSE_CLK_FILTER'event and MOUSE_CLK_FILTER='0' THEN
 								PACKET_CHAR3(7) & PACKET_CHAR3);
     				NEW_cursor_column <= cursor_column + (PACKET_CHAR2(7) & 
 								PACKET_CHAR2(7) & PACKET_CHAR2);
-    				left_button <= PACKET_CHAR1(0);
-    				right_button <= PACKET_CHAR1(1);
+    				LEFT_BUTTON <= PACKET_CHAR1(0);
+    				RIGHT_BUTTON <= PACKET_CHAR1(1);
   				END IF;
 			END IF;
   		END IF;
@@ -266,4 +270,4 @@ ELSIF MOUSE_CLK_FILTER'event and MOUSE_CLK_FILTER='0' THEN
 END IF;
 END PROCESS RECV_UART;
 
-end architecture;
+END behavior;
