@@ -10,8 +10,8 @@ entity SPRITE_PRINTER is
   -- address: what character to display, please provide its address from the .mif file
   -- rom_mux_out : once character and position is set, it will send 1 or 0, according to current row and col pixel.
   
-  port(pixel_row, pixel_col, anchor_row, anchor_col : in std_logic_vector(9 downto 0);
-       sprite_red, sprite_green, sprite_blue : in std_logic;
+  port(pixel_row, pixel_col, a_row, a_col : in std_logic_vector(9 downto 0);
+       s_red, s_green, s_blue : in std_logic;
        multiplier : in integer range 1 to 4;
        address : in std_logic_vector (5 downto 0);
        enable, clk : in std_logic;
@@ -36,41 +36,40 @@ begin
 
   SPRITE_ROM:CHAR_ROM port map (character_address => address, font_row => s_font_row, font_col => s_font_col,  clock => clk, rom_mux_output => s_rom_mux_output);
   
-  process (sprite_red, sprite_green, sprite_blue, pixel_row, anchor_row, pixel_col, anchor_col, s_rom_mux_output)
-    variable P : integer range 0 to 8 := 0;
+  process (s_red, s_green, s_blue, pixel_row, a_row, pixel_col, a_col, s_rom_mux_output)
+    variable range1 : integer range 0 to 8 := 0;
     begin
 
       if(enable = '1')then      
         case multiplier is
-          when 1 => P := 1;
-          when 2 => P := 2;
-          when 3 => P := 4;
-          when 4 => P := 8;
-         when others => P:= 0;
+          when 1 => range1 := 1;
+          when 2 => range1 := 2;
+          when 3 => range1 := 4;
+          when 4 => range1 := 8;
+         when others => range1 := 0;
        end case; 
       
-        if((anchor_row <= pixel_row) and (pixel_row < (anchor_row + 8*P))) then
-          if((anchor_col <= pixel_col) and (pixel_col < (anchor_col + 8*P))) then
-            s_font_row <= (pixel_row(multiplier+1 downto multiplier-1) - anchor_row(multiplier+1 downto multiplier-1));
-            s_font_col <= (pixel_col(multiplier+1 downto multiplier-1) - anchor_col(multiplier+1 downto multiplier-1));
+        if((pixel_row < (a_row + 8*range1)) and (a_row <= pixel_row)) then
+          if((pixel_col < (a_col + 8*range1)) and (a_col <= pixel_col)) then
+            s_font_row <= (pixel_row(multiplier+1 downto multiplier-1) - a_row(multiplier+1 downto multiplier-1));
+            s_font_col <= (pixel_col(multiplier+1 downto multiplier-1) - a_col(multiplier+1 downto multiplier-1));
           else
-            s_font_row <= "000";
             s_font_col <= "000";
+            s_font_row <= "000";
           end if;
         else
-          s_font_row <= "000";
           s_font_col <= "000";
+          s_font_row <= "000";
         end if;
       
-        red_out <= not(sprite_red and s_rom_mux_output);
-        green_out <= not(sprite_green and s_rom_mux_output);
-        blue_out <= not(sprite_blue and s_rom_mux_output); 
+        red_out <= not(s_red and s_rom_mux_output);
+        green_out <= not(s_green and s_rom_mux_output);
+        blue_out <= not(s_blue and s_rom_mux_output); 
         
       else
         red_out <= '1';
         green_out <= '1';
         blue_out <= '1';  
-        
       end if;
       
   end process;   

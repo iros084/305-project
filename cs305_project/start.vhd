@@ -48,7 +48,6 @@ signal title_r_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(335, 
 signal title_d_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(200, 10);
 signal title_d_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(432, 10);
 
-
 -- Flappy BIRD RGB
 signal title_f_Red, title_f_Green, title_f_Blue,
        title_l_Red, title_l_Green, title_l_Blue,
@@ -69,8 +68,8 @@ Signal Font_Multiplier : integer := 4;
 signal select_multiplier : integer := 3;
 
 component Sprite_Printer is	
-  port(pixel_row, pixel_col, anchor_row, anchor_col : in std_logic_vector(9 downto 0);
-       sprite_red, sprite_green, sprite_blue : in std_logic;
+  port(pixel_row, pixel_col, a_row, a_col : in std_logic_vector(9 downto 0);
+       s_red, s_green, s_blue : in std_logic;
        multiplier : in integer range 1 to 4;
        address : in std_logic_vector (5 downto 0);
        enable, clk : in std_logic;
@@ -90,7 +89,7 @@ end component Sprite_printer;
 	  title_d: sprite_printer port map(pixel_row, pixel_col, title_d_row, title_d_col, Font_R, Font_G, Font_B, Font_Multiplier, title_d_address, enable, CLK, title_d_Red, title_d_Green, title_d_Blue);
 	
 	  
-    Red_out <= title_f_R_out and title_l_R_out and title_a_R_out and title_p_R_out and title_p1_R_out and title_y_R_out and title_b_R_out and title_i_R_out and title_r_R_out and title_d_R_out; 
-    Green_out <= title_f_G_out and title_l_G_out and title_a_G_out and title_p_G_out and title_p1_G_out and title_y_G_out and title_b_G_out and title_i_G_out and title_r_G_out and title_d_G_out; 
-    Blue_out <= title_f_B_out and title_l_B_out and title_a_B_out and title_p_B_out and title_p1_B_out and title_y_B_out and title_b_B_out and title_i_B_out and title_r_B_out and title_d_B_out; 
+    Red_out <= title_f_Red and title_l_Red and title_a_Red and title_p_Red and title_p1_Red and title_y_Red and title_b_Red and title_i_Red and title_r_Red and title_d_Red; 
+    Green_out <= title_f_Green and title_l_Green and title_a_Green and title_p_Green and title_p1_Green and title_y_Green and title_b_Green and title_i_Green and title_r_Green and title_d_Green; 
+    Blue_out <= title_f_Blue and title_l_Blue and title_a_Blue and title_p_Blue and title_p1_Blue and title_y_Blue and title_b_Blue and title_i_Blue and title_r_Blue and title_d_Blue; 
 end architecture;
