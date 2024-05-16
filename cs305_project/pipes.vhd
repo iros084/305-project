@@ -95,7 +95,7 @@ end function;
                     end if;
 
                     if (timer1 = speed) then
-                       pipe_position := update_position(pipe_x,pipe_h,pipe_height);
+                       pipe_position := update_position(pipe_h,pipe_x,pipe_height);
                        pipe_x <= pipe_position.x_pos;
                        pipe_h <= pipe_position.y_pos;
                        timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
