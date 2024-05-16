@@ -16,7 +16,7 @@ architecture b1 of pipes is
      signal pipeA_on,pipeB_on,power,pipe_on,c_R, c_G, c_B  : std_logic;
      signal pipe_x : std_logic_vector(10 DOWNTO 0);
      signal pipe_h,c_row, c_column: std_logic_vector(9 DOWNTO 0);
-     signal time1 : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0,10); 
+     signal timer1 : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0,10); 
      signal t_power: std_logic_vector(8 DOWNTO 0);  
      Signal Font_R : std_logic := '1'; 
      Signal Font_G : std_logic := '1';
@@ -27,7 +27,7 @@ architecture b1 of pipes is
 
     type position is record
        y_pos :std_logic_vector(9 downto 0);
-       x_pos:std_logic_vector (10 downto 0;
+       x_pos:std_logic_vector (10 downto 0);
     end record;
 
 component SPRITE_PRINTER is
@@ -43,24 +43,24 @@ end component;
 
 component rand_gen is 
   port(clk,rand_st: in std_logic;
-        psudo: out std_logic_vector(8 downto 0);
+        psudo: out std_logic_vector(8 downto 0));
 end component;
 
 function update_position (y_pos :std_logic_vector(9 downto 0);
-                          x_pos:std_logic_vector (10 downto 0;
-                          pipe_height: std_logic_vector(9 DOWNTO 0)) return update_position is
+                          x_pos:std_logic_vector (10 downto 0);
+                          pipe_height: std_logic_vector(9 DOWNTO 0)) return position is
          variable p1: position;
             begin
-               if(x_pos = CONV_STD_LOGIC_VECTOR(0,11) then
-                     p1.position := CONV_STD_LOGIC_VECTOR(760,11);
-                     if(pipe_height < CONV_STD_LOGIC_VECTOR(336,10) then
-                          p1.position := pipe_height;
+               if(x_pos = CONV_STD_LOGIC_VECTOR(0,11)) then
+                     p1.x_pos := CONV_STD_LOGIC_VECTOR(760,11);
+                     if(pipe_height < CONV_STD_LOGIC_VECTOR(336,10)) then
+                          p1.y_pos := pipe_height;
                      else
-                          p1.position := CONV_STD_LOGIC_VECTOR(336,10);
+                          p1.y_pos := CONV_STD_LOGIC_VECTOR(336,10);
                      end if;
                else
-                   p1.position := y_pos;
-                   p1.position := x_pos -'1';
+                   p1.y_pos := y_pos;
+                   p1.x_pos := x_pos -'1';
                end if;
               return p1;                
 end function;
@@ -71,7 +71,7 @@ end function;
 
         pipeB_on <= '1' when ('0'&pixel_column<='0'&pipe_x)and(('0'&pipe_x<='0'&pixel_column+width1)and('0'&pixel_row>=pipe_h+conv_std_logic_vector(224,10))and(pipe_h<CONV_STD_LOGIC_VECTOR(700,10)))else'0';
         
-         pipe_on <= pipeB_on or pipeA_on;
+        pipe_on <= pipeB_on or pipeA_on;
         pipe_s <= pipe_on when (pixel_column < conv_std_logic_vector(329, 10) and pixel_column > conv_std_logic_vector(311, 10)) else'0';
 
         Red <= not pipe_on and c_R;
@@ -90,7 +90,7 @@ end function;
               if(rising_edge(horiz_sync)) then
                 if(enable = '1') then
                     initial <= '0';
-                    if(pipe_x = CONV_STD_LOGIC_VECTOR(0,11) then
+                    if(pipe_x = CONV_STD_LOGIC_VECTOR(0,11)) then
                         power <= '1';
                     end if;
 
@@ -100,12 +100,12 @@ end function;
                        pipe_h <= pipe_position.y_pos;
                        timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
                     else
-                       timer <= timer + '1';
+                       timer1 <= timer1 + '1';
                     end if;
 
                 elsif(reset = '1') then
                   power <= '0';
-                  pipe_x <= initial;
+                  pipe_x <= init;
                   pipe_h <= CONV_STD_LOGIC_VECTOR(700,10);
                   initial <= '1';
                 end if;
