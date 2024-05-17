@@ -64,6 +64,8 @@ function update_position (y_pos :std_logic_vector(9 downto 0);
                    p1.y_pos := y_pos;
                    p1.x_pos := x_pos -'1';
                end if;
+               x_pipe_position <= x_pos;
+               y_pipe_position <= y_pos;
               return p1;                
 end function;
     begin
@@ -86,8 +88,6 @@ end function;
         
         heightGen: rand_gen port map(clk,reset,t_power);
         C_S: sprite_printer port map(pixel_row,pixel_column,c_row, c_column, Font_R, Font_G,Font_B,Multiplier,c_address,power,clk,c_R,c_G,c_B);
-        x_pipe_position <= x_pos;
-        y_pipe_position <= y_pos;
         pipe_M: process (horiz_sync,reset)
                variable pipe_position: position;
         begin

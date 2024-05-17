@@ -70,7 +70,8 @@ function update_position (y_pos :std_logic_vector(9 downto 0);
 end function;
     begin
         width1 <= CONV_STD_LOGIC_VECTOR(80,10);
-        count <= '1' when pipe_x = conv_std_logic_vector(311, 10) and pipe_h < CONV_STD_LOGIC_VECTOR(700,10) else '0';
+        count <= '1' when pipe_x = conv_std_logic_vector(311, 10) and pipe_h < CONV_STD_LOGIC_VECTOR(700,10) else '0'; -- ball passes pipe
+
         pipeA_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row <= pipe_h) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
         pipeB_on <= '1' when ('0'&pixel_column<='0'&pipe_x)and(('0'&pipe_x<='0'&pixel_column+width1)and('0'&pixel_row>=pipe_h+conv_std_logic_vector(224,10))and(pipe_h<CONV_STD_LOGIC_VECTOR(700,10)))else'0';
