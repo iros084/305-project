@@ -6,8 +6,8 @@ use  IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity rand_gen is 
   port(clk,rand_st: in std_logic;
-        psudo: out std_logic_vector(8 downto 0);
-end entity rang_gen;
+        psudo: out std_logic_vector(8 downto 0));
+end entity rand_gen;
 
 architecture b1 of rand_gen is
    function lfsr(a : std_logic_vector(8 downto 0)) return std_logic_vector is
@@ -21,13 +21,15 @@ begin
     process(clk,rand_st)
       begin 
           if(rising_edge(clk)) then
-            s1 <= s1+1;
-            t_psudo <= lfsr(t_psudo);
-          elsif(rand_st = '0') then
+            if(rand_st = '0') then
                t_psudo <= s1;
-          end if
+			   else
+				     s1 <= s1+1;
+                 t_psudo <= lfsr(t_psudo);
+					  end if;
+            end if;
        end process;
-      psudo <= t_psudo
+      psudo <= t_psudo;
 end architecture b1;
 
 

@@ -12,7 +12,8 @@ entity cs305_pll is
 	port (
 		refclk   : in  std_logic := '0'; --  refclk.clk
 		rst      : in  std_logic := '0'; --   reset.reset
-		outclk_0 : out std_logic         -- outclk0.clk
+		outclk_0 : out std_logic;        -- outclk0.clk
+		locked   : out std_logic         --  locked.export
 	);
 end entity cs305_pll;
 
@@ -33,7 +34,7 @@ begin
 			refclk   => refclk,   --  refclk.clk
 			rst      => rst,      --   reset.reset
 			outclk_0 => outclk_0, -- outclk0.clk
-			locked   => open      -- (terminated)
+			locked   => locked    --  locked.export
 		);
 
 end architecture rtl; -- of cs305_pll
@@ -76,7 +77,7 @@ end architecture rtl; -- of cs305_pll
 -- Retrieval info: 	<generic name="gui_feedback_clock" value="Global Clock" />
 -- Retrieval info: 	<generic name="gui_fractional_cout" value="32" />
 -- Retrieval info: 	<generic name="gui_dsm_out_sel" value="1st_order" />
--- Retrieval info: 	<generic name="gui_use_locked" value="false" />
+-- Retrieval info: 	<generic name="gui_use_locked" value="true" />
 -- Retrieval info: 	<generic name="gui_en_adv_params" value="false" />
 -- Retrieval info: 	<generic name="gui_number_of_clocks" value="1" />
 -- Retrieval info: 	<generic name="gui_multiply_factor" value="1" />

@@ -112,8 +112,3 @@ end function;
              end if;
            end process;
 end architecture;
-                    
-        
-        
-      
-

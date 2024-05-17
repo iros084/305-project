@@ -48,7 +48,7 @@ begin
           when 4 => range1 := 8;
          when others => range1 := 0;
        end case; 
-      
+      select_multiplier
         if((pixel_row < (a_row + 8*range1)) and (a_row <= pixel_row)) then
           if((pixel_col < (a_col + 8*range1)) and (a_col <= pixel_col)) then
             s_font_row <= (pixel_row(multiplier+1 downto multiplier-1) - a_row(multiplier+1 downto multiplier-1));

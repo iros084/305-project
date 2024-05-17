@@ -1,18 +1,15 @@
------
---Pong game 2018
------
 LIBRARY IEEE;
 USE  IEEE.STD_LOGIC_1164.all;
 USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY MOUSE IS
-   PORT( clock_25Mhz, reset 		: IN std_logic;
-         mouse_data					: INOUT std_logic;
-         mouse_clk 					: INOUT std_logic;
-         left_button, right_button	: OUT std_logic;
-		 mouse_cursor_row 			: OUT std_logic_vector(9 DOWNTO 0); 
-		 mouse_cursor_column 		: OUT std_logic_vector(9 DOWNTO 0));       	
+   PORT (clock_25Mhz, reset 	  : IN std_logic;
+		mouse_data					  : INOUT std_logic;
+      mouse_clk 					  : INOUT std_logic;
+      left_button, right_button : OUT std_logic;
+		mouse_cursor_row 			  : OUT std_logic_vector(9 DOWNTO 0);
+		mouse_cursor_column 		  : OUT std_logic_vector(9 DOWNTO 0));
 END MOUSE;
 
 ARCHITECTURE behavior OF MOUSE IS

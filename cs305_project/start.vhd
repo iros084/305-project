@@ -6,7 +6,7 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 entity start is
     port(pixel_row, pixel_col : in std_logic_vector(9 downto 0);
 	       Clk, enable, mode_sel  : in std_logic;  -- if mode sel is '1', its game mode/ '0' is tutorial mode
-         Red_out, Green_out, Blue_out : out std_logic);
+         Red_out1, Green_out1, Blue_out1 : out std_logic);
 
 end entity start;
 
@@ -23,6 +23,7 @@ signal title_b_address : std_logic_vector(5 downto 0) := "000010";
 signal title_i_address : std_logic_vector(5 downto 0) := "001001";
 signal title_r_address : std_logic_vector(5 downto 0) := "010010";
 signal title_d_address : std_logic_vector(5 downto 0) := "000100";
+signal t_a_address : std_logic_vector(5 downto 0) := "000001";
 
 
 -- Signals for Sprite printing 
@@ -48,6 +49,9 @@ signal title_r_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(335, 
 signal title_d_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(200, 10);
 signal title_d_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(432, 10);
 
+signal t_a_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(300, 10);
+signal t_a_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(432, 10);
+
 -- Flappy BIRD RGB
 signal title_f_Red, title_f_Green, title_f_Blue,
        title_l_Red, title_l_Green, title_l_Blue,
@@ -58,7 +62,7 @@ signal title_f_Red, title_f_Green, title_f_Blue,
        title_b_Red, title_b_Green, title_b_Blue,
        title_i_Red, title_i_Green, title_i_Blue,
        title_r_Red, title_r_Green, title_r_Blue,
-       title_d_Red, title_d_Green, title_d_Blue : std_logic;
+       title_d_Red, title_d_Green, title_d_Blue, t_a_red,t_a_green,t_a_blue: std_logic;
             
 signal Font_R : std_logic := '1';
 Signal Font_G : std_logic := '1';
@@ -78,7 +82,7 @@ component Sprite_Printer is
 end component Sprite_printer;
 
 	begin
-          title_f: sprite_printer port map(pixel_row, pixel_col, title_f_row, title_f_col, Font_R, Font_G, Font_B, Font_Multiplier, title_f_address, t_enable, CLK, title_f_Red, title_f_Green, title_f_Blue);
+     title_f: sprite_printer port map(pixel_row, pixel_col, title_f_row, title_f_col, Font_R, Font_G, Font_B, Font_Multiplier, title_f_address, t_enable, CLK, title_f_Red, title_f_Green, title_f_Blue);
 	  title_l: sprite_printer port map(pixel_row, pixel_col, title_l_row, title_l_col, Font_R, Font_G, Font_B, Font_Multiplier, title_l_address, t_enable, CLK, title_l_Red, title_l_Green, title_l_Blue);
 	  title_a: sprite_printer port map(pixel_row, pixel_col, title_a_row, title_a_col, Font_R, Font_G, Font_B, Font_Multiplier, title_a_address, t_enable, CLK, title_a_Red, title_a_Green, title_a_Blue);
 	  title_p: sprite_printer port map(pixel_row, pixel_col, title_p_row, title_p_col, Font_R, Font_G, Font_B, Font_Multiplier, title_p_address, t_enable, CLK, title_p_Red, title_p_Green, title_p_Blue);
@@ -88,9 +92,9 @@ end component Sprite_printer;
 	  title_i: sprite_printer port map(pixel_row, pixel_col, title_i_row, title_i_col, Font_R, Font_G, Font_B, Font_Multiplier, title_i_address, t_enable, CLK, title_i_Red, title_i_Green, title_i_Blue);
 	  title_r: sprite_printer port map(pixel_row, pixel_col, title_r_row, title_r_col, Font_R, Font_G, Font_B, Font_Multiplier, title_r_address, t_enable, CLK, title_r_Red, title_r_Green, title_r_Blue);
 	  title_d: sprite_printer port map(pixel_row, pixel_col, title_d_row, title_d_col, Font_R, Font_G, Font_B, Font_Multiplier, title_d_address, t_enable, CLK, title_d_Red, title_d_Green, title_d_Blue);
-	
+	  t_a: sprite_printer port map(pixel_row, pixel_col, t_a_row, t_a_col, Font_R, Font_G, Font_B, select_multiplier, t_a_address, t_enable, CLK, t_a_red,t_a_green,t_a_blue);
 	  
-    Red_out <= title_f_Red and title_l_Red and title_a_Red and title_p_Red and title_p1_Red and title_y_Red and title_b_Red and title_i_Red and title_r_Red and title_d_Red; 
-    Green_out <= title_f_Green and title_l_Green and title_a_Green and title_p_Green and title_p1_Green and title_y_Green and title_b_Green and title_i_Green and title_r_Green and title_d_Green; 
-    Blue_out <= title_f_Blue and title_l_Blue and title_a_Blue and title_p_Blue and title_p1_Blue and title_y_Blue and title_b_Blue and title_i_Blue and title_r_Blue and title_d_Blue; 
+    Red_out1 <= title_f_Red and title_l_Red and title_a_Red and title_p_Red and title_p1_Red and title_y_Red and title_b_Red and title_i_Red and title_r_Red and title_d_Red and t_a_red; 
+    Green_out1 <= title_f_Green and title_l_Green and title_a_Green and title_p_Green and title_p1_Green and title_y_Green and title_b_Green and title_i_Green and title_r_Green and title_d_Green and t_a_green; 
+    Blue_out1 <= title_f_Blue and title_l_Blue and title_a_Blue and title_p_Blue and title_p1_Blue and title_y_Blue and title_b_Blue and title_i_Blue and title_r_Blue and title_d_Blue and t_a_blue; 
 end architecture;

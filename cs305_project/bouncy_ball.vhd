@@ -4,11 +4,11 @@ use IEEE.STD_LOGIC_ARITH.all;
 use IEEE.STD_LOGIC_SIGNED.all;
 
 entity bouncy_ball is
-	port (clk, vert_sync                   : IN std_logic;
-		pb1, pb2, left_button, right_button : IN std_logic;
-		sw1, sw2, sw3                       : IN std_logic;
-		pixel_row, pixel_column	            : IN std_logic_vector(9 downto 0);
-		red, green, blue 			            : OUT std_logic);
+	port (clk, vert_sync         : IN std_logic;
+		left_button, right_button : IN std_logic;
+		pixel_row, pixel_column	  : IN std_logic_vector(9 downto 0);
+		red, green, blue 			  : OUT std_logic
+);
 end entity;
 
 architecture behavior of bouncy_ball is
@@ -21,13 +21,14 @@ architecture behavior of bouncy_ball is
 	signal ball_x_pos		               : std_logic_vector(10 downto 0);
 	signal ground_x_pos                 : std_logic_vector(10 downto 0);
 	signal ground_y_pos                 : std_logic_vector(9 downto 0);
-	signal ball_x_motion	               : std_logic_vector(9 downto 0);
 	signal ball_y_motion	               : std_logic_vector(9 downto 0);
 
 begin           
 	-- ball_x_pos and ball_y_pos show the (x, y) for the centre of ball
 	size_x <= CONV_STD_LOGIC_VECTOR(8, 11);
 	size_y <= CONV_STD_LOGIC_VECTOR(8, 10);
+	
+	ball_x_pos <= CONV_STD_LOGIC_VECTOR(320, 11);
 	
 	-- likewise for the ground
 	ground_x_size <= CONV_STD_LOGIC_VECTOR(320, 10);
@@ -48,24 +49,9 @@ begin
 					
    -- Colours for pixel data on video signal
 	-- Changing the background and ball colour by pushbuttons
-	red <= ball_on or (sw1 and background_on);
-	green <= ground_on or (sw2 and background_on);
-	blue <= sw3 and background_on;
-	
-	process (pb1, pb2)
-	begin
-		--if (pb2='0' and (ball_x_pos <= CONV_STD_LOGIC_VECTOR(0, 10) + size_x)) then
-		--	ball_x_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-		--elsif (pb1='0' and (ball_x_pos >= CONV_STD_LOGIC_VECTOR(640, 10) - size_x)) then
-		--	ball_x_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-		if (pb1='0') then
-			ball_x_motion <= CONV_STD_LOGIC_VECTOR(2, 10);
-		elsif (pb2='0') then
-			ball_x_motion <= - CONV_STD_LOGIC_VECTOR(2, 10);
-		else
-			ball_x_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
-		end if;
-	end process;
+	red <= ball_on;
+	green <= ground_on;
+	blue <= background_on;
 	
 	Ball_Mot: process (vert_sync, left_button)
 	begin
@@ -92,15 +78,6 @@ begin
 			else
 				ball_y_pos <= ball_y_pos + ball_y_motion;
 			end if;
-			ball_x_pos <= ball_x_pos + ball_x_motion;
-			
-			--if ((ball_x_pos + ball_x_motion >= CONV_STD_LOGIC_VECTOR(640, 11) - size_x)) then
-			--	ball_x_pos <= CONV_STD_LOGIC_VECTOR(640, 11) - size_x;
-			--elsif ('0' & (ball_x_pos + ball_x_motion) <= CONV_STD_LOGIC_VECTOR(0, 11) + size_x) then
-			--	ball_x_pos <= CONV_STD_LOGIC_VECTOR(0, 11) + size_x;
-			--else
-			--	ball_x_pos <= ball_x_pos + ball_x_motion;
-			--end if;
 		end if;
 	end process;
 

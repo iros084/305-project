@@ -26,10 +26,10 @@ architecture a of SPRITE_PRINTER is
   signal s_rom_mux_output : std_logic;
   
   component CHAR_ROM is 
-    port (character_address	:	in std_logic_vector (5 downto 0);
-		      font_row, font_col	:	in std_logic_vector (2 downto 0);
-		      clock				: 	in std_logic ;
-		      rom_mux_output		:	out std_logic);
+    port (character_address	 :	in std_logic_vector (5 downto 0);
+		      font_row, font_col :	in std_logic_vector (2 downto 0);
+		      clock				    : 	in std_logic ;
+		      rom_mux_output		 :	out std_logic);
 	end component;
   
 begin
