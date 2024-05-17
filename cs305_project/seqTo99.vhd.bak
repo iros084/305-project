@@ -41,6 +41,9 @@ begin
       if(rising_edge(clk)) then
           if(enable = '1') then
               t_ones <= '1';
+              if(ones_counter = "1001") then
+                  t_start <= '1';
+              end if;
               if(ones_counter = "0000" and t_tens <= '0' and t_latch <= '0' and t_start <= '1') then
                   t_tens <= '1';
                   t_latch<= '1';
@@ -49,9 +52,7 @@ begin
                   t_latch <= '0';
                   t_start <= '0';
               end if;
-              if(ones_counter = "1001") then
-                    t_start <= '1';
-              end if;
+
           else
               t_tens<='0';
               t_ones<='0';

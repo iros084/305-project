@@ -30,7 +30,7 @@ architecture behavior of seqTo99 is
         counter: out std_logic_vector (3 downto 0)
      );
     end component;
-
+out_ones
 begin
     Ones: Binary_UpDownCounter port map (clk, t_direction, tens_e, reset, ones_counter);
     tens: Binary_UpDownCounter port map (clk, t_direction, ones_e, reset, tens_counter); 

@@ -9,7 +9,7 @@ entity Binary_UpDownCounter is
      );
 end Binary_UpDownCounter;
 
-architecture behavior of Binary_UpDownout_onesCounter is
+architecture behavior of Binary_UpDownCounter is
      signal counter_Binary: std_logic_vector (3 downto 0);
 begin
 
