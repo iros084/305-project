@@ -8,6 +8,8 @@ entity pipes is
                pixel_row, pixel_column, pipe_height: in std_logic_vector(9 DOWNTO 0);
                speed: in std_logic_vector(8 DOWNTO 0);
                init : in std_logic_vector(10 DOWNTO 0);
+               x_pipe_position : out std_logic_vector(10 DOWNTO 0);
+               y_pipe_position : out std_logic_vector(9 DOWNTO 0)
                Red, Green, Blue, pipe_s, coin_s, count, initial, rst: OUT std_logic);
 end entity;
 
@@ -62,6 +64,8 @@ function update_position (y_pos :std_logic_vector(9 downto 0);
                    p1.y_pos := y_pos;
                    p1.x_pos := x_pos -'1';
                end if;
+               x_pipe_position <= x_pos;
+               y_pipe_position <= y_pos;
               return p1;                
 end function;
     begin
@@ -73,6 +77,7 @@ end function;
         
         pipe_on <= pipeB_on or pipeA_on;
         pipe_s <= pipe_on when (pixel_column < conv_std_logic_vector(329, 10) and pixel_column > conv_std_logic_vector(311, 10)) else'0';
+        
 
         Red <= not pipe_on and c_R;
         Green <= '1' and c_G;
@@ -83,7 +88,6 @@ end function;
         
         heightGen: rand_gen port map(clk,reset,t_power);
         C_S: sprite_printer port map(pixel_row,pixel_column,c_row, c_column, Font_R, Font_G,Font_B,Multiplier,c_address,power,clk,c_R,c_G,c_B);
-
         pipe_M: process (horiz_sync,reset)
                variable pipe_position: position;
         begin
