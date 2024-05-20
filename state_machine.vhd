@@ -1,14 +1,19 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.STD_LOGIC_ARITH.all;
-use IEEE.STD_LOGIC_SIGNED.all;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_signed.all;
 
 entity state_machine is
-	port (clk, reset           : in std_logic;
-		x                       : in std_logic;
-		h_sync, v_sync          : in std_logic;
-		pixel_row, pixel_column	: in std_logic_vector(9 downto 0);
-		red, green, blue 			: out std_logic);
+	port (clk, reset           	                 : in std_logic;
+		h_sync, v_sync          	                 : in std_logic;
+		pixel_row, pixel_column	                    : in std_logic_vector(9 downto 0);
+		x                                           : in std_logic; -- state inputs
+		bouncy_ball_r, bouncy_ball_g, bouncy_ball_b : in std_logic; -- rgb inputs (bouncy_ball)
+		pipes_r, pipes_g, pipes_b                   : in std_logic; -- rgb inputs (pipes)
+		start_r, start_g, start_b                   : in std_logic; -- rgb inputs (start screen)
+		endgame_r, endgame_g, endgame_b             : in std_logic; -- rgb inputs (game over screen)
+		pause_r, pause_g, pause_b                   : in std_logic; -- rgb inputs (pause screen)
+		red, green, blue 				                 : out std_logic);
 end entity;
 
 architecture moore of state_machine is
@@ -33,41 +38,41 @@ begin
 	begin
 		case (state) is
 			when menu =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= start_r;
+				green <= start_g;
+				blue  <= start_b;
 			when game_1 =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= bouncy_ball_r and pipes_r;
+				green <= bouncy_ball_g and pipes_g;
+				blue  <= bouncy_ball_b and pipes_b;
 			when game_2 =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= bouncy_ball_r and pipes_r;
+				green <= bouncy_ball_g and pipes_g;
+				blue  <= bouncy_ball_b and pipes_b;
 			when game_3 =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= bouncy_ball_r and pipes_r;
+				green <= bouncy_ball_g and pipes_g;
+				blue  <= bouncy_ball_b and pipes_b;
 			when training =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= bouncy_ball_r and pipes_r;
+				green <= bouncy_ball_g and pipes_g;
+				blue  <= bouncy_ball_b and pipes_b;
 			when pause_g =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= pause_r;
+				green <= pause_g;
+				blue  <= pause_b;
 			when pause_t =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= pause_r;
+				green <= pause_g;
+				blue  <= pause_b;
 			when game_over =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= endgame_r;
+				green <= endgame_g;
+				blue  <= endgame_b;
 			when others =>
-				red   <= ;
-				green <= ;
-				blue  <= ;
+				red   <= start_r;
+				green <= start_g;
+				blue  <= start_b;
 		end case;
 	end process;
 	
