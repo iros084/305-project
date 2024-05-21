@@ -13,9 +13,9 @@ end entity;
 
 architecture b1 of pipes is
      signal width1: std_logic_vector(9 downto 0);
-     signal pipeA_on,pipeB_on,power,pipe_on,c_R, c_G, c_B  : std_logic;
+     signal pipeA_on,pipeB_on,power,pipe_on,c_R, c_G, c_B,s_R,s_G,s_B  : std_logic;
      signal pipe_x : std_logic_vector(10 DOWNTO 0);
-     signal pipe_h,c_row, c_column: std_logic_vector(9 DOWNTO 0);
+     signal pipe_h,c_row, c_column,s_row,s_column: std_logic_vector(9 DOWNTO 0);
      signal timer1 : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0,10); 
      signal t_power: std_logic_vector(8 DOWNTO 0);  
      Signal Font_R : std_logic := '1'; 
@@ -23,6 +23,7 @@ architecture b1 of pipes is
      Signal Font_B: std_logic := '1';
      Signal Multiplier : integer := 3;
      signal c_address : std_logic_vector(5 downto 0) := "001111";
+     signal spike : std_logic_vector(5 downto 0) := "100101";
 
 
     type position is record
@@ -61,7 +62,22 @@ function update_position (y_pos :std_logic_vector(9 downto 0);
                else
                    p1.y_pos := y_pos;
                    p1.x_pos := x_pos -'1';
-               end if;
+                   
+             --if move_up then
+                  -- if y_pos > CONV_STD_LOGIC_VECTOR(0, 10) then
+                     --  p1.y_pos := y_pos - CONV_STD_LOGIC_VECTOR(10, 10);
+                  -- else
+                     --  p1.y_pos := y_pos;
+                   --end if;
+              -- elsif move_down then
+                  -- if y_pos < pipe_height - CONV_STD_LOGIC_VECTOR(10, 10) then
+                      -- p1.y_pos := y_pos + CONV_STD_LOGIC_VECTOR(10, 10);
+                   --else
+                       --p1.y_pos := y_pos;
+                 --  end if;
+             --  else
+                  -- p1.y_pos := y_pos;
+               --end if;
               return p1;                
 end function;
     begin
@@ -75,15 +91,19 @@ end function;
         pipe_s <= pipe_on when (pixel_column < conv_std_logic_vector(329, 10) and pixel_column > conv_std_logic_vector(311, 10)) else'0';
         
 
-        Red <= not pipe_on and c_R;
-        Green <= '1' and c_G;
-        Blue <= not pipe_on and c_B;
+        Red <= not pipe_on and c_R and s_R;
+        Green <= '1' and c_G and s_G;
+        Blue <= not pipe_on and c_B and s_B;
         c_row <= pipe_h + CONV_STD_LOGIC_VECTOR(80,9);
         c_column <= pipe_x(9 downto 0) - CONV_STD_LOGIC_VECTOR(52,9);
         coin_s <= c_R when (pixel_column < CONV_STD_LOGIC_VECTOR(329,10) and pixel_column > CONV_STD_LOGIC_VECTOR(311,10)) else '0';
-        
+
+        s_row <= pipe_height+CONV_STD_LOGIC_VECTOR(10,9);
+        s_column <= pipe_x(9 downto 0) - CONV_STD_LOGIC_VECTOR(52,9);
         heightGen: rand_gen port map(clk,reset,t_power);
         C_S: sprite_printer port map(pixel_row,pixel_column,c_row, c_column, Font_R, Font_G,Font_B,Multiplier,c_address,power,clk,c_R,c_G,c_B);
+        --if game state 3 then
+       -- S_P: sprite_printer port map(pixel_row,pixel_column,s_row, s_column, Font_R, Font_G,Font_B,Multiplier,spike,power,clk,c_R,c_G,c_B);
         pipe_M: process (horiz_sync,reset)
                variable pipe_position: position;
         begin
