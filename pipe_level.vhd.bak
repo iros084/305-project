@@ -1,0 +1,17 @@
+library IEEE;
+use  IEEE.STD_LOGIC_1164.all;
+use  IEEE.STD_LOGIC_ARITH.all;
+use  IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity pipe_level is
+ port(clk, rst, count : IN std_logic;
+	speed : OUT std_logic_vector(8 downto 0));
+end entity;	
+
+ARCHITECTURE Behaviour of pipe_level is
+    signal level : std_logic;
+    signal speed_out : std_logic_vector(8 downto 0);
+    signal count_out : std_logic_vector(3 DOWNTO 0) := conv_std_logic_vector(0, 4);
+begin
+  
+    
