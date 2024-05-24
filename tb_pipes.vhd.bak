@@ -1,0 +1,94 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+
+entity tb_pipes is
+end entity tb_pipes;
+
+architecture testbench of tb_pipes is
+
+    -- Component declaration for the unit under test (UUT)
+    component pipes is
+        port (
+            clk, horiz_sync, vert_sync, enable, reset           : in std_logic;
+            pixel_row, pixel_column, pipe_height                : in std_logic_vector(9 downto 0);
+            speed                                               : in std_logic_vector(8 downto 0);
+            init                                                : in std_logic_vector(10 downto 0);
+            Red, Green, Blue, pipe_s, coin_s, initial, rst      : out std_logic;
+            pipe_on_out                                         : out std_logic;
+            counter_out                                         : out std_logic_vector(7 downto 0)
+        );
+    end component;
+
+    -- Signals for connecting to the UUT
+    signal clk         : std_logic := '0';
+    signal horiz_sync  : std_logic := '0';
+    signal vert_sync   : std_logic := '0';
+    signal enable      : std_logic := '0';
+    signal reset       : std_logic := '0';
+    signal pixel_row   : std_logic_vector(9 downto 0) := (others => '0');
+    signal pixel_column: std_logic_vector(9 downto 0) := (others => '0');
+    signal pipe_height : std_logic_vector(9 downto 0) := (others => '0');
+    signal speed       : std_logic_vector(8 downto 0) := (others => '0');
+    signal init        : std_logic_vector(10 downto 0) := (others => '0');
+    signal Red, Green, Blue, pipe_s, coin_s, initial, rst : std_logic;
+    signal pipe_on_out : std_logic;
+    signal counter_out : std_logic_vector(7 downto 0);
+
+    -- Clock generation process
+    constant clk_period : time := 10 ns;
+    begin
+        clk_process : process
+        begin
+            clk <= '0';
+            wait for clk_period / 2;
+            clk <= '1';
+            wait for clk_period / 2;
+        end process;
+
+    -- Instantiate the Unit Under Test (UUT)
+    uut: pipes
+        port map (
+            clk         => clk,
+            horiz_sync  => horiz_sync,
+            vert_sync   => vert_sync,
+            enable      => enable,
+            reset       => reset,
+            pixel_row   => pixel_row,
+            pixel_column=> pixel_column,
+            pipe_height => pipe_height,
+            speed       => speed,
+            init        => init,
+            Red         => Red,
+            Green       => Green,
+            Blue        => Blue,
+            pipe_s      => pipe_s,
+            coin_s      => coin_s,
+            initial     => initial,
+            rst         => rst,
+            pipe_on_out => pipe_on_out,
+            counter_out => counter_out
+        );
+
+    -- Stimulus process
+    stimulus : process
+    begin
+        -- Reset the UUT
+        reset <= '1';
+        wait for clk_period * 2;
+        reset <= '0';
+        
+        -- Enable the UUT and simulate counting
+        enable <= '1';
+        
+        -- Simulate count signal to increment the counter
+        for i in 0 to 120 loop  -- Adjust the loop count as needed
+            wait for clk_period;
+        end loop;
+        
+        -- Stop the simulation
+        wait;
+    end process;
+
+end architecture;

@@ -1,0 +1,103 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+
+entity tb_counter is
+end entity tb_counter;
+
+architecture testbench of tb_counter is
+
+    -- Component Declaration for the Unit Under Test (UUT)
+    component counter is
+        port(
+            clk       : in std_logic;
+            reset     : in std_logic;
+            count_en  : in std_logic;
+            count_ones: out std_logic_vector(3 downto 0);
+            count_tens: out std_logic_vector(3 downto 0)
+        );
+    end component;
+
+    -- Test Bench signals
+    signal clk         : std_logic := '0';
+    signal reset       : std_logic := '0';
+    signal count_en    : std_logic := '0';
+    signal count_ones  : std_logic_vector(3 downto 0);
+    signal count_tens  : std_logic_vector(3 downto 0);
+
+    -- Clock period definition
+    constant clk_period : time := 10 ns;
+
+begin
+
+    -- Instantiate the Unit Under Test (UUT)
+    uut: counter
+        port map (
+            clk       => clk,
+            reset     => reset,
+            count_en  => count_en,
+            count_ones => count_ones,
+            count_tens => count_tens
+        );
+
+    -- Clock generation process
+    clk_process : process
+    begin
+        while true loop
+            clk <= '0';
+            wait for clk_period / 2;
+            clk <= '1';
+            wait for clk_period / 2;
+        end loop;
+    end process;
+
+    -- Stimulus process
+    stimulus : process
+    begin
+        -- Reset the UUT
+        reset <= '1';
+        wait for clk_period;
+        reset <= '0';
+        wait for clk_period;
+
+        -- Enable counting
+        count_en <= '1';
+        
+        -- Generate count enable pulses
+        for i in 0 to 20 loop
+            wait for clk_period;
+        end loop;
+        
+        -- Pause counting
+        count_en <= '0';
+        wait for clk_period * 10;
+        
+        -- Resume counting
+        count_en <= '1';
+        for i in 0 to 20 loop
+            wait for clk_period;
+        end loop;
+        
+        -- Pause counting again
+        count_en <= '0';
+        wait for clk_period * 10;
+
+        -- Resume counting
+        count_en <= '1';
+        for i in 0 to 50 loop
+            wait for clk_period;
+        end loop;
+
+        -- Disable counting
+        count_en <= '0';
+        
+        -- Wait for a few clock cycles
+        wait for clk_period * 10;
+        
+        -- Stop the simulation
+        wait;
+    end process;
+
+end architecture;
+

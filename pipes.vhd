@@ -10,6 +10,7 @@ entity pipes is
 		init                                                  : in std_logic_vector(10 downto 0);
 		Red, Green, Blue, pipe_s, coin_s, count, initial, rst : out std_logic;
 		pipe_on_out                                           : out std_logic);
+                
 end entity;
 
 architecture b1 of pipes is
@@ -25,6 +26,7 @@ architecture b1 of pipes is
 	Signal Font_B                                            : std_logic := '1';
 	Signal Multiplier                                        : integer := 3;
 	signal c_address                                         : std_logic_vector(5 downto 0) := "001111";
+
 
 
 	type position is record
@@ -78,6 +80,8 @@ end function;
 	
 		width1 <= CONV_STD_LOGIC_VECTOR(80,10);
 		count <= '1' when (pipe_x = conv_std_logic_vector(311, 10) and pipe_h < conv_std_logic_vector(700,10)) else '0';
+		
+		
 		pipeA_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row <= pipe_h) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
 		pipeB_on <= '1' when ('0'&pixel_column<='0'&pipe_x)and(('0'&pipe_x<='0'&pixel_column+width1)and('0'&pixel_row>=pipe_h+conv_std_logic_vector(224,10))and(pipe_h<CONV_STD_LOGIC_VECTOR(700,10)))else'0';

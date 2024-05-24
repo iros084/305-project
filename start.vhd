@@ -49,8 +49,48 @@ signal title_r_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(335, 
 signal title_d_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(200, 10);
 signal title_d_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(432, 10);
 
-signal t_a_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(300, 10);
-signal t_a_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(432, 10);
+signal play_p_address : std_logic_vector(5 downto 0) := "010000";
+signal play_l_address : std_logic_vector(5 downto 0) := "001100";
+signal play_a_address : std_logic_vector(5 downto 0) := "000001";
+signal play_y_address : std_logic_vector(5 downto 0) := "011001";
+
+signal tut_t_address : std_logic_vector(5 downto 0) := "010100";
+signal tut_u_address : std_logic_vector(5 downto 0) := "010101";
+signal tut_t1_address : std_logic_vector(5 downto 0) := "010100";
+signal tut_o_address : std_logic_vector(5 downto 0) := "001111";
+signal tut_r_address : std_logic_vector(5 downto 0) := "010010";
+signal tut_i_address : std_logic_vector(5 downto 0) := "001001";
+signal tut_a_address : std_logic_vector(5 downto 0) := "000001";
+signal tut_l_address : std_logic_vector(5 downto 0) := "001100";
+
+-- P L A Y
+signal play_p_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(320, 10);
+signal play_p_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(240, 10);
+signal play_l_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(320, 10);
+signal play_l_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(280,10);
+signal play_a_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(320, 10);
+signal play_a_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(320, 10);
+signal play_y_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(320, 10);
+signal play_y_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(360, 10);
+
+
+-- T U T O R I A L
+signal tut_t_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_t_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(160, 10);
+signal tut_u_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_u_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(200,10);
+signal tut_t1_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_t1_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(240, 10);
+signal tut_o_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_o_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(280, 10);
+signal tut_r_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_r_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(320, 10);
+signal tut_i_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_i_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(360, 10);
+signal tut_a_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_a_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(400,10);
+signal tut_l_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(400, 10);
+signal tut_l_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(440, 10);
 
 -- Flappy BIRD RGB
 signal title_f_Red, title_f_Green, title_f_Blue,
@@ -62,7 +102,23 @@ signal title_f_Red, title_f_Green, title_f_Blue,
        title_b_Red, title_b_Green, title_b_Blue,
        title_i_Red, title_i_Green, title_i_Blue,
        title_r_Red, title_r_Green, title_r_Blue,
-       title_d_Red, title_d_Green, title_d_Blue, t_a_red,t_a_green,t_a_blue: std_logic;
+       title_d_Red, title_d_Green, title_d_Blue: std_logic;
+		 
+-- Play RGB
+signal play_P_R_out, play_p_G_out, play_p_B_out,
+       play_L_R_out, play_l_G_out, play_l_B_out,
+       play_A_R_out, play_a_G_out, play_a_B_out,
+       play_Y_R_out, play_y_G_out, play_y_B_out: std_logic;
+       
+-- PLAY RGB
+signal tut_T_R_out, tut_T_G_out, tut_T_B_out,
+       tut_U_R_out, tut_U_G_out, tut_U_B_out,
+       tut_T1_R_out, tut_T1_G_out, tut_T1_B_out,
+       tut_O_R_out, tut_O_G_out, tut_O_B_out,
+       tut_R_R_out, tut_R_G_out, tut_R_B_out,
+       tut_I_R_out, tut_I_G_out, tut_I_B_out,
+       tut_A_R_out, tut_A_G_out, tut_A_B_out,
+       tut_L_R_out, tut_L_G_out, tut_L_B_out : std_logic;
             
 signal Font_R : std_logic := '1';
 Signal Font_G : std_logic := '1';
@@ -92,9 +148,22 @@ end component Sprite_printer;
 	  title_i: sprite_printer port map(pixel_row, pixel_col, title_i_row, title_i_col, Font_R, Font_G, Font_B, Font_Multiplier, title_i_address, t_enable, CLK, title_i_Red, title_i_Green, title_i_Blue);
 	  title_r: sprite_printer port map(pixel_row, pixel_col, title_r_row, title_r_col, Font_R, Font_G, Font_B, Font_Multiplier, title_r_address, t_enable, CLK, title_r_Red, title_r_Green, title_r_Blue);
 	  title_d: sprite_printer port map(pixel_row, pixel_col, title_d_row, title_d_col, Font_R, Font_G, Font_B, Font_Multiplier, title_d_address, t_enable, CLK, title_d_Red, title_d_Green, title_d_Blue);
-	  t_a: sprite_printer port map(pixel_row, pixel_col, t_a_row, t_a_col, Font_R, Font_G, Font_B, select_multiplier, t_a_address, t_enable, CLK, t_a_red,t_a_green,t_a_blue);
-	  
-    Red_out1 <= title_f_Red and title_l_Red and title_a_Red and title_p_Red and title_p1_Red and title_y_Red and title_b_Red and title_i_Red and title_r_Red and title_d_Red and t_a_red; 
-    Green_out1 <= title_f_Green and title_l_Green and title_a_Green and title_p_Green and title_p1_Green and title_y_Green and title_b_Green and title_i_Green and title_r_Green and title_d_Green and t_a_green; 
-    Blue_out1 <= title_f_Blue and title_l_Blue and title_a_Blue and title_p_Blue and title_p1_Blue and title_y_Blue and title_b_Blue and title_i_Blue and title_r_Blue and title_d_Blue and t_a_blue; 
+	 
+	   play_p: sprite_printer port map(pixel_row, pixel_col, play_p_row, play_p_col, Font_R, Font_G, Font_B, select_Multiplier, play_p_address, enable, CLK, play_p_R_out, play_p_G_out, play_p_B_out);
+		play_l: sprite_printer port map(pixel_row, pixel_col, play_l_row, play_l_col, Font_R, Font_G, Font_B, select_Multiplier, play_l_address, enable, CLK, play_l_R_out, play_l_G_out, play_l_B_out);
+		play_a: sprite_printer port map(pixel_row, pixel_col, play_a_row, play_a_col, Font_R, Font_G, Font_B, select_Multiplier, play_a_address, enable, CLK, play_a_R_out, play_a_G_out, play_a_B_out);
+		play_y: sprite_printer port map(pixel_row, pixel_col, play_y_row, play_y_col, Font_R, Font_G, Font_B, select_Multiplier, play_y_address, enable, CLK, play_y_R_out, play_y_G_out, play_y_B_out);
+
+		tut_t: sprite_printer port map(pixel_row, pixel_col, tut_t_row, tut_t_col, Font_R, Font_G, Font_B, select_Multiplier, tut_t_address, enable, CLK, tut_t_R_out, tut_t_G_out, tut_t_B_out);
+		tut_u: sprite_printer port map(pixel_row, pixel_col, tut_u_row, tut_u_col, Font_R, Font_G, Font_B, select_Multiplier, tut_u_address, enable, CLK, tut_u_R_out, tut_u_G_out, tut_u_B_out);
+		tut_t1: sprite_printer port map(pixel_row, pixel_col, tut_t1_row, tut_t1_col, Font_R, Font_G, Font_B, select_Multiplier, tut_t1_address, enable, CLK, tut_t1_R_out, tut_t1_G_out, tut_t1_B_out);
+		tut_o: sprite_printer port map(pixel_row, pixel_col, tut_o_row, tut_o_col, Font_R, Font_G, Font_B, select_Multiplier, tut_o_address, enable, CLK, tut_o_R_out, tut_o_G_out, tut_o_B_out);
+		tut_r: sprite_printer port map(pixel_row, pixel_col, tut_r_row, tut_r_col, Font_R, Font_G, Font_B, select_Multiplier, tut_r_address, enable, CLK, tut_r_R_out, tut_r_G_out, tut_r_B_out);
+		tut_i: sprite_printer port map(pixel_row, pixel_col, tut_i_row, tut_i_col, Font_R, Font_G, Font_B, select_Multiplier, tut_i_address, enable, CLK, tut_i_R_out, tut_i_G_out, tut_i_B_out);
+		tut_a: sprite_printer port map(pixel_row, pixel_col, tut_a_row, tut_a_col, Font_R, Font_G, Font_B, select_Multiplier, tut_a_address, enable, CLK, tut_a_R_out, tut_a_G_out, tut_a_B_out);
+		tut_l: sprite_printer port map(pixel_row, pixel_col, tut_l_row, tut_l_col, Font_R, Font_G, Font_B, select_Multiplier, tut_l_address, enable, CLK, tut_l_R_out, tut_l_G_out, tut_l_B_out);
+		
+    Red_out1 <= title_f_Red and title_l_Red and title_a_Red and title_p_Red and title_p1_Red and title_y_Red and title_b_Red and title_i_Red and title_r_Red and title_d_Red and play_p_R_out and play_l_R_out and play_a_R_out and play_y_R_out and tut_t_R_out and tut_u_R_out and tut_t1_R_out and tut_o_R_out and tut_r_R_out and tut_i_R_out and tut_a_R_out and tut_l_R_out; 
+    Green_out1 <= title_f_Green and title_l_Green and title_a_Green and title_p_Green and title_p1_Green and title_y_Green and title_b_Green and title_i_Green and title_r_Green and title_d_Green and play_p_G_out and play_l_G_out and play_a_G_out and play_y_G_out and tut_t_G_out and tut_u_G_out and tut_t1_G_out and tut_o_G_out and tut_r_G_out and tut_i_G_out and tut_a_G_out and tut_l_G_out; 
+    Blue_out1 <= title_f_Blue and title_l_Blue and title_a_Blue and title_p_Blue and title_p1_Blue and title_y_Blue and title_b_Blue and title_i_Blue and title_r_Blue and title_d_Blue and play_p_B_out and play_l_B_out and play_a_B_out and play_y_B_out and tut_t_B_out and tut_u_B_out and tut_t1_B_out and tut_o_B_out and tut_r_B_out and tut_i_B_out and tut_a_B_out and tut_l_B_out; 
 end architecture;

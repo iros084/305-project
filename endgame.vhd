@@ -5,7 +5,7 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 
 entity endgame is
     port(pixel_row, pixel_col : in std_logic_vector(9 downto 0);
-	       Clk, enable  : in std_logic;
+	       Clk, enable : in std_logic;
          tenth_digit, one_digit: in std_logic_vector(3 downto 0);
          Red_out2, Green_out2, Blue_out2 : out std_logic);
 
@@ -72,7 +72,7 @@ signal first_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(232, 10
 signal tenth_R, tenth_G, tenth_B, first_R, first_G, first_B, s_R1, s_G1, s_B1,c_R1, c_G1, c_B1, o_R1, o_G1, o_B1,r_R1, r_G1, r_B1,e_R1, e_G1, e_B1 : std_logic;
 Signal Multiplier1 : integer := 3;
 
-
+       
 
 
 
@@ -86,6 +86,8 @@ component Sprite_Printer is
 end component Sprite_printer;
 
 	begin
+	   s_first <= "11"&one_digit;
+          s_tenth <= "11" & tenth_digit;
 	  g: sprite_printer port map(pixel_row, pixel_col, g_row, g_col, Font_R, Font_G, Font_B, Multiplier, g_a, enable, CLK, g_R, g_G, g_B);
 	  a: sprite_printer port map(pixel_row, pixel_col, a_row, a_col, Font_R, Font_G, Font_B, Multiplier, a_a, enable, CLK, a_R, a_G, a_B);
 	  m: sprite_printer port map(pixel_row, pixel_col, m_row, m_col, Font_R, Font_G, Font_B, Multiplier, m_a, enable, CLK, m_R, m_G, m_B);
@@ -98,11 +100,9 @@ end component Sprite_printer;
 	  C1: sprite_printer port map(pixel_row, pixel_col, c1_row, c1_col,Font_R, Font_G, Font_B,Multiplier1,c_ad,enable,CLK,c_R1, c_G1, c_B1);
           O1: sprite_printer port map(pixel_row, pixel_col, o1_row, o1_col,Font_R, Font_G, Font_B,Multiplier1,o_ad,enable,CLK,o_R1, o_G1, o_B1);
           R1: sprite_printer port map(pixel_row, pixel_col, r1_row, r1_col,Font_R, Font_G, Font_B,Multiplier1,r_ad,enable,CLK,r_R1, r_G1, r_B1);
-          E2: sprite_printer port map(pixel_row, pixel_col, e1_row, e2_col,Font_R, Font_G, Font_B,Multiplier1,e_ad,enable,CLK,e_R1, e_G1, e_B1);
+          E2: sprite_printer port map(pixel_row, pixel_col, e2_row, e2_col,Font_R, Font_G, Font_B,Multiplier1,e_ad,enable,CLK,e_R1, e_G1, e_B1);
           ten_text: sprite_printer port map(pixel_row, pixel_col,tenth_row,tenth_col,Font_R, Font_G, Font_B,Multiplier1,s_tenth,enable,CLK,tenth_R, tenth_G, tenth_B);
           one_text: sprite_printer port map(pixel_row, pixel_col,first_row,first_col,Font_R, Font_G, Font_B,Multiplier1,s_first,enable,CLK,first_R, first_G, first_B);
-          s_first <= "11"&one_digit;
-          s_tenth <= "11" & tenth_digit;
 		Red_out2 <= g_R and a_R and m_R and e_R and o_R and v_R and e1_R and r_R and tenth_R and first_R and s_R1 and c_R1 and o_R1 and r_R1 and e_R1; 
 		Green_out2 <= g_G and a_G and m_G and e_G and o_G and v_G and e1_G and r_G and tenth_G and first_G and s_G1 and c_G1 and o_G1 and r_G1 and e_G1;
 		Blue_out2 <= g_B and a_B and m_B and e_B and o_B and v_B and e1_B and r_B and tenth_B and first_B and s_B1 and c_B1 and o_B1 and r_B1 and e_B1;
