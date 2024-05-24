@@ -76,11 +76,20 @@ architecture structural of cs305_project is
 	end component;
 	
 	
-	component endgame is
-		 port(pixel_row, pixel_col            : in std_logic_vector(9 downto 0);
-				 Clk, enable                    : in std_logic;
-				Red_out2, Green_out2, Blue_out2 : out std_logic);
-	end component;
+        component endgame is
+            port(pixel_row, pixel_col : in std_logic_vector(9 downto 0);
+	         Clk, enable  : in std_logic;
+                 tenth_digit, one_digit: in std_logic_vector(3 downto 0);
+                 Red_out2, Green_out2, Blue_out2 : out std_logic);
+
+         end component;
+
+        component seqTo99 is
+            port(clk, reset, enable : in std_logic;
+                 out_tens, out_ones: out std_logic_vector(3 downto 0);
+                 counter_digit1,counter_digit2: out std_logic_vector (6 downto 0)
+         );
+         end component;
 	
 	signal s1, s2, s3, s4, s5, s6, s7, s8, s11, s14, s15, s16, s17, s18, s19, s20, s25, s26, s27, s28, s29, s30, s31, s32: std_logic;
 	signal s9, s10, s12, s13 : std_logic_vector(9 downto 0);
@@ -89,7 +98,8 @@ architecture structural of cs305_project is
 	signal t_h               : std_logic_vector(9 downto 0);
 	signal t_p               : std_logic_vector(8 downto 0);
 	signal t_horz, t_vert    : std_logic;
-	
+        signal t_tens,t_ones: std_logic_vector(3 downto 0);
+	signal count_1,count_2:std_logic_vector (6 downto 0);
 	signal e1, e2, e3: std_logic;
 	signal s33, s35 : std_logic_vector(10 downto 0);
 	signal s34, s36 : std_logic_vector(9 downto 0);
@@ -233,9 +243,14 @@ begin
 			pixel_col  => s10,
 			Clk        => s1,
 			enable     => '1',
+                        tenth_digit => t_tens,
+                        one_digit => t_ones,
 			Red_out2   => e1,
 			Green_out2 => e2,
 			Blue_out2  => e3
 	);
+
+        SO: seqTo99 port map(clk => s1,reset => '0', enable => s30, out_tens => t_tens, out_ones => t_ones, counter_digit1 => count_1, counter_digit2 => count_2);
+
 		
 end architecture;
