@@ -60,10 +60,10 @@ begin
 
 	if(x_pos = CONV_STD_LOGIC_VECTOR(0,11)) then
 		p1.x_pos := CONV_STD_LOGIC_VECTOR(760,11);
-		if(pipe_height < CONV_STD_LOGIC_VECTOR(336,10)) then
-			p1.y_pos := pipe_height;
-		else
+		if(pipe_height > CONV_STD_LOGIC_VECTOR(336,10)) then
 			p1.y_pos := CONV_STD_LOGIC_VECTOR(336,10);
+		else
+			p1.y_pos := pipe_height;
 		end if;
 	else
 		 p1.y_pos := y_pos;

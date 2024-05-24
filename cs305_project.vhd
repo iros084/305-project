@@ -86,8 +86,18 @@ architecture structural of cs305_project is
 
      component Two_Digit_Counter is
       port (clk, Init, Enable : in std_logic;
-          tenth_out, first_out : out std_logic_vector(3 downto 0);
+          t_out, f_out : out std_logic_vector(3 downto 0);
           display1, display2 : out std_logic_vector(6 downto 0));
+    end component;
+	 
+	 component speed_control is
+        port (
+            clk : in std_logic;
+            rst : in std_logic;
+            ones_digit1 : in std_logic_vector(3 downto 0);
+            tens_digit1 : in std_logic_vector(3 downto 0);
+            speed1 : out std_logic_vector(8 downto 0)
+        );
     end component;
 	
 	signal s1, s2, s3, s4, s5, s6, s7, s8, s11, s14, s15, s16, s17, s18, s19, s20, s25, s26, s27, s28, s29, s30, s31, s32: std_logic;
@@ -103,13 +113,16 @@ architecture structural of cs305_project is
 	signal s34, s36 : std_logic_vector(9 downto 0);
 	signal display11, display22 : std_logic_vector(6 downto 0);
         signal t_reset: std_logic;
+		  signal speed11 : STD_LOGIC_VECTOR (8 downto 0); -- Speed signal
 		  
 	--s20 <= '1';
 	
 	signal s_l, s_out, s_enable : std_logic;
 	
 begin
-   t_reset <= '0'; 
+    t_reset <= '1' when (pb3 = '0') else '0';
+	
+	--s_l <= '0' when t_reset <= '1';
 
    horiz_sync_out <= t_horz;
 	vert_sync_out <= s8;
@@ -190,11 +203,11 @@ begin
 			horiz_sync   => t_horz,
 			vert_sync    => s8,
 			enable       => s_enable,
-			reset        => '0',
+			reset        => t_reset,
 			pixel_row    => s9,
 			pixel_column => s10,
 			pipe_height  => t_h,
-			speed        => CONV_STD_LOGIC_VECTOR(100, 9),
+			speed        => speed11,
 			init         => s24,
 			Red          => s25,
 			Green        => s26,
@@ -252,5 +265,13 @@ begin
 			Blue_out2  => e3
 	);
         seg: Two_Digit_Counter port map(s1, t_reset, s30, t_tens, t_ones, display11, display22);
-		
+		    
+			 sc: speed_control
+        port map(
+            clk => s1,
+            rst => t_reset,
+            ones_digit1 => t_ones,
+            tens_digit1 => t_tens,
+            speed1 => speed11
+        );
 end architecture;

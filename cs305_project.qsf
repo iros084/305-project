@@ -467,6 +467,7 @@ set_location_assignment PIN_U7 -to pb0
 set_location_assignment PIN_W9 -to pb1
 set_location_assignment PIN_M7 -to pb2
 set_location_assignment PIN_M6 -to pb3
+set_global_assignment -name VHDL_FILE speed_control.vhd
 set_global_assignment -name VHDL_FILE Two_Digit_Counter.vhd
 set_global_assignment -name VHDL_FILE Four_bit_Counter.vhd
 set_global_assignment -name MIF_FILE lappy.mif

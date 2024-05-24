@@ -32,6 +32,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "pb3",
+					"strict" : false
+				},
+				{
 					"name" : "pb0",
 					"strict" : false
 				},
@@ -41,10 +45,6 @@
 				},
 				{
 					"name" : "pb1",
-					"strict" : false
-				},
-				{
-					"name" : "pb3",
 					"strict" : false
 				}
 			]
