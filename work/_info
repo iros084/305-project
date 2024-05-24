@@ -14,233 +14,310 @@ T_opt
 V4ICYIh0>GXZ[8d<FOz1XL2
 04 10 7 work seqto99_tb tb_arch 1
 =1-cc96e52185e6-664ff3ad-2ae-44d8
-o-quiet -auto_acc_if_foreign -work work
-tCvgOpt 0
+Z1 o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
 n@_opt
-OE;O;2020.2;71
+Z3 OE;O;2020.2;71
+R0
+T_opt1
+!s110 1716518578
+V?VZ30Zz^_W6VMMbM@`MTK0
+04 13 10 work cs305_project structural 1
+=1-cc96e52185e6-664ffeb2-2b6-1614
+R1
+R2
+n@_opt1
+R3
 R0
 Ebinary_updowncounter
-Z1 w1716515542
-Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 7
+Z4 w1716521021
+Z5 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z6 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 15
 R0
-Z6 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd
-Z7 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd
+Z9 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd
+Z10 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd
 l0
 L5 1
-V`8KCeOoGKaGl:I<5<Z[LD1
-!s100 5GRgR`LY9lDQi_:12UR7J1
-Z8 OE;C;2020.2;71
+V]n:`EQKC461W05594OR690
+!s100 :UGhYfA?FUioUoSd8TCUP3
+Z11 OE;C;2020.2;71
 32
-Z9 !s110 1716517084
+Z12 !s110 1716521226
 !i10b 1
-Z10 !s108 1716517084.000000
-Z11 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd|
-Z12 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd|
+Z13 !s108 1716521225.000000
+Z14 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd|
+Z15 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/Binary_UpDownCounter.vhd|
 !i113 0
-Z13 o-work work
-Z14 tExplicit 1 CvgOpt 0
-Abehavior
-R2
-R3
-R4
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Abehaviour
 R5
+R6
+R7
+R8
+DEx4 work 20 binary_updowncounter 0 22 ]n:`EQKC461W05594OR690
+!i122 15
+l15
+L11 48
+VoNP>B6`LJ0b]QjCHa03Ym0
+!s100 3PnkhBoUTIIIbDIYf?YNo0
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 0
+R16
+R17
+Abehavior
+R5
+R6
+R7
+R8
 DEx4 work 20 binary_updowncounter 0 22 `8KCeOoGKaGl:I<5<Z[LD1
-!i122 7
+!i122 12
 l14
 L12 34
 Vk;gNShc>ko^aLD0zEb]eW1
 !s100 ePVKZ7HOfnV@j>2Qnj@8?1
-R8
-32
-R9
-!i10b 1
-R10
 R11
-R12
-!i113 0
-R13
+32
+!s110 1716518518
+!i10b 1
+!s108 1716518518.000000
 R14
+R15
+!i113 0
+R16
+R17
+Z18 w1716515542
 Ecs305_project
-Z15 w1716517070
-R2
-Z16 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-R4
+Z19 w1716521025
 R5
-!i122 8
+Z20 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R7
+R8
+!i122 16
 R0
-Z17 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd
-Z18 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd
+Z21 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd
+Z22 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd
 l0
 L6 1
 VBVNlN[Q_g_6KGH8aJQiJK3
 !s100 5?KSCS1cFbG@?R2WHDAgJ3
-R8
+R11
 32
-Z19 !s110 1716517087
+Z23 !s110 1716521229
 !i10b 1
-Z20 !s108 1716517087.000000
-Z21 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd|
-!s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd|
+Z24 !s108 1716521229.000000
+Z25 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd|
+Z26 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd|
 !i113 0
-R13
-R14
-Astructural
-R2
 R16
-R4
+R17
+Astructural
 R5
-DEx4 work 13 cs305_project 0 22 BVNlN[Q_g_6KGH8aJQiJK3
-!i122 8
-l110
-L12 245
-VMHD8L_63j7:DAAOT][0c20
-!s100 MogKR>zlfAM_mlkRDb4@03
-R8
-32
-R19
-!i10b 1
 R20
-R21
-Z22 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/cs305_project.vhd|
+R7
+R8
+DEx4 work 13 cs305_project 0 22 BVNlN[Q_g_6KGH8aJQiJK3
+!i122 16
+l111
+L12 247
+VWmn<l[kUG5gTD8lM37>N63
+!s100 XVfYS]5WC=UG0Q9XI=25h0
+R11
+32
+R23
+!i10b 1
+R24
+R25
+R26
 !i113 0
-R13
-R14
+R16
+R17
 Eendgame
-R1
-Z23 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
-R2
-R4
+R18
+Z27 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
 R5
-!i122 5
+R7
+R8
+!i122 13
 R0
-Z24 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd
-Z25 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd
+Z28 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd
+Z29 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd
 l0
 L6 1
 VXU9`l<;MEO0P[O;eWHcBa1
 !s100 QLoh@Sc_1De?7Dm9c3onh3
-R8
+R11
 32
-Z26 !s110 1716517076
+Z30 !s110 1716518523
 !i10b 1
-Z27 !s108 1716517075.000000
-Z28 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd|
-Z29 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd|
+Z31 !s108 1716518523.000000
+Z32 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd|
+Z33 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/endgame.vhd|
 !i113 0
-R13
-R14
+R16
+R17
 Abehaviour
-R23
-R2
-R4
+R27
 R5
+R7
+R8
 DEx4 work 7 endgame 0 22 XU9`l<;MEO0P[O;eWHcBa1
-!i122 5
+!i122 13
 l88
 L14 96
 VEST6>5ZVPT]09Y9@K1K3a0
 !s100 aGJ9U0RUMXkgoa98AYCSG3
-R8
+R11
 32
-R26
+R30
 !i10b 1
-R27
-R28
-R29
+R31
+R32
+R33
 !i113 0
-R13
-R14
-Eseqto99
-R1
-R2
-R3
-R4
+R16
+R17
+Epipes
+R18
+R6
 R5
-!i122 6
+R7
+R8
+!i122 10
 R0
-Z30 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd
-Z31 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd
+Z34 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/pipes.vhd
+Z35 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/pipes.vhd
 l0
 L6 1
-VGEfio^M5aX70W]_kTR<Wa1
-!s100 ;R`HJG=j>=@ZV7b=GD^zl3
-R8
+Vl=k:EQ21EVT]`9JQ[_8H?1
+!s100 4@4Ni68FV1kU6_8l>llXg0
+R11
 32
-Z32 !s110 1716517080
+Z36 !s110 1716518511
 !i10b 1
-Z33 !s108 1716517080.000000
-Z34 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd|
-Z35 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd|
+Z37 !s108 1716518511.000000
+Z38 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/pipes.vhd|
+Z39 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/pipes.vhd|
 !i113 0
-R13
-R14
+R16
+R17
+Ab1
+R6
+R5
+R7
+R8
+DEx4 work 5 pipes 0 22 l=k:EQ21EVT]`9JQ[_8H?1
+!i122 10
+l75
+L15 113
+Vg3<N=Ed_88_^Y@LS@gV@c0
+!s100 `63N<U[@0_4EFiR:MOO?S3
+R11
+32
+R36
+!i10b 1
+R37
+R38
+R39
+!i113 0
+R16
+R17
+Eseqto99
+Z40 w1716521375
+R5
+R6
+R7
+R8
+!i122 19
+R0
+Z41 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd
+Z42 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd
+l0
+L6 1
+VMiRb@o=n4?g_R`Q6]FME31
+!s100 Y1KO=Ng3M=R^]C98cSG<n1
+R11
+32
+Z43 !s110 1716521380
+!i10b 1
+Z44 !s108 1716521380.000000
+Z45 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd|
+Z46 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd|
+!i113 0
+R16
+R17
 Abehavior
-R2
-R3
-R4
 R5
-DEx4 work 7 seqto99 0 22 GEfio^M5aX70W]_kTR<Wa1
-!i122 6
-l34
-L15 53
-V^;Ue^:H=HLk`Y1UEKh`A40
-!s100 HE;Xn3DJ9kW6@Z]J[nI;J2
+R6
+R7
 R8
+DEx4 work 7 seqto99 0 22 MiRb@o=n4?g_R`Q6]FME31
+!i122 19
+l34
+L15 66
+V>dz^B<NQdzOUNkJY5>KDo2
+!s100 ;B08S]0X>nBkQ3EcX`hDd3
+R11
 32
-R32
+R43
 !i10b 1
-R33
-R34
-R35
+R44
+R45
+R46
 !i113 0
-R13
-R14
+R16
+R17
 Eseqto99_tb
-Z36 w1716515913
-R3
-R2
-R4
+Z47 w1716515913
+R6
 R5
+R7
+R8
 !i122 4
 R0
-Z37 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
-Z38 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
+Z48 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
+Z49 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
 l0
 L6 1
 Vk0de>4JJWNZ9T@HD>zakh3
 !s100 FXXM_in:jNkn71GR72;^f3
-R8
+R11
 32
-Z39 !s110 1716515923
+Z50 !s110 1716515923
 !i10b 1
-Z40 !s108 1716515923.000000
-Z41 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
-Z42 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
+Z51 !s108 1716515923.000000
+Z52 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
+Z53 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
 !i113 0
-R13
-R14
+R16
+R17
 Atb_arch
-R3
-R2
-R4
+R6
 R5
+R7
+R8
 DEx4 work 10 seqto99_tb 0 22 k0de>4JJWNZ9T@HD>zakh3
 !i122 4
 l23
 L9 50
 VJh:^h6;CIO6XZB1IiCJZh3
 !s100 PA>eAj;NcO7BHT0I;O:U?2
-R8
+R11
 32
-R39
+R50
 !i10b 1
-R40
-R41
-R42
+R51
+R52
+R53
 !i113 0
-R13
-R14
+R16
+R17

@@ -106,12 +106,14 @@ architecture structural of cs305_project is
 	--s20 <= '1';
 	
 	signal s_l, s_out, s_enable : std_logic;
+        signal t_c: std_logic;
 	
 begin
 
    horiz_sync_out <= t_horz;
 	vert_sync_out <= s8;
    t_h <= '0' & t_p;
+         t_c <= s30;
 	
 	C1: cs305_pll
 		port map(
