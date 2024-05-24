@@ -232,12 +232,12 @@ R39
 R16
 R17
 Eseqto99
-Z40 w1716521375
+Z40 w1716522899
 R5
 R6
 R7
 R8
-!i122 19
+!i122 20
 R0
 Z41 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd
 Z42 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd
@@ -247,9 +247,9 @@ VMiRb@o=n4?g_R`Q6]FME31
 !s100 Y1KO=Ng3M=R^]C98cSG<n1
 R11
 32
-Z43 !s110 1716521380
+Z43 !s110 1716522908
 !i10b 1
-Z44 !s108 1716521380.000000
+Z44 !s108 1716522908.000000
 Z45 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd|
 Z46 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99.vhd|
 !i113 0
@@ -260,12 +260,12 @@ R5
 R6
 R7
 R8
-DEx4 work 7 seqto99 0 22 MiRb@o=n4?g_R`Q6]FME31
-!i122 19
-l34
-L15 66
-V>dz^B<NQdzOUNkJY5>KDo2
-!s100 ;B08S]0X>nBkQ3EcX`hDd3
+Z47 DEx4 work 7 seqto99 0 22 MiRb@o=n4?g_R`Q6]FME31
+!i122 20
+l29
+L15 61
+VcomBNTQ:lJ7MPHLO?4J[P0
+!s100 OffTe6]zC@WBDSaF9jKo<3
 R11
 32
 R43
@@ -277,26 +277,26 @@ R46
 R16
 R17
 Eseqto99_tb
-Z47 w1716515913
+Z48 w1716515913
 R6
 R5
 R7
 R8
 !i122 4
 R0
-Z48 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
-Z49 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
+Z49 8C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
+Z50 FC:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd
 l0
 L6 1
 Vk0de>4JJWNZ9T@HD>zakh3
 !s100 FXXM_in:jNkn71GR72;^f3
 R11
 32
-Z50 !s110 1716515923
+Z51 !s110 1716515923
 !i10b 1
-Z51 !s108 1716515923.000000
-Z52 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
-Z53 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
+Z52 !s108 1716515923.000000
+Z53 !s90 -reportprogress|300|-work|work|C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
+Z54 !s107 C:/Users/iros084/OneDrive - The University of Auckland/Documents/GitHub/305-project/seqTo99_tb.vhd|
 !i113 0
 R16
 R17
@@ -313,11 +313,11 @@ VJh:^h6;CIO6XZB1IiCJZh3
 !s100 PA>eAj;NcO7BHT0I;O:U?2
 R11
 32
-R50
-!i10b 1
 R51
+!i10b 1
 R52
 R53
+R54
 !i113 0
 R16
 R17

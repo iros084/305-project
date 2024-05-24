@@ -19,11 +19,6 @@ architecture behavior of seqTo99 is
     signal ones_counter: std_logic_vector (3 downto 0) := "0000";
     signal tens_counter: std_logic_vector (3 downto 0) := "0000";
 
-   component BCD_to_SevenSeg is
-     port (BCD_digit : in std_logic_vector(3 downto 0);
-           SevenSeg_out : out std_logic_vector(6 downto 0));
-   end component;
-
    component Binary_UpDownCounter is
      port(
         clk, direction, enable, init: in std_logic;
@@ -47,31 +42,31 @@ tens: Binary_UpDownCounter port map (
     init => Init,
     counter => tens_counter
 );
-    d1: BCD_to_SevenSeg port map(ones_counter,counter_digit1);
-    d2: BCD_to_SevenSeg port map(tens_counter,counter_digit2);
-    process (clk)
-      begin
-      if(rising_edge(clk)) then
-          if(enable = '1') then
-              t_ones <= '1';
-              if(ones_counter = "1001") then
-                  t_start <= '1';
-              end if;
-              if(ones_counter = "0000" and t_tens <= '0' and t_latch <= '0' and t_start <= '1') then
-                  t_tens <= '1';
-                  t_latch<= '1';
-              end if;
-              if(ones_counter = "0001" and t_latch <= '1') then
-                  t_latch <= '0';
-                  t_start <= '0';
-              end if;
 
-          else
-              t_tens<='0';
-              t_ones<='0';
-          end if;
-      end if;
-    end process;
+process (clk)
+begin
+    if (rising_edge(clk)) then
+        if (enable = '1') then
+            t_ones <= '1';
+            if (ones_counter = "1001") then
+                t_start <= '1';
+            end if;
+            if (t_start = '1' and t_latch = '0') then
+                if (ones_counter = "1001") then
+                    t_tens <= '1';
+                    t_latch <= '1';
+                end if;
+                if (ones_counter = "0001") then
+                    t_latch <= '1';
+                    t_start <= '0';
+                end if;
+            end if;
+        else
+            t_tens <= '0';
+            t_ones <= '0';
+        end if;
+    end if;
+end process;
          tens_e<= t_tens;
          ones_e<=t_ones;
          out_tens<=tens_counter;

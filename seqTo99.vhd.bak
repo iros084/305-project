@@ -19,11 +19,6 @@ architecture behavior of seqTo99 is
     signal ones_counter: std_logic_vector (3 downto 0) := "0000";
     signal tens_counter: std_logic_vector (3 downto 0) := "0000";
 
-   component BCD_to_SevenSeg is
-     port (BCD_digit : in std_logic_vector(3 downto 0);
-           SevenSeg_out : out std_logic_vector(6 downto 0));
-   end component;
-
    component Binary_UpDownCounter is
      port(
         clk, direction, enable, init: in std_logic;
@@ -32,10 +27,22 @@ architecture behavior of seqTo99 is
     end component;
 
 begin
-    Ones: Binary_UpDownCounter port map (clk, direction => 0, Init, tens_e, ones_counter);
-    tens: Binary_UpDownCounter port map (clk, direction => 0, Init, ones_e, tens_counter); 
-    d1: BCD_to_SevenSeg port map(ones_counter,counter_digit1);
-    d2: BCD_to_SevenSeg port map(tens_counter,counter_digit2);
+Ones: Binary_UpDownCounter port map (
+    clk => clk,
+    direction => '0',
+    enable => enable,
+    init => Init,
+    counter => ones_counter
+);
+
+tens: Binary_UpDownCounter port map (
+    clk => clk,
+    direction => '0',
+    enable => enable,
+    init => Init,
+    counter => tens_counter
+);
+
     process (clk)
       begin
       if(rising_edge(clk)) then
