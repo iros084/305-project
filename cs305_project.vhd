@@ -189,7 +189,7 @@ begin
 			clk          => s1,
 			horiz_sync   => t_horz,
 			vert_sync    => s8,
-			enable       => '1',
+			enable       => s_enable,
 			reset        => '0',
 			pixel_row    => s9,
 			pixel_column => s10,

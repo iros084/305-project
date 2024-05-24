@@ -4,11 +4,11 @@ pb0 => state_machine:R1.reset
 pb1 => state_machine:R1.game
 pb2 => state_machine:R1.pause
 pb3 => rand_gen:Rn1.rand_st
-red_out <= vga_sync:V1.red_out
-green_out <= vga_sync:V1.green_out
-blue_out <= vga_sync:V1.blue_out
-horiz_sync_out <= vga_sync:V1.horiz_sync_out
-vert_sync_out <= vga_sync:V1.vert_sync_out
+red_out << vga_sync:V1.red_out
+green_out << vga_sync:V1.green_out
+blue_out << vga_sync:V1.blue_out
+horiz_sync_out << vga_sync:V1.horiz_sync_out
+vert_sync_out << vga_sync:V1.vert_sync_out
 mouse_data <> mouse:M1.mouse_data
 mouse_clk <> mouse:M1.mouse_clk
 
@@ -9922,7 +9922,7 @@ endgame_b => Selector2.IN6
 pause_r => Selector0.IN7
 pause_g => Selector1.IN7
 pause_b => Selector2.IN7
-enable <= enable.DB_MAX_OUTPUT_PORT_TYPE
+enable <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 red <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 green <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
 blue <= Selector2.DB_MAX_OUTPUT_PORT_TYPE

@@ -24,8 +24,6 @@ architecture moore of state_machine is
 
 begin
 
-	enable <= '1' when state = game_1 else '0';
-
 	SYNC_PROC : process (clk)
 	begin
 		if (rising_edge(clk)) then
@@ -44,46 +42,57 @@ begin
 				red   <= start_r;
 				green <= start_g;
 				blue  <= start_b;
+				enable <= '0';
 			when game_1 =>
 				red   <= bouncy_ball_r and pipes_r;
 				green <= bouncy_ball_g and pipes_g;
 				blue  <= bouncy_ball_b and pipes_b;
+				enable <= '1';
 			when game_2 =>
 				red   <= bouncy_ball_r and pipes_r;
 				green <= bouncy_ball_g and pipes_g;
 				blue  <= bouncy_ball_b and pipes_b;
+				enable <= '1';
 			when game_3 =>
 				red   <= bouncy_ball_r and pipes_r;
 				green <= bouncy_ball_g and pipes_g;
 				blue  <= bouncy_ball_b and pipes_b;
+				enable <= '1';
 			when training =>
 				red   <= bouncy_ball_r and pipes_r;
 				green <= bouncy_ball_g and pipes_g;
 				blue  <= bouncy_ball_b and pipes_b;
+				enable <= '1';
 			when pause_1 =>
 				red   <= pause_r;
 				green <= pause_g;
 				blue  <= pause_b;
+				enable <= '0';
 			when pause_2 =>
 				red   <= pause_r;
 				green <= pause_g;
 				blue  <= pause_b;
+				enable <= '0';
 			when pause_3 =>
 				red   <= pause_r;
 				green <= pause_g;
 				blue  <= pause_b;
+				enable <= '0';
 			when pause_t =>
 				red   <= pause_r;
 				green <= pause_g;
 				blue  <= pause_b;
+				enable <= '0';
 			when game_over =>
 				red   <= endgame_r;
 				green <= endgame_g;
 				blue  <= endgame_b;
+				enable <= '0';
 			when others =>
 				red   <= start_r;
 				green <= start_g;
 				blue  <= start_b;
+				enable <= '0';
 		end case;
 	end process;
 	
