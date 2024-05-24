@@ -1,4 +1,17 @@
 
+State Machine - |cs305_project|state_machine:R1|state
+Name state.game_over state.pause_t state.pause_3 state.pause_2 state.pause_1 state.training state.game_3 state.game_2 state.game_1 state.menu 
+state.menu 0 0 0 0 0 0 0 0 0 0 
+state.game_1 0 0 0 0 0 0 0 0 1 1 
+state.game_2 0 0 0 0 0 0 0 1 0 1 
+state.game_3 0 0 0 0 0 0 1 0 0 1 
+state.training 0 0 0 0 0 1 0 0 0 1 
+state.pause_1 0 0 0 0 1 0 0 0 0 1 
+state.pause_2 0 0 0 1 0 0 0 0 0 1 
+state.pause_3 0 0 1 0 0 0 0 0 0 1 
+state.pause_t 0 1 0 0 0 0 0 0 0 1 
+state.game_over 1 0 0 0 0 0 0 0 0 1 
+
 State Machine - |cs305_project|MOUSE:M1|mouse_state
 Name mouse_state.INPUT_PACKETS mouse_state.WAIT_CMD_ACK mouse_state.WAIT_OUTPUT_READY mouse_state.LOAD_COMMAND2 mouse_state.LOAD_COMMAND mouse_state.INHIBIT_TRANS 
 mouse_state.INHIBIT_TRANS 0 0 0 0 0 0 

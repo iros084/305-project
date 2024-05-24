@@ -32,7 +32,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "sw4",
+					"name" : "pb0",
+					"strict" : false
+				},
+				{
+					"name" : "pb2",
+					"strict" : false
+				},
+				{
+					"name" : "pb1",
 					"strict" : false
 				},
 				{

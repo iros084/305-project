@@ -1,14 +1,12 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-
 use IEEE.std_logic_arith.all;
 
 entity cs305_project is
-	port (Clk, pb3, sw4                                            : in std_logic;
+	port (Clk, pb0, pb1, pb2, pb3                                  : in std_logic;
 		red_out, green_out, blue_out, horiz_sync_out, vert_sync_out : out std_logic;
-		mouse_data, mouse_clk                                       : inout std_logic;
-		mouse_row, mouse_column                                     : out std_logic_vector(6 downto 0));
+		mouse_data, mouse_clk                                       : inout std_logic);
 end entity;
 
 architecture structural of cs305_project is
@@ -26,19 +24,21 @@ architecture structural of cs305_project is
 	end component;
 	
 	component bouncy_ball is
-		port (clk, vert_sync         : IN std_logic;
-			left_button, right_button : IN std_logic;
-			pixel_row, pixel_column	  : IN std_logic_vector(9 downto 0);
-			red, green, blue 			  : out std_logic);
+		port (clk, vert_sync, mouse_click : in std_logic;
+			left_button, right_button : in std_logic;
+			pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
+			pipe_on                   : in std_logic;
+			red, green, blue          : out std_logic;
+			collision                 : out std_logic);
 	end component;
 	
-	component MOUSE is
-		port (clock_25Mhz, reset 	  : IN std_logic;
-         mouse_data					  : INOUT std_logic;
-         mouse_clk 					  : INOUT std_logic;
-         left_button, right_button : OUT std_logic;
-			mouse_cursor_row 			  : OUT std_logic_vector(9 DOWNTO 0); 
-			mouse_cursor_column 		  : OUT std_logic_vector(9 DOWNTO 0));       	
+	component mouse is
+		port (clock_25Mhz, reset 	  : in std_logic;
+         mouse_data					  : inout std_logic;
+         mouse_clk 					  : inout std_logic;
+         left_button, right_button : out std_logic;
+			mouse_cursor_row 			  : out std_logic_vector(9 DOWNTO 0); 
+			mouse_cursor_column 		  : out std_logic_vector(9 DOWNTO 0));       	
 	end component;
 	
 	component start is
@@ -47,9 +47,18 @@ architecture structural of cs305_project is
          Red_out1, Green_out1, Blue_out1 : out std_logic);
    end component;
 	
-	component rgb_mux is
-		port(in1, in2, in3, in4, in5, in6, in7, in8, in9, mux, e1, e2, e3: in std_logic;
-			r_out, g_out, b_out    : out std_logic);
+	component state_machine is
+		port (clk, reset           	                 : in std_logic;
+			h_sync, v_sync          	                 : in std_logic;
+			pixel_row, pixel_column	                    : in std_logic_vector(9 downto 0);
+			game, pause, lose                           : in std_logic; -- state inputs
+			bouncy_ball_r, bouncy_ball_g, bouncy_ball_b : in std_logic; -- rgb inputs (bouncy_ball)
+			pipes_r, pipes_g, pipes_b                   : in std_logic; -- rgb inputs (pipes)
+			start_r, start_g, start_b                   : in std_logic; -- rgb inputs (start screen)
+			endgame_r, endgame_g, endgame_b             : in std_logic; -- rgb inputs (game over screen)
+			pause_r, pause_g, pause_b                   : in std_logic; -- rgb inputs (pause screen)
+			enable : out std_logic;
+			red, green, blue 				                 : out std_logic);
 	end component;
 	
 	component rand_gen is 
@@ -58,17 +67,18 @@ architecture structural of cs305_project is
    end component;
 	
 	component pipes is
-         port(clk,horiz_sync,vert_sync,enable,reset:in std_logic;
-               pixel_row, pixel_column, pipe_height: in std_logic_vector(9 DOWNTO 0);
-               speed: in std_logic_vector(8 DOWNTO 0);
-               init : in std_logic_vector(10 DOWNTO 0);
-               Red, Green, Blue, pipe_s, coin_s, count, initial, rst: OUT std_logic);
+         port(clk, horiz_sync, vert_sync, enable, reset           : in std_logic;
+				pixel_row, pixel_column, pipe_height                  : in std_logic_vector(9 downto 0);
+				speed                                                 : in std_logic_vector(8 downto 0);
+				init                                                  : in std_logic_vector(10 downto 0);
+				Red, Green, Blue, pipe_s, coin_s, count, initial, rst : out std_logic;
+				pipe_on_out                                           : out std_logic);
 	end component;
 	
 	
 	component endgame is
-		 port(pixel_row, pixel_col : in std_logic_vector(9 downto 0);
-				 Clk, enable  : in std_logic;
+		 port(pixel_row, pixel_col            : in std_logic_vector(9 downto 0);
+				 Clk, enable                    : in std_logic;
 				Red_out2, Green_out2, Blue_out2 : out std_logic);
 	end component;
 	
@@ -76,7 +86,7 @@ architecture structural of cs305_project is
 	signal s9, s10, s12, s13 : std_logic_vector(9 downto 0);
 	signal s22               : std_logic_vector(8 downto 0);
 	signal s24               : std_logic_vector(10 downto 0);
-	signal t_h               : std_logic_vector(9 DOWNTO 0);
+	signal t_h               : std_logic_vector(9 downto 0);
 	signal t_p               : std_logic_vector(8 downto 0);
 	signal t_horz, t_vert    : std_logic;
 	
@@ -84,6 +94,8 @@ architecture structural of cs305_project is
 	signal s33, s35 : std_logic_vector(10 downto 0);
 	signal s34, s36 : std_logic_vector(9 downto 0);
 	--s20 <= '1';
+	
+	signal s_l, s_out, s_enable : std_logic;
 	
 begin
 
@@ -117,16 +129,19 @@ begin
 		port map(
 			clk          => s1,
 			vert_sync    => s8,--s11,
+			mouse_click       => s14,
 			left_button  => s14,
 			right_button => s15,
 			pixel_row    => s9,
 			pixel_column => s10,
+			pipe_on      => s_out,
 			red          => s2,
 			green        => s3,
-			blue         => s4
+			blue         => s4,
+			collision    => s_l
 	);
 	
-	M1: MOUSE
+	M1: mouse
 		port map(
 			clock_25Mhz         => s1,
 			reset               => '0', 
@@ -176,38 +191,51 @@ begin
 			coin_s       => s29,
 			count        => s30,
 			initial      => s31,
-			rst          => s32
+			rst          => s32,
+			pipe_on_out  => s_out
 	);
 	
-	R1: rgb_mux
+	R1: state_machine
 		port map(
-			in1   => s2,
-			in2   => s3,
-			in3   => s4,
-			in4   => s16,
-			in5   => s17,
-			in6   => s18,
-			in7   => s25,
-			in8   => s26,
-			in9   => s27,
-			mux   => sw4,
-			e1 => e1,
-			e2 => e2,
-			e3 => e3,
-			r_out => s5,
-			g_out => s6,
-			b_out => s7
+			clk           => s1,
+			reset         => pb0,
+			h_sync        => t_horz,
+			v_sync        => s8,
+			pixel_row     => s9,
+			pixel_column  => s10,
+			game          => pb1,
+			pause         => pb2,
+			lose          => s_l,
+			bouncy_ball_r => s2,
+			bouncy_ball_g => s3,
+			bouncy_ball_b => s4,
+			pipes_r       => s25,
+			pipes_g       => s26,
+			pipes_b       => s27,
+			start_r       => s16,
+			start_g       => s17,
+			start_b       => s18,
+			endgame_r     => e1,
+			endgame_g     => e2,
+			endgame_b     => e3,
+			pause_r       => '1', -- temp
+			pause_g       => '1',
+			pause_b       => '1',
+			enable => s_enable,
+			red           => s5,
+			green         => s6,
+			blue          => s7
 	);
 	
 	o1: endgame
 		port map(
-			pixel_row => s9,
-			pixel_col => s10,
-			Clk => s1,
-			enable => '1',
-			Red_out2 => e1,
+			pixel_row  => s9,
+			pixel_col  => s10,
+			Clk        => s1,
+			enable     => '1',
+			Red_out2   => e1,
 			Green_out2 => e2,
-			Blue_out2 => e3
+			Blue_out2  => e3
 	);
 		
 end architecture;
