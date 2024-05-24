@@ -43,30 +43,31 @@ tens: Binary_UpDownCounter port map (
     counter => tens_counter
 );
 
-process (clk)
-begin
-    if (rising_edge(clk)) then
-        if (enable = '1') then
-            t_ones <= '1';
-            if (ones_counter = "1001") then
-                t_start <= '1';
-            end if;
-            if (t_start = '1' and t_latch = '0') then
-                if (ones_counter = "1001") then
-                    t_tens <= '1';
-                    t_latch <= '1';
-                end if;
-                if (ones_counter = "0001") then
-                    t_latch <= '1';
-                    t_start <= '0';
-                end if;
-            end if;
-        else
-            t_tens <= '0';
-            t_ones <= '0';
+    if(rising_edge(clk)) then 
+      if(enable = '1') then
+        t_start <= '1';
+        
+        if(ones_counter = "0000" and t_tens <= '0' and t_latch <= '0' and t_start = '1') then
+          tens_e <= '1';
+          t_latch <= '1';
         end if;
+        
+        if(ones_counter = "0001" and t_latch <= '1') then
+          t_latch <= '0';
+          t_tens <= '0';
+        end if;
+        
+        if(s_first_out = "1001") then
+          tenths_start <= '1';
+        end if;
+        
+      else
+        t_first_enable <= '0';
+        t_tenth_enable <= '0';
+      end if;
     end if;
-end process;
+      
+  end process;
          tens_e<= t_tens;
          ones_e<=t_ones;
          out_tens<=tens_counter;
