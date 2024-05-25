@@ -4,8 +4,8 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_signed.all;
 
 entity state_machine is
-	port (clk, reset           	                 : in std_logic;
-		h_sync, v_sync          	                 : in std_logic;
+	port (clk, reset           	                    : in std_logic;
+		h_sync, v_sync          	                : in std_logic;
 		pixel_row, pixel_column	                    : in std_logic_vector(9 downto 0);
 		game, pause, lose                           : in std_logic; -- state inputs
 		bouncy_ball_r, bouncy_ball_g, bouncy_ball_b : in std_logic; -- rgb inputs (bouncy_ball)
@@ -13,8 +13,9 @@ entity state_machine is
 		start_r, start_g, start_b                   : in std_logic; -- rgb inputs (start screen)
 		endgame_r, endgame_g, endgame_b             : in std_logic; -- rgb inputs (game over screen)
 		pause_r, pause_g, pause_b                   : in std_logic; -- rgb inputs (pause screen)
-		enable : out std_logic; -- for bouncy_ball and pipes components
-		red, green, blue 				                 : out std_logic);
+		select1                                      : in std_logic; -- mode select fron switch
+		enable                                      : out std_logic; -- for bouncy_ball and pipes components
+		red, green, blue 				            : out std_logic);
 end entity;
 
 architecture moore of state_machine is
@@ -96,12 +97,16 @@ begin
 		end case;
 	end process;
 	
-	NEXT_STATE_DECODE : process (state, game, pause)
+	NEXT_STATE_DECODE : process (state, game, pause, select1)
 	begin
 		case (state) is
 			when menu =>
 				if (game = '0') then
-					next_state <= game_1;
+					if (select1 = '1') then
+						next_state <= game_1;
+					else
+						next_state <= training;
+					end if;
 				else
 					next_state <= menu;
 				end if;
@@ -125,12 +130,14 @@ begin
 --				else
 --					next_state <= pause_3;
 --				end if;
---			when training =>
---				if (x = '1') then
---					next_state <= game_over;
---				else
---					next_state <= pause_t;
---				end if;
+			when training =>
+				if (lose = '1') then
+					next_state <= game_over;
+				elsif (pause = '0') then
+					next_state <= pause_t;
+				else
+					next_state <= training;
+				end if;
 			when pause_1 =>
 				if (pause = '1') then
 					next_state <= game_1;
@@ -149,12 +156,12 @@ begin
 --				else
 --					next_state <= pause_3;
 --				end if;
---			when pause_t =>
---				if (x = '1') then
---					next_state <= training;
---				else
---					next_state <= pause_t;
---				end if;
+			when pause_t =>
+				if (pause = '1') then
+					next_state <= training;
+				else
+					next_state <= pause_t;
+				end if;
 			when game_over =>
 				if (reset = '0') then
 					next_state <= menu;

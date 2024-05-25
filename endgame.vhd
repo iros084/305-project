@@ -38,6 +38,43 @@ signal e1_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(335, 10);
 signal r_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(264, 10);
 signal r_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(432, 10);
 
+signal h_s : std_logic_vector(5 downto 0) := "001000";
+signal i_S : std_logic_vector(5 downto 0) := "001001";
+signal g_s: std_logic_vector(5 downto 0) := "000111";
+signal h1_s : std_logic_vector(5 downto 0) := "001000";
+signal s1_ad : std_logic_vector(5 downto 0) := "010011";
+signal c1_ad : std_logic_vector(5 downto 0) := "000011";
+signal o1_ad : std_logic_vector(5 downto 0) := "001111";
+signal r1_ad : std_logic_vector(5 downto 0) := "010010";
+signal e1_ad : std_logic_vector(5 downto 0) := "000101";
+
+signal h_s_R,h_s_G,h_s_B,i_s_R,i_s_G,i_s_B,g_s_R,g_s_G,g_s_B,h1_s_R,h1_s_G,h1_s_B,s1_s_R,s1_s_G,s1_s_B,c1_s_R,c1_s_G,c1_s_B,o1_s_R,o1_s_G,o1_s_B,r1_s_R,r1_s_G,r1_s_B,e1_s_R,e1_s_G,e1_s_B: std_logic;
+
+signal h_s_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal h_s_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(8, 10);
+signal i_s_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal i_s_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(40, 10);
+signal g_s_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal g_s_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(72, 10);
+signal h1_s_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal h1_s_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(104, 10);
+signal s11_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal s11_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(136, 10);
+signal c11_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal c11_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(168, 10);
+signal o11_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal o11_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(200, 10);
+signal r11_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal r11_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(232, 10);
+signal e21_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal e21_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(264, 10);
+
+signal ht_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal ht_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(296, 10);
+
+signal hf_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(100, 10);
+signal hf_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(328, 10);
+
 
 signal g_R, g_G, g_B, a_R, a_G, a_B, m_R, m_G, m_B, e_R, e_G, e_B,o_R, o_G, o_B,v_R, v_G, v_B,e1_R, e1_G, e1_B,r_R, r_G, r_B: std_logic;
 
@@ -68,16 +105,12 @@ signal r1_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(104, 10);
 signal e2_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
 signal e2_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(136, 10);
 signal tenth_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
-signal tenth_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(200, 10);
+signal tenth_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(168, 10);
 signal first_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
-signal first_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(232, 10);
+signal first_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(200, 10);
 
 
-signal ht_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
-signal ht_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(300, 10);
 
-signal hf_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
-signal hf_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(332, 10);
 
 
 
@@ -150,11 +183,29 @@ highscore_ram : ram port map (clk => Clk, we => we1,addr => "0000", din => curre
           ten_text: sprite_printer port map(pixel_row, pixel_col,tenth_row,tenth_col,Font_R, Font_G, Font_B,Multiplier1,s_tenth,enable,CLK,tenth_R, tenth_G, tenth_B);
           one_text: sprite_printer port map(pixel_row, pixel_col,first_row,first_col,Font_R, Font_G, Font_B,Multiplier1,s_first,enable,CLK,first_R, first_G, first_B);
 
+			 hh: sprite_printer port map(pixel_row, pixel_col, h_s_row, h_s_col,Font_R, Font_G, Font_B,Multiplier1,h_s,enable,CLK,h_s_R,h_s_G,h_s_B);
+			 
+		ii: sprite_printer port map(pixel_row, pixel_col, i_s_row, i_s_col,Font_R, Font_G, Font_B,Multiplier1,i_s,enable,CLK,i_s_R,i_s_G,i_s_B);	 
+			 
+			 gg: sprite_printer port map(pixel_row, pixel_col, g_s_row, g_s_col,Font_R, Font_G, Font_B,Multiplier1,g_s,enable,CLK,g_s_R,g_s_G,g_s_B);
+			 
+		hh1: sprite_printer port map(pixel_row, pixel_col, h1_s_row, h1_s_col,Font_R, Font_G, Font_B,Multiplier1,h1_s,enable,CLK,h1_s_R,h1_s_G,h1_s_B);
+		
+		
+		
+		          S11: sprite_printer port map(pixel_row, pixel_col, s11_row, s11_col,Font_R, Font_G, Font_B,Multiplier1,s1_ad,enable,CLK,s1_s_R,s1_s_G,s1_s_B);
+	  C11: sprite_printer port map(pixel_row, pixel_col, c11_row, c11_col,Font_R, Font_G, Font_B,Multiplier1,c1_ad,enable,CLK,c1_s_R,c1_s_G,c1_s_B);
+          O11: sprite_printer port map(pixel_row, pixel_col, o11_row, o11_col,Font_R, Font_G, Font_B,Multiplier1,o1_ad,enable,CLK,o1_s_R,o1_s_G,o1_s_B);
+          R11: sprite_printer port map(pixel_row, pixel_col, r11_row, r11_col,Font_R, Font_G, Font_B,Multiplier1,r1_ad,enable,CLK,r1_s_R,r1_s_G,r1_s_B);
+          E12: sprite_printer port map(pixel_row, pixel_col, e21_row, e21_col,Font_R, Font_G, Font_B,Multiplier1,e1_ad,enable,CLK,e1_s_R,e1_s_G,e1_s_B);
+		
+		
+		
 		ht_text :sprite_printer port map(pixel_row, pixel_col,ht_row,ht_col,Font_R, Font_G, Font_B,Multiplier1,h_tenth, enable,CLK,ht_r,ht_g,ht_b);
 		hf_text :sprite_printer port map(pixel_row, pixel_col,hf_row,hf_col,Font_R, Font_G, Font_B,Multiplier1,h_first,enable,CLK,hf_r,hf_g,hf_b);
 		
 		
-		Red_out2 <= g_R and a_R and m_R and e_R and o_R and v_R and e1_R and r_R and tenth_R and first_R and s_R1 and c_R1 and o_R1 and r_R1 and e_R1 and ht_r and hf_r; 
-		Green_out2 <= g_G and a_G and m_G and e_G and o_G and v_G and e1_G and r_G and tenth_G and first_G and s_G1 and c_G1 and o_G1 and r_G1 and e_G1 and ht_g and hf_g;
-		Blue_out2 <= g_B and a_B and m_B and e_B and o_B and v_B and e1_B and r_B and tenth_B and first_B and s_B1 and c_B1 and o_B1 and r_B1 and e_B1 and ht_b and hf_b;
+		Red_out2 <= g_R and a_R and m_R and e_R and o_R and v_R and e1_R and r_R and tenth_R and first_R and s_R1 and c_R1 and o_R1 and r_R1 and e_R1 and ht_r and hf_r and h_s_R and i_s_R and g_s_R and h1_s_R and s1_s_R and c1_s_R and o1_s_R and r1_s_R and e1_s_R; 
+		Green_out2 <= g_G and a_G and m_G and e_G and o_G and v_G and e1_G and r_G and tenth_G and first_G and s_G1 and c_G1 and o_G1 and r_G1 and e_G1 and ht_g and hf_g and h_s_G and i_s_G and g_s_G and h1_s_G and s1_s_G and c1_s_G and o1_s_G and r1_s_G and e1_s_G;
+		Blue_out2 <= g_B and a_B and m_B and e_B and o_B and v_B and e1_B and r_B and tenth_B and first_B and s_B1 and c_B1 and o_B1 and r_B1 and e_B1 and ht_b and hf_b and h_s_B and i_s_B and g_s_B and h1_s_B and s1_s_B and c1_s_B and o1_s_B and r1_s_B and e1_s_B;
 end architecture;

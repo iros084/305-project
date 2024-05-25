@@ -40,11 +40,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "pb1",
+					"strict" : false
+				},
+				{
 					"name" : "pb2",
 					"strict" : false
 				},
 				{
-					"name" : "pb1",
+					"name" : "sw0",
 					"strict" : false
 				}
 			]

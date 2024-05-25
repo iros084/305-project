@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_arith.all;
 
 entity cs305_project is
-	port (Clk, pb0, pb1, pb2, pb3, Sw0                                  : in std_logic;
+	port (Clk, pb0, pb1, pb2, pb3, sw0                              : in std_logic;
 		red_out, green_out, blue_out, horiz_sync_out, vert_sync_out : out std_logic;
 		mouse_data, mouse_clk                                       : inout std_logic);
 end entity;
@@ -57,6 +57,7 @@ architecture structural of cs305_project is
 			start_r, start_g, start_b                   : in std_logic; -- rgb inputs (start screen)
 			endgame_r, endgame_g, endgame_b             : in std_logic; -- rgb inputs (game over screen)
 			pause_r, pause_g, pause_b                   : in std_logic; -- rgb inputs (pause screen)
+			select1 : in std_logic;
 			enable : out std_logic;
 			red, green, blue 				                 : out std_logic);
 	end component;
@@ -94,6 +95,7 @@ architecture structural of cs305_project is
         port (
             clk : in std_logic;
             rst : in std_logic;
+			mode : in std_logic;
             ones_digit1 : in std_logic_vector(3 downto 0);
             tens_digit1 : in std_logic_vector(3 downto 0);
             speed1 : out std_logic_vector(8 downto 0)
@@ -246,7 +248,8 @@ begin
 			pause_r       => '1', -- temp
 			pause_g       => '1',
 			pause_b       => '1',
-			enable => s_enable,
+			select1        => sw0,
+			enable        => s_enable,
 			red           => s5,
 			green         => s6,
 			blue          => s7
@@ -264,14 +267,17 @@ begin
 			Green_out2 => e2,
 			Blue_out2  => e3
 	);
-        seg: Two_Digit_Counter port map(s1, t_reset, s30, t_tens, t_ones, display11, display22);
-		    
-			 sc: speed_control
+
+	seg: Two_Digit_Counter port map(s1, t_reset, s30, t_tens, t_ones, display11, display22);
+		
+	sc: speed_control
         port map(
-            clk => s1,
-            rst => t_reset,
+            clk         => s1,
+            rst         => t_reset,
+			mode        => sw0,
             ones_digit1 => t_ones,
             tens_digit1 => t_tens,
-            speed1 => speed11
+            speed1      => speed11
         );
+		
 end architecture;
