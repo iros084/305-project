@@ -7,11 +7,12 @@ pb3 => rand_gen:Rn1.rand_st
 pb3 => pipes:d1.reset
 pb3 => Two_Digit_Counter:seg.Init
 pb3 => speed_control:sc.rst
-red_out << vga_sync:V1.red_out
-green_out << vga_sync:V1.green_out
-blue_out << vga_sync:V1.blue_out
-horiz_sync_out << vga_sync:V1.horiz_sync_out
-vert_sync_out << vga_sync:V1.vert_sync_out
+Sw0 => ~NO_FANOUT~
+red_out <= vga_sync:V1.red_out
+green_out <= vga_sync:V1.green_out
+blue_out <= vga_sync:V1.blue_out
+horiz_sync_out <= vga_sync:V1.horiz_sync_out
+vert_sync_out <= vga_sync:V1.vert_sync_out
 mouse_data <> mouse:M1.mouse_data
 mouse_clk <> mouse:M1.mouse_clk
 
