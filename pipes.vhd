@@ -26,9 +26,6 @@ architecture b1 of pipes is
 	Signal Font_B                                            : std_logic := '1';
 	Signal Multiplier                                        : integer := 3;
 	signal c_address                                         : std_logic_vector(5 downto 0) := "001111";
-
-
-
 	type position is record
 		y_pos : std_logic_vector(9 downto 0);
 		x_pos : std_logic_vector (10 downto 0);

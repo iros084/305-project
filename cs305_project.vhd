@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_arith.all;
 
 entity cs305_project is
-	port (Clk, pb0, pb1, pb2, pb3                                  : in std_logic;
+	port (Clk, pb0, pb1, pb2, pb3, Sw0                                  : in std_logic;
 		red_out, green_out, blue_out, horiz_sync_out, vert_sync_out : out std_logic;
 		mouse_data, mouse_clk                                       : inout std_logic);
 end entity;

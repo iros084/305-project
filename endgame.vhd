@@ -49,6 +49,9 @@ Signal Multiplier : integer := 4;
 
 
 signal s_tenth, s_first: std_logic_vector(5 downto 0);
+signal h_tenth, h_first:std_logic_vector(5 downto 0);
+
+
 signal s_ad : std_logic_vector(5 downto 0) := "010011";
 signal c_ad : std_logic_vector(5 downto 0) := "000011";
 signal o_ad : std_logic_vector(5 downto 0) := "001111";
@@ -69,12 +72,21 @@ signal tenth_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(200, 10
 signal first_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
 signal first_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(232, 10);
 
+
+signal ht_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
+signal ht_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(300, 10);
+
+signal hf_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
+signal hf_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(332, 10);
+
+
+
 signal tenth_R, tenth_G, tenth_B, first_R, first_G, first_B, s_R1, s_G1, s_B1,c_R1, c_G1, c_B1, o_R1, o_G1, o_B1,r_R1, r_G1, r_B1,e_R1, e_G1, e_B1 : std_logic;
+
+signal ht_r,ht_g,ht_b,hf_r,hf_g,hf_b:std_logic;
+signal highscore : STD_LOGIC_VECTOR(7 downto 0);
 Signal Multiplier1 : integer := 3;
-
-       
-
-
+Signal we1:std_logic;
 
 component Sprite_Printer is	
   port(pixel_row, pixel_col, a_row, a_col : in std_logic_vector(9 downto 0);
@@ -85,9 +97,43 @@ component Sprite_Printer is
        red_out, green_out, blue_out : out std_logic);
 end component Sprite_printer;
 
+component ram is
+    Port ( clk : in STD_LOGIC;
+           we : in STD_LOGIC;
+           addr : in STD_LOGIC_VECTOR(3 downto 0);
+           din : in STD_LOGIC_VECTOR(7 downto 0);
+           dout : out STD_LOGIC_VECTOR(7 downto 0)
+         );
+end component ram;
+
+signal current_score : std_logic_vector(7 downto 0);
+
 	begin
+	
+	-- RAM instance for high score storage
+highscore_ram : ram port map (clk => Clk, we => we1,addr => "0000", din => current_score,dout => highscore);
+	
+	
+	
+	process(clk)
+	begin
+	    if(rising_edge(Clk)) then
+		    current_score <= tenth_digit & one_digit;
+
+       if (current_score > highscore) then
+                h_tenth <= "11"&tenth_digit;
+                h_first <= "11"&one_digit;
+                we1 <= '1';
+            else
+                we1 <= '0';
+					 h_tenth <= "11"&highscore(7 downto 4);
+					 h_first <= "11"&highscore(3 downto 0);
+            end if;
+		 end if;
+	     
+	end process;
 	   s_first <= "11"&one_digit;
-          s_tenth <= "11" & tenth_digit;
+      s_tenth <= "11" & tenth_digit;
 	  g: sprite_printer port map(pixel_row, pixel_col, g_row, g_col, Font_R, Font_G, Font_B, Multiplier, g_a, enable, CLK, g_R, g_G, g_B);
 	  a: sprite_printer port map(pixel_row, pixel_col, a_row, a_col, Font_R, Font_G, Font_B, Multiplier, a_a, enable, CLK, a_R, a_G, a_B);
 	  m: sprite_printer port map(pixel_row, pixel_col, m_row, m_col, Font_R, Font_G, Font_B, Multiplier, m_a, enable, CLK, m_R, m_G, m_B);
@@ -103,7 +149,12 @@ end component Sprite_printer;
           E2: sprite_printer port map(pixel_row, pixel_col, e2_row, e2_col,Font_R, Font_G, Font_B,Multiplier1,e_ad,enable,CLK,e_R1, e_G1, e_B1);
           ten_text: sprite_printer port map(pixel_row, pixel_col,tenth_row,tenth_col,Font_R, Font_G, Font_B,Multiplier1,s_tenth,enable,CLK,tenth_R, tenth_G, tenth_B);
           one_text: sprite_printer port map(pixel_row, pixel_col,first_row,first_col,Font_R, Font_G, Font_B,Multiplier1,s_first,enable,CLK,first_R, first_G, first_B);
-		Red_out2 <= g_R and a_R and m_R and e_R and o_R and v_R and e1_R and r_R and tenth_R and first_R and s_R1 and c_R1 and o_R1 and r_R1 and e_R1; 
-		Green_out2 <= g_G and a_G and m_G and e_G and o_G and v_G and e1_G and r_G and tenth_G and first_G and s_G1 and c_G1 and o_G1 and r_G1 and e_G1;
-		Blue_out2 <= g_B and a_B and m_B and e_B and o_B and v_B and e1_B and r_B and tenth_B and first_B and s_B1 and c_B1 and o_B1 and r_B1 and e_B1;
+
+		ht_text :sprite_printer port map(pixel_row, pixel_col,ht_row,ht_col,Font_R, Font_G, Font_B,Multiplier1,h_tenth, enable,CLK,ht_r,ht_g,ht_b);
+		hf_text :sprite_printer port map(pixel_row, pixel_col,hf_row,hf_col,Font_R, Font_G, Font_B,Multiplier1,h_first,enable,CLK,hf_r,hf_g,hf_b);
+		
+		
+		Red_out2 <= g_R and a_R and m_R and e_R and o_R and v_R and e1_R and r_R and tenth_R and first_R and s_R1 and c_R1 and o_R1 and r_R1 and e_R1 and ht_r and hf_r; 
+		Green_out2 <= g_G and a_G and m_G and e_G and o_G and v_G and e1_G and r_G and tenth_G and first_G and s_G1 and c_G1 and o_G1 and r_G1 and e_G1 and ht_g and hf_g;
+		Blue_out2 <= g_B and a_B and m_B and e_B and o_B and v_B and e1_B and r_B and tenth_B and first_B and s_B1 and c_B1 and o_B1 and r_B1 and e_B1 and ht_b and hf_b;
 end architecture;

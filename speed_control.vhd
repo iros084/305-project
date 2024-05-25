@@ -20,8 +20,10 @@ begin
         if rst = '1' then
             speed1 <= CONV_STD_LOGIC_VECTOR(100, 9); -- Default speed
         elsif rising_edge(clk) then
-            if ones_digit1 > "0011" and tens_digit1 = "0000" then
-                speed1 <= CONV_STD_LOGIC_VECTOR(50, 9); 
+            if tens_digit1 >= "0001" then
+                speed1 <= CONV_STD_LOGIC_VECTOR(75, 9); 
+			   elsif(tens_digit1 >= "0010") then
+				    speed1 <= CONV_STD_LOGIC_VECTOR(50, 9); 
             else
                 speed1 <= CONV_STD_LOGIC_VECTOR(100, 9); -- Default speed
             end if;
