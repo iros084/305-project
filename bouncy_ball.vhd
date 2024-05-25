@@ -9,7 +9,7 @@ entity bouncy_ball is
 		pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
 		pipe_on                   : in std_logic;
 		red, green, blue          : out std_logic;
-		collision                 : out std_logic);
+		collision               : out std_logic);
 end entity;
 
 architecture behavior of bouncy_ball is
@@ -23,7 +23,7 @@ architecture behavior of bouncy_ball is
 	signal ground_x_pos                      : std_logic_vector(10 downto 0);
 	signal ground_y_pos                      : std_logic_vector(9 downto 0);
 	signal ball_y_motion	                    : std_logic_vector(9 downto 0);
-	
+	signal collision_count                   : integer := 0; -- collision counter
 	signal enable : std_logic;
 
 begin           
@@ -96,5 +96,7 @@ begin
 			end if;
 		end if;
 	end process;
+	
+	
 
 end architecture;

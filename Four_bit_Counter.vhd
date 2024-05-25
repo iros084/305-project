@@ -22,7 +22,7 @@ begin
 		  if (init = '1') then
 			 case Direction is
 					 when '0' =>	
-						  v_Q := "0011";	--Reset to 3
+						  v_Q := "1001";	
 					 when '1' =>
 						  v_Q := "0000";
 					 when others => null;
@@ -31,17 +31,17 @@ begin
 		
 		  if(enable = '1' and enable_latch = '1') then
 				case Direction is
-					when '0' =>	--Down counter
+					when '0' =>	
 						if(v_Q = "0000") then
-							v_Q := "1001";	--Reset to 9
+							v_Q := "1001";	
 						else
-							v_Q := v_Q - 1;	--count down
+							v_Q := v_Q - 1;
 						end if;
 					when '1' =>
 						if(v_Q = "1001") then
 							v_Q := "0000";
 						else
-							v_Q := v_Q + 1;	-- count up
+							v_Q := v_Q + 1;
 						end if;
 					when others => null;
 				end case;

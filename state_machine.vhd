@@ -11,6 +11,7 @@ entity state_machine is
 		bouncy_ball_r, bouncy_ball_g, bouncy_ball_b : in std_logic; -- rgb inputs (bouncy_ball)
 		pipes_r, pipes_g, pipes_b                   : in std_logic; -- rgb inputs (pipes)
 		start_r, start_g, start_b                   : in std_logic; -- rgb inputs (start screen)
+		l_r,l_g,l_b: in std_logic;
 		endgame_r, endgame_g, endgame_b             : in std_logic; -- rgb inputs (game over screen)
 		pause_r, pause_g, pause_b                   : in std_logic; -- rgb inputs (pause screen)
 		select1                                      : in std_logic; -- mode select fron switch
@@ -45,24 +46,24 @@ begin
 				blue  <= start_b;
 				enable <= '0';
 			when game_1 =>
-				red   <= bouncy_ball_r and pipes_r;
-				green <= bouncy_ball_g and pipes_g;
-				blue  <= bouncy_ball_b and pipes_b;
+				red   <= bouncy_ball_r and pipes_r and l_r;
+				green <= bouncy_ball_g and pipes_g and l_g;
+				blue  <= bouncy_ball_b and pipes_b and l_b;
 				enable <= '1';
 			when game_2 =>
-				red   <= bouncy_ball_r and pipes_r;
-				green <= bouncy_ball_g and pipes_g;
-				blue  <= bouncy_ball_b and pipes_b;
+				red   <= bouncy_ball_r and pipes_r and l_r ;
+				green <= bouncy_ball_g and pipes_g and l_g;
+				blue  <= bouncy_ball_b and pipes_b and l_b;
 				enable <= '1';
 			when game_3 =>
-				red   <= bouncy_ball_r and pipes_r;
-				green <= bouncy_ball_g and pipes_g;
-				blue  <= bouncy_ball_b and pipes_b;
+				red   <= bouncy_ball_r and pipes_r and l_r;
+				green <= bouncy_ball_g and pipes_g and l_g;
+				blue  <= bouncy_ball_b and pipes_b and l_b;
 				enable <= '1';
 			when training =>
-				red   <= bouncy_ball_r and pipes_r;
-				green <= bouncy_ball_g and pipes_g;
-				blue  <= bouncy_ball_b and pipes_b;
+				red   <= bouncy_ball_r and pipes_r and l_r;
+				green <= bouncy_ball_g and pipes_g and l_g;
+				blue  <= bouncy_ball_b and pipes_b and l_b;
 				enable <= '1';
 			when pause_1 =>
 				red   <= pause_r;

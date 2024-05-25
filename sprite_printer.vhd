@@ -5,11 +5,6 @@ USE IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity SPRITE_PRINTER is
   
-  -- pixel_row, pixel_col : current pixel row and column
-  -- a_row, a_col : where to place the text, the top left is the anchor of the 8x8 text tile
-  -- address: what character to display, please provide its address from the .mif file
-  -- rom_mux_out : once character and position is set, it will send 1 or 0, according to current row and col pixel.
-  
   port(pixel_row, pixel_col, a_row, a_col : in std_logic_vector(9 downto 0);
        s_red, s_green, s_blue : in std_logic;
        multiplier : in integer range 1 to 4;
