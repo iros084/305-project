@@ -58,8 +58,8 @@ function update_position (y_pos       : std_logic_vector(9 downto 0);
 begin
     if x_pos = CONV_STD_LOGIC_VECTOR(0,11) then
         p1.x_pos := CONV_STD_LOGIC_VECTOR(760,11);
-        if pipe_height > CONV_STD_LOGIC_VECTOR(336,10) then
-            p1.y_pos := CONV_STD_LOGIC_VECTOR(336,10);
+        if pipe_height > CONV_STD_LOGIC_VECTOR(300,10) then
+            p1.y_pos := CONV_STD_LOGIC_VECTOR(300,10);
         elsif pipe_height < CONV_STD_LOGIC_VECTOR(90,10) then
             p1.y_pos := CONV_STD_LOGIC_VECTOR(90,10);
         else
@@ -87,15 +87,15 @@ begin
     pipe_on <= pipeB_on or pipeA_on;
     pipe_s <= pipe_on when (pixel_column < conv_std_logic_vector(329, 10) and pixel_column > conv_std_logic_vector(311, 10)) else '0';
 
-    Red <= not pipe_on and c_R;
-    Green <= '1' and c_G;
-    Blue <= not pipe_on and c_B;
+    Red <= not pipe_on;-- and c_R;
+    Green <= '1';-- and c_G;
+    Blue <= not pipe_on;-- and c_B;
     c_row <= pipe_h + CONV_STD_LOGIC_VECTOR(80,9);
     c_column <= pipe_x(9 downto 0) - CONV_STD_LOGIC_VECTOR(52,9);
     coin_s <= c_R when (pixel_column < CONV_STD_LOGIC_VECTOR(329,10) and pixel_column > CONV_STD_LOGIC_VECTOR(311,10)) else '0';
 
     heightGen: rand_gen port map(clk, reset, t_power);
-    C_S: sprite_printer port map(pixel_row, pixel_column, c_row, c_column, Font_R, Font_G, Font_B, Multiplier, c_address, power, clk, c_R, c_G, c_B);
+    --C_S: sprite_printer port map(pixel_row, pixel_column, c_row, c_column, Font_R, Font_G, Font_B, Multiplier, c_address, power, clk, c_R, c_G, c_B);
 
     pipe_M: process (horiz_sync, reset)
         variable pipe_position: position;
