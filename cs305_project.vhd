@@ -24,12 +24,12 @@ architecture structural of cs305_project is
 	end component;
 	
 	component bouncy_ball is
-		port (clk, vert_sync, mouse_click : in std_logic;
+		port (clk, vert_sync, mouse_click, enable_in : in std_logic;
 			left_button, right_button : in std_logic;
 			pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
 			pipe_on                   : in std_logic;
 			red, green, blue          : out std_logic;
-			collision                 : out std_logic);
+			collision, enable_out     : out std_logic);
 	end component;
 	
 	component mouse is
@@ -124,16 +124,17 @@ architecture structural of cs305_project is
 	signal sn1, sn2, sn3        : std_logic;
 	--s20 <= '1';
 	
-	signal s_l, s_out, s_enable : std_logic;
+	signal s_l, s_out, s_enable, s_e : std_logic;
 	
 begin
 
-    t_reset <= '1' when (pb3 = '0') else '0';
+	t_reset <= '1' when (pb3 = '0') else '0';
+	 
 	--s_l <= '0' when t_reset <= '1';
 
-   	horiz_sync_out <= t_horz;
+	horiz_sync_out <= t_horz;
 	vert_sync_out <= s8;
-   	t_h <= '0' & t_p;
+	t_h <= '0' & t_p;
 	
 	C1: cs305_pll
 		port map(
@@ -161,6 +162,7 @@ begin
 		port map(
 			clk          => s1,
 			vert_sync    => s8,
+			enable_in    => s_enable,
 			mouse_click  => s14,
 			left_button  => s14,
 			right_button => s15,
@@ -170,7 +172,8 @@ begin
 			red          => s2,
 			green        => s3,
 			blue         => s4,
-			collision    => s_l
+			collision    => s_l,
+			enable_out   => s_e
 	);
 
 	M1: mouse
@@ -209,7 +212,7 @@ begin
 			clk          => s1,
 			horiz_sync   => t_horz,
 			vert_sync    => s8,
-			enable       => s_enable,
+			enable       => s_e,
 			reset        => t_reset,
 			pixel_row    => s9,
 			pixel_column => s10,

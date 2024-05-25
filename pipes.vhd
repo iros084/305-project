@@ -58,10 +58,10 @@ function update_position (y_pos       : std_logic_vector(9 downto 0);
 begin
     if x_pos = CONV_STD_LOGIC_VECTOR(0,11) then
         p1.x_pos := CONV_STD_LOGIC_VECTOR(760,11);
-        if pipe_height > CONV_STD_LOGIC_VECTOR(300,10) then
-            p1.y_pos := CONV_STD_LOGIC_VECTOR(300,10);
-        elsif pipe_height < CONV_STD_LOGIC_VECTOR(90,10) then
-            p1.y_pos := CONV_STD_LOGIC_VECTOR(90,10);
+        if pipe_height > CONV_STD_LOGIC_VECTOR(270,10) then
+            p1.y_pos := CONV_STD_LOGIC_VECTOR(270,10);
+        elsif pipe_height < CONV_STD_LOGIC_VECTOR(100,10) then
+            p1.y_pos := CONV_STD_LOGIC_VECTOR(100,10);
         else
             p1.y_pos := pipe_height;
         end if;
@@ -82,7 +82,7 @@ begin
 
     pipeA_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row <= pipe_h) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
-    pipeB_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row >= pipe_h + conv_std_logic_vector(100,10)) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
+    pipeB_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row >= pipe_h + conv_std_logic_vector(120,10)) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
     pipe_on <= pipeB_on or pipeA_on;
     pipe_s <= pipe_on when (pixel_column < conv_std_logic_vector(329, 10) and pixel_column > conv_std_logic_vector(311, 10)) else '0';

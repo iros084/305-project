@@ -4,12 +4,12 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_signed.all;
 
 entity bouncy_ball is
-	port (clk, vert_sync, mouse_click : in std_logic;
+	port (clk, vert_sync, mouse_click, enable_in : in std_logic;
 		left_button, right_button : in std_logic;
 		pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
 		pipe_on                   : in std_logic;
 		red, green, blue          : out std_logic;
-		collision               : out std_logic);
+		collision, enable_out     : out std_logic);
 end entity;
 
 architecture behavior of bouncy_ball is
@@ -24,7 +24,7 @@ architecture behavior of bouncy_ball is
 	signal ground_y_pos                      : std_logic_vector(9 downto 0);
 	signal ball_y_motion	                    : std_logic_vector(9 downto 0);
 	signal collision_count                   : integer := 0; -- collision counter
-	signal enable : std_logic;
+	signal enable, notEnable : std_logic;
 
 begin           
 	-- ball_x_pos and ball_y_pos show the (x, y) for the centre of ball
@@ -55,15 +55,28 @@ begin
 	red <= ball_on;
 	green <= ground_on;
 	blue <= background_on;
-
-	process (mouse_click)
-	begin
-		if (rising_edge(mouse_click)) then
-			enable <= '1';
-		end if;
-	end process;
 	
-	collision <= pipe_on and ball_on and enable;
+	-- SR latch
+	--
+	-- S = mouse_click
+	-- R = not enable_in
+	-- Q = enable
+	-- notQ = not enable
+	--
+	-- S | R | Q | notQ
+	-- 0 | 0 | L |  L
+	-- 0 | 1 | 0 |  1
+	-- 1 | 0 | 1 |  0
+	-- 1 | 1 | 0 |  0
+	--
+	-- Q <= R nor notQ;
+	-- notQ <= S nor Q;
+	enable <= (not enable_in) nor notEnable;
+	notEnable <= mouse_click nor enable;
+	
+	enable_out <= enable;
+	
+	collision <= enable and ball_on and (pipe_on or ground_on);
 	
 	Ball_Mot: process (vert_sync, left_button)
 	begin

@@ -129,7 +129,8 @@ architecture behaviour of endgame is
     component ram is
         port (clk, we : in STD_LOGIC;
             addr      : in STD_LOGIC_VECTOR(3 downto 0);
-            din, dout : in STD_LOGIC_VECTOR(7 downto 0));
+            din  : in STD_LOGIC_VECTOR(7 downto 0);
+				dout : out STD_LOGIC_VECTOR(7 downto 0));
     end component ram;
 
     signal current_score : std_logic_vector(7 downto 0);
