@@ -467,6 +467,7 @@ set_location_assignment PIN_W9 -to pb1
 set_location_assignment PIN_M7 -to pb2
 set_location_assignment PIN_M6 -to pb3
 set_location_assignment PIN_U13 -to sw0
+set_global_assignment -name VHDL_FILE coll_detect.vhd
 set_global_assignment -name VHDL_FILE life.vhd
 set_global_assignment -name VHDL_FILE ram.vhd
 set_global_assignment -name VHDL_FILE speed_control.vhd

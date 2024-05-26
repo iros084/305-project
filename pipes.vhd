@@ -27,7 +27,7 @@ architecture b1 of pipes is
 	Signal Font_B                                            : std_logic := '0';
 	Signal Multiplier                                        : integer := 3;
 	signal c_address                                         : std_logic_vector(5 downto 0) := "100111";
-	signal reset_pipe                                       : std_logic := '0';
+	signal reset_pipe,collision_state                                       : std_logic := '0';
 	signal life_count1 : std_logic_vector(3 downto 0):="0000"; 
 	signal t_ball_reset :std_logic := '0';
     
@@ -61,10 +61,8 @@ function update_position (y_pos       : std_logic_vector(9 downto 0);
 begin
     if x_pos = CONV_STD_LOGIC_VECTOR(0,11) then
         p1.x_pos := CONV_STD_LOGIC_VECTOR(760,11);
-        if pipe_height > CONV_STD_LOGIC_VECTOR(270,10) then
-            p1.y_pos := CONV_STD_LOGIC_VECTOR(270,10);
-        elsif pipe_height < CONV_STD_LOGIC_VECTOR(100,10) then
-            p1.y_pos := CONV_STD_LOGIC_VECTOR(100,10);
+        if pipe_height > CONV_STD_LOGIC_VECTOR(336,10) then
+            p1.y_pos := CONV_STD_LOGIC_VECTOR(336,10);
         else
             p1.y_pos := pipe_height;
         end if;
@@ -85,7 +83,7 @@ begin
 
     pipeA_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row <= pipe_h) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
-    pipeB_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row >= pipe_h + conv_std_logic_vector(120,10)) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
+    pipeB_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row >= pipe_h + conv_std_logic_vector(224,10)) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
     pipe_on <= pipeB_on or pipeA_on;
     pipe_s <= pipe_on when (pixel_column < conv_std_logic_vector(329, 10) and pixel_column > conv_std_logic_vector(311, 10)) else '0';
@@ -101,35 +99,43 @@ begin
     --C_S: sprite_printer port map(pixel_row, pixel_column, c_row, c_column, Font_R, Font_G, Font_B, Multiplier, c_address, power, clk, c_R, c_G, c_B);
 
 	 
-    pipe_M: process (horiz_sync, reset)
-        variable pipe_position: position;
-    begin
-        if rising_edge(horiz_sync) then
-            if enable = '1' then
-                initial <= '0';
-                if pipe_x = CONV_STD_LOGIC_VECTOR(0,11) then
-                    power <= '1';
-                end if;
+pipe_M: process (horiz_sync, reset)
+		variable pipe_position: position;
+	begin
+		if rising_edge(horiz_sync) then
+			if enable = '1' then
+				initial <= '0';
+				if pipe_x = CONV_STD_LOGIC_VECTOR(0,11) then
+					power <= '1';
+				end if;
 
-                if timer1 = speed and pause = '0' then
-                    pipe_position := update_position(pipe_h, pipe_x, pipe_height);
-                    pipe_x <= pipe_position.x_pos;
-                    pipe_h <= pipe_position.y_pos;
-                    timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
-                else
-                    timer1 <= timer1 + 1;
-                end if;
-            elsif reset = '1' or enable = '0' then
-                power <= '0';
-                pipe_x <= init;
-                pipe_h <= CONV_STD_LOGIC_VECTOR(700,10);
-                initial <= '1';
-            end if;
-      
-        end if;
-    end process;
-	 
-	
+				if timer1 = speed and pause = '0' then
+				
+				   if collision_in = '1' then
+						collision_state <= '1';
+					end if;
+
+					if collision_state = '1' then
+					   timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
+						pipe_x <= CONV_STD_LOGIC_VECTOR(760, 11);
+						collision_state <= '0'; -- Reset the state after moving the pipe
+					else
+					pipe_position := update_position(pipe_h, pipe_x, pipe_height);
+					pipe_x <= pipe_position.x_pos;
+					pipe_h <= pipe_position.y_pos;
+					timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
+					end if;
+				else
+					timer1 <= timer1 + 1;
+				end if;
+			elsif reset = '1'then
+				power <= '0';
+				pipe_x <= init;
+				pipe_h <= CONV_STD_LOGIC_VECTOR(700,10);
+				initial <= '1';
+			end if;
+		end if;
+	end process;
 	life_count <= life_count1;
 
 end architecture;

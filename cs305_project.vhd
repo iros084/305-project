@@ -107,6 +107,14 @@ architecture structural of cs305_project is
             tens_digit1 : in std_logic_vector(3 downto 0);
             speed1      : out std_logic_vector(8 downto 0));
     end component;
+	 
+	component coll_detect is
+  	PORT (
+		clk, bouncy_ball_on, pipe_on : IN std_logic;
+		input: OUT std_logic
+	);	
+  end component;
+
 	
 	signal s1, s2, s3, s4, s5, s6, s7, s8, s11, s14, s15, s16, s17, s18, s19, s20, s25, s26, s27, s28, s29, s30, s31, s32: std_logic;
 	signal s9, s10, s12, s13    : std_logic_vector(9 downto 0);
@@ -123,20 +131,21 @@ architecture structural of cs305_project is
 	signal t_reset              : std_logic;
 	signal speed11              : std_logic_vector(8 downto 0); -- Speed signal
 	signal t_ending             : std_logic;
-	signal sn1, sn2, sn3        : std_logic;
+	signal sn1, sn2, sn3,t_out,t_pipe_ball_reset        : std_logic;
 	--s20 <= '1';
 	
 	signal s_l, s_out, s_enable, s_e, s_pause, button_pause : std_logic;
 	
 begin
 
-	t_reset <= '1' when (pb3 = '0') or (sw0 = '0' ) else '0';
+	t_reset <= '1' when (pb3 = '0') else '0';
 	 
 	--s_l <= '0' when t_reset <= '1';
 
 	horiz_sync_out <= t_horz;
 	vert_sync_out <= s8;
 	t_h <= '0' & t_p;
+	t_pipe_ball_reset <= '1' when (t_reset = '1' or t_out = '1') else '0' when s31 = '1';
 	
 	process(pb2)
 	begin
@@ -152,6 +161,7 @@ begin
 			rst      => '0',
 			outclk_0 => s1
 	);
+	cc2:  coll_detect port map(s1,s_l,s28,t_out);
 
 	V1: vga_sync
 		port map(
@@ -224,7 +234,7 @@ begin
 			horiz_sync   => t_horz,
 			vert_sync    => s8,
 			enable       => s_e,
-			reset        => t_reset,
+			reset        => t_pipe_ball_reset,
 			pause        => s_pause,
 			collision_in => s_l,
 			pixel_row    => s9,
