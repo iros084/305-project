@@ -47,7 +47,7 @@ begin
                                            t_sprite_enable, clk,                           
                                            t_red_out, t_green_out, t_blue_out);
                                            
-   counter : Four_bit_Counter port map(clk, dir, rst, col_detect, t_count_out);
+   counter : Four_bit_Counter port map(clk, '0', rst, col_detect, t_count_out);
      
    red <= t_red_out;
    green <= t_green_out;
@@ -55,7 +55,7 @@ begin
    
    t_add_in <= "11" & t_count_out;
         
-   ending <= '1' when (t_count_out = "0011") else '0';   
+   ending <= '1' when (t_count_out = "0000") else '0';   
 	
                                                                                                                               
 end architecture;

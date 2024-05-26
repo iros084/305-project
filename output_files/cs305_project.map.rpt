@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cs305_project
-Mon May 27 08:47:33 2024
+Mon May 27 09:18:26 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -127,70 +127,71 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 119. Parameter Settings for User Entity Instance: life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component
 120. Parameter Settings for Inferred Entity Instance: endgame:o1|ram:highscore_ram|altsyncram:ram_rtl_0
 121. altsyncram Parameter Settings by Entity Instance
-122. Port Connectivity Checks: "life:lc|SPRITE_PRINTER:sprite_design"
-123. Port Connectivity Checks: "life:lc"
-124. Port Connectivity Checks: "Two_Digit_Counter:seg|Four_bit_Counter:first_counter"
-125. Port Connectivity Checks: "Two_Digit_Counter:seg|Four_bit_Counter:tenth_counter"
-126. Port Connectivity Checks: "Two_Digit_Counter:seg"
-127. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:hf_text"
-128. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:ht_text"
-129. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:E12"
-130. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:R11"
-131. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:O11"
-132. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:C11"
-133. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:S11"
-134. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:hh1"
-135. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:gg"
-136. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:ii"
-137. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:hh"
-138. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:one_text"
-139. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:ten_text"
-140. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:E2"
-141. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:R1"
-142. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:O1"
-143. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:C1"
-144. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:S1"
-145. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:r"
-146. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:e1"
-147. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:v"
-148. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:o"
-149. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:e"
-150. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:m"
-151. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:a"
-152. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:g"
-153. Port Connectivity Checks: "endgame:o1|ram:highscore_ram"
-154. Port Connectivity Checks: "endgame:o1"
-155. Port Connectivity Checks: "state_machine:R1"
-156. Port Connectivity Checks: "pipes:d1|rand_gen:heightGen"
-157. Port Connectivity Checks: "pipes:d1"
-158. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_l"
-159. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_a"
-160. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_i"
-161. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_r"
-162. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_o"
-163. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_t1"
-164. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_u"
-165. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_t"
-166. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_y"
-167. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_a"
-168. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_l"
-169. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_p"
-170. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_d"
-171. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_r"
-172. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_i"
-173. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_b"
-174. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_y"
-175. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_p1"
-176. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_p"
-177. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_a"
-178. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_l"
-179. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_f"
-180. Port Connectivity Checks: "start:P1"
-181. Port Connectivity Checks: "MOUSE:M1"
-182. Port Connectivity Checks: "cs305_pll:C1"
-183. Post-Synthesis Netlist Statistics for Top Partition
-184. Elapsed Time Per Partition
-185. Analysis & Synthesis Messages
+122. Port Connectivity Checks: "life:lc|Four_bit_Counter:counter"
+123. Port Connectivity Checks: "life:lc|SPRITE_PRINTER:sprite_design"
+124. Port Connectivity Checks: "life:lc"
+125. Port Connectivity Checks: "Two_Digit_Counter:seg|Four_bit_Counter:first_counter"
+126. Port Connectivity Checks: "Two_Digit_Counter:seg|Four_bit_Counter:tenth_counter"
+127. Port Connectivity Checks: "Two_Digit_Counter:seg"
+128. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:hf_text"
+129. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:ht_text"
+130. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:E12"
+131. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:R11"
+132. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:O11"
+133. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:C11"
+134. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:S11"
+135. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:hh1"
+136. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:gg"
+137. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:ii"
+138. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:hh"
+139. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:one_text"
+140. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:ten_text"
+141. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:E2"
+142. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:R1"
+143. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:O1"
+144. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:C1"
+145. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:S1"
+146. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:r"
+147. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:e1"
+148. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:v"
+149. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:o"
+150. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:e"
+151. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:m"
+152. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:a"
+153. Port Connectivity Checks: "endgame:o1|SPRITE_PRINTER:g"
+154. Port Connectivity Checks: "endgame:o1|ram:highscore_ram"
+155. Port Connectivity Checks: "endgame:o1"
+156. Port Connectivity Checks: "state_machine:R1"
+157. Port Connectivity Checks: "pipes:d1|rand_gen:heightGen"
+158. Port Connectivity Checks: "pipes:d1"
+159. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_l"
+160. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_a"
+161. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_i"
+162. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_r"
+163. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_o"
+164. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_t1"
+165. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_u"
+166. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:tut_t"
+167. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_y"
+168. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_a"
+169. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_l"
+170. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:play_p"
+171. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_d"
+172. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_r"
+173. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_i"
+174. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_b"
+175. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_y"
+176. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_p1"
+177. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_p"
+178. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_a"
+179. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_l"
+180. Port Connectivity Checks: "start:P1|SPRITE_PRINTER:title_f"
+181. Port Connectivity Checks: "start:P1"
+182. Port Connectivity Checks: "MOUSE:M1"
+183. Port Connectivity Checks: "cs305_pll:C1"
+184. Post-Synthesis Netlist Statistics for Top Partition
+185. Elapsed Time Per Partition
+186. Analysis & Synthesis Messages
 
 
 
@@ -216,16 +217,16 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 27 08:47:33 2024           ;
+; Analysis & Synthesis Status     ; Successful - Mon May 27 09:18:26 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; cs305_project                                   ;
 ; Top-level Entity Name           ; cs305_project                                   ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 224                                             ;
+; Total registers                 ; 223                                             ;
 ; Total pins                      ; 13                                              ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 7,952                                           ;
+; Total block memory bits         ; 7,440                                           ;
 ; Total DSP Blocks                ; 0                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -340,7 +341,8 @@ refer to the applicable agreement for further details.
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
-;     Processors 6-16        ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -390,20 +392,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 522                                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 520                                                                               ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 801                                                                               ;
+; Combinational ALUT usage for logic          ; 799                                                                               ;
 ;     -- 7 input functions                    ; 84                                                                                ;
-;     -- 6 input functions                    ; 133                                                                               ;
-;     -- 5 input functions                    ; 120                                                                               ;
+;     -- 6 input functions                    ; 131                                                                               ;
+;     -- 5 input functions                    ; 121                                                                               ;
 ;     -- 4 input functions                    ; 145                                                                               ;
-;     -- <=3 input functions                  ; 319                                                                               ;
+;     -- <=3 input functions                  ; 318                                                                               ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 224                                                                               ;
+; Dedicated logic registers                   ; 223                                                                               ;
 ;                                             ;                                                                                   ;
 ; I/O pins                                    ; 13                                                                                ;
 ; Total MLAB memory bits                      ; 0                                                                                 ;
-; Total block memory bits                     ; 7952                                                                              ;
+; Total block memory bits                     ; 7440                                                                              ;
 ;                                             ;                                                                                   ;
 ; Total DSP Blocks                            ; 0                                                                                 ;
 ;                                             ;                                                                                   ;
@@ -411,9 +413,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; cs305_pll:C1|cs305_pll_0002:cs305_pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 537                                                                               ;
-; Total fan-out                               ; 5812                                                                              ;
-; Average fan-out                             ; 4.00                                                                              ;
+; Maximum fan-out                             ; 536                                                                               ;
+; Total fan-out                               ; 5793                                                                              ;
+; Average fan-out                             ; 3.99                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -422,7 +424,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Entity Name       ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |cs305_project                                  ; 801 (5)             ; 224 (1)                   ; 7952              ; 0          ; 13   ; 0            ; |cs305_project                                                                                                                         ; cs305_project     ; work         ;
+; |cs305_project                                  ; 799 (5)             ; 223 (1)                   ; 7440              ; 0          ; 13   ; 0            ; |cs305_project                                                                                                                         ; cs305_project     ; work         ;
 ;    |MOUSE:M1|                                   ; 50 (50)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|MOUSE:M1                                                                                                                ; MOUSE             ; work         ;
 ;    |Two_Digit_Counter:seg|                      ; 17 (5)              ; 14 (4)                    ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|Two_Digit_Counter:seg                                                                                                   ; Two_Digit_Counter ; work         ;
 ;       |Four_bit_Counter:first_counter|          ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|Two_Digit_Counter:seg|Four_bit_Counter:first_counter                                                                    ; Four_bit_Counter  ; work         ;
@@ -540,12 +542,12 @@ refer to the applicable agreement for further details.
 ;       |ram:highscore_ram|                       ; 0 (0)               ; 0 (0)                     ; 16                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|ram:highscore_ram                                                                                            ; ram               ; work         ;
 ;          |altsyncram:ram_rtl_0|                 ; 0 (0)               ; 0 (0)                     ; 16                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|ram:highscore_ram|altsyncram:ram_rtl_0                                                                       ; altsyncram        ; work         ;
 ;             |altsyncram_dgr1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 16                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|ram:highscore_ram|altsyncram:ram_rtl_0|altsyncram_dgr1:auto_generated                                        ; altsyncram_dgr1   ; work         ;
-;    |life:lc|                                    ; 17 (0)              ; 5 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|life:lc                                                                                                                 ; life              ; work         ;
-;       |Four_bit_Counter:counter|                ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|life:lc|Four_bit_Counter:counter                                                                                        ; Four_bit_Counter  ; work         ;
-;       |SPRITE_PRINTER:sprite_design|            ; 12 (10)             ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design                                                                                    ; SPRITE_PRINTER    ; work         ;
-;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM                                                                ; char_rom          ; work         ;
-;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
-;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1   ; work         ;
+;    |life:lc|                                    ; 15 (0)              ; 4 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc                                                                                                                 ; life              ; work         ;
+;       |Four_bit_Counter:counter|                ; 3 (3)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|life:lc|Four_bit_Counter:counter                                                                                        ; Four_bit_Counter  ; work         ;
+;       |SPRITE_PRINTER:sprite_design|            ; 12 (10)             ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design                                                                                    ; SPRITE_PRINTER    ; work         ;
+;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM                                                                ; char_rom          ; work         ;
+;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
+;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1   ; work         ;
 ;    |pipes:d1|                                   ; 87 (87)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|pipes:d1                                                                                                                ; pipes             ; work         ;
 ;    |rand_gen:Rn1|                               ; 17 (17)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|rand_gen:Rn1                                                                                                            ; rand_gen          ; work         ;
 ;    |speed_control:sc|                           ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|speed_control:sc                                                                                                        ; speed_control     ; work         ;
@@ -806,7 +808,8 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; state_machine:R1|state.pause_3                              ; Lost fanout                                                               ;
 ; speed_control:sc|speed1[1,2]                                ; Merged with speed_control:sc|speed1[0]                                    ;
 ; rand_gen:Rn1|s1[8]                                          ; Lost fanout                                                               ;
-; Total Number of Removed Registers = 42                      ;                                                                           ;
+; life:lc|Four_bit_Counter:counter|Q_out[3]                   ; Stuck at GND due to stuck port data_in                                    ;
+; Total Number of Removed Registers = 43                      ;                                                                           ;
 +-------------------------------------------------------------+---------------------------------------------------------------------------+
 
 
@@ -826,7 +829,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 224   ;
+; Total registers                              ; 223   ;
 ; Number of registers using Synchronous Clear  ; 30    ;
 ; Number of registers using Synchronous Load   ; 38    ;
 ; Number of registers using Asynchronous Clear ; 27    ;
@@ -841,7 +844,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; coll_detect:cc2|input                  ; 7       ;
+; coll_detect:cc2|input                  ; 8       ;
 ; MOUSE:M1|send_char                     ; 3       ;
 ; MOUSE:M1|SHIFTOUT[3]                   ; 1       ;
 ; MOUSE:M1|SHIFTOUT[5]                   ; 1       ;
@@ -5204,6 +5207,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------------------------------------------------------+
 
 
++--------------------------------------------------------------+
+; Port Connectivity Checks: "life:lc|Four_bit_Counter:counter" ;
++-----------+-------+----------+-------------------------------+
+; Port      ; Type  ; Severity ; Details                       ;
++-----------+-------+----------+-------------------------------+
+; direction ; Input ; Info     ; Stuck at GND                  ;
++-----------+-------+----------+-------------------------------+
+
+
 +------------------------------------------------------------------+
 ; Port Connectivity Checks: "life:lc|SPRITE_PRINTER:sprite_design" ;
 +------------------+-------+----------+----------------------------+
@@ -6610,7 +6622,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 224                         ;
+; arriav_ff             ; 223                         ;
 ;     CLR               ; 12                          ;
 ;     ENA               ; 65                          ;
 ;     ENA CLR           ; 15                          ;
@@ -6618,29 +6630,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 10                          ;
 ;     SCLR              ; 10                          ;
 ;     SLD               ; 28                          ;
-;     plain             ; 64                          ;
+;     plain             ; 63                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 801                         ;
+; arriav_lcell_comb     ; 799                         ;
 ;     arith             ; 109                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 93                          ;
 ;         2 data inputs ; 14                          ;
 ;     extend            ; 84                          ;
 ;         7 data inputs ; 84                          ;
-;     normal            ; 608                         ;
+;     normal            ; 606                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 46                          ;
+;         2 data inputs ; 45                          ;
 ;         3 data inputs ; 153                         ;
 ;         4 data inputs ; 145                         ;
-;         5 data inputs ; 120                         ;
-;         6 data inputs ; 133                         ;
+;         5 data inputs ; 121                         ;
+;         6 data inputs ; 131                         ;
 ; boundary_port         ; 13                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 400                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 4.69                        ;
+; Average LUT depth     ; 4.70                        ;
 +-----------------------+-----------------------------+
 
 
@@ -6659,7 +6671,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 27 08:47:26 2024
+    Info: Processing started: Mon May 27 09:18:18 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cs305_project -c cs305_project
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -7465,7 +7477,7 @@ Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:O1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:R1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:E2|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 3 MSB VCC or GND address nodes from RAM block "life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 3 MSB VCC or GND address nodes from RAM block "endgame:o1|ram:highscore_ram|altsyncram:ram_rtl_0|altsyncram_dgr1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_dgr1.tdf Line: 157
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -7702,17 +7714,17 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance cs305_pll:C1|cs305_pll_0002:cs305_pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 1297 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1295 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 5 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 883 logic cells
+    Info (21061): Implemented 881 logic cells
     Info (21064): Implemented 400 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 763 warnings
-    Info: Peak virtual memory: 5000 megabytes
-    Info: Processing ended: Mon May 27 08:47:33 2024
-    Info: Elapsed time: 00:00:07
+    Info: Peak virtual memory: 5001 megabytes
+    Info: Processing ended: Mon May 27 09:18:26 2024
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:05
 
 

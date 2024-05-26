@@ -11,11 +11,11 @@ pb3 => life:lc.rst
 sw0 => state_machine:R1.select1
 sw0 => endgame:o1.mode
 sw0 => speed_control:sc.mode
-red_out <= vga_sync:V1.red_out
-green_out <= vga_sync:V1.green_out
-blue_out <= vga_sync:V1.blue_out
-horiz_sync_out <= vga_sync:V1.horiz_sync_out
-vert_sync_out <= vga_sync:V1.vert_sync_out
+red_out << vga_sync:V1.red_out
+green_out << vga_sync:V1.green_out
+blue_out << vga_sync:V1.blue_out
+horiz_sync_out << vga_sync:V1.horiz_sync_out
+vert_sync_out << vga_sync:V1.vert_sync_out
 mouse_data <> mouse:M1.mouse_data
 mouse_clk <> mouse:M1.mouse_clk
 
@@ -19962,7 +19962,7 @@ clk => Q_out[0]~reg0.CLK
 clk => Q_out[1]~reg0.CLK
 clk => Q_out[2]~reg0.CLK
 clk => Q_out[3]~reg0.CLK
-clk => enable_latch.CLK
+clk => enable_l.CLK
 clk => v_Q[0].CLK
 clk => v_Q[1].CLK
 clk => v_Q[2].CLK
@@ -19978,7 +19978,7 @@ Init => v_Q.OUTPUTSELECT
 Init => v_Q.OUTPUTSELECT
 Init => v_Q.OUTPUTSELECT
 Enable => process_0.IN1
-Enable => enable_latch.OUTPUTSELECT
+Enable => enable_l.OUTPUTSELECT
 Q_out[0] <= Q_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q_out[1] <= Q_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q_out[2] <= Q_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -19990,7 +19990,7 @@ clk => Q_out[0]~reg0.CLK
 clk => Q_out[1]~reg0.CLK
 clk => Q_out[2]~reg0.CLK
 clk => Q_out[3]~reg0.CLK
-clk => enable_latch.CLK
+clk => enable_l.CLK
 clk => v_Q[0].CLK
 clk => v_Q[1].CLK
 clk => v_Q[2].CLK
@@ -20006,7 +20006,7 @@ Init => v_Q.OUTPUTSELECT
 Init => v_Q.OUTPUTSELECT
 Init => v_Q.OUTPUTSELECT
 Enable => process_0.IN1
-Enable => enable_latch.OUTPUTSELECT
+Enable => enable_l.OUTPUTSELECT
 Q_out[0] <= Q_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q_out[1] <= Q_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q_out[2] <= Q_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -20068,7 +20068,7 @@ speed1[8] <= speed1[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 clk => SPRITE_PRINTER:sprite_design.clk
 clk => Four_bit_Counter:counter.clk
 rst => Four_bit_Counter:counter.Init
-dir => Four_bit_Counter:counter.Direction
+dir => ~NO_FANOUT~
 col_detect => Four_bit_Counter:counter.Enable
 pixel_row[0] => SPRITE_PRINTER:sprite_design.pixel_row[0]
 pixel_row[1] => SPRITE_PRINTER:sprite_design.pixel_row[1]
@@ -20471,7 +20471,7 @@ clk => Q_out[0]~reg0.CLK
 clk => Q_out[1]~reg0.CLK
 clk => Q_out[2]~reg0.CLK
 clk => Q_out[3]~reg0.CLK
-clk => enable_latch.CLK
+clk => enable_l.CLK
 clk => v_Q[0].CLK
 clk => v_Q[1].CLK
 clk => v_Q[2].CLK
@@ -20487,7 +20487,7 @@ Init => v_Q.OUTPUTSELECT
 Init => v_Q.OUTPUTSELECT
 Init => v_Q.OUTPUTSELECT
 Enable => process_0.IN1
-Enable => enable_latch.OUTPUTSELECT
+Enable => enable_l.OUTPUTSELECT
 Q_out[0] <= Q_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q_out[1] <= Q_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q_out[2] <= Q_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
