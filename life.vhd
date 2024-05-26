@@ -56,5 +56,6 @@ begin
    t_add_in <= "11" & t_count_out;
         
    ending <= '1' when (t_count_out = "0011") else '0';   
+	
                                                                                                                               
 end architecture;

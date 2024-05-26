@@ -4,7 +4,7 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_signed.all;
 
 entity bouncy_ball is
-	port (clk, vert_sync, mouse_click, enable_in : in std_logic;
+	port (clk, vert_sync, mouse_click, enable_in, pause_in : in std_logic;
 		left_button, right_button : in std_logic;
 		pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
 		pipe_on                   : in std_logic;
@@ -24,7 +24,7 @@ architecture behavior of bouncy_ball is
 	signal ground_y_pos                      : std_logic_vector(9 downto 0);
 	signal ball_y_motion	                    : std_logic_vector(9 downto 0);
 	signal collision_count                   : integer := 0; -- collision counter
-	signal enable, notEnable : std_logic;
+	signal enable, notEnable                 : std_logic;
 
 begin           
 	-- ball_x_pos and ball_y_pos show the (x, y) for the centre of ball
@@ -75,12 +75,20 @@ begin
 	notEnable <= mouse_click nor enable;
 	
 	enable_out <= enable;
-	
 	collision <= enable and ball_on and (pipe_on or ground_on);
+   
+--	process(collision_in)
+--	begin
+--		if(rising_edge(collision_in)) then
+--			
+--		end if;
+--	end process;
 	
 	Ball_Mot: process (vert_sync, left_button)
 	begin
-		if (left_button='1' and ('0' & ball_y_pos <= CONV_STD_LOGIC_VECTOR(0, 10) + size_y)) then
+		if (pause_in = '1') then
+			ball_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
+		elsif (left_button='1' and ('0' & ball_y_pos <= CONV_STD_LOGIC_VECTOR(0, 10) + size_y)) then
 			ball_y_motion <= CONV_STD_LOGIC_VECTOR(0, 10);
 		elsif (left_button='1') then
 			ball_y_motion <= - CONV_STD_LOGIC_VECTOR(6, 10);
@@ -109,7 +117,5 @@ begin
 			end if;
 		end if;
 	end process;
-	
-	
 
 end architecture;

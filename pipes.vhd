@@ -4,34 +4,37 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
 entity pipes is
-    port(
-        clk, horiz_sync, vert_sync, enable, reset           : in std_logic;
-        pixel_row, pixel_column, pipe_height                : in std_logic_vector(9 downto 0);
-        speed                                               : in std_logic_vector(8 downto 0);
-        init                                                : in std_logic_vector(10 downto 0);
-        col                                                 : in std_logic;
-        Red, Green, Blue, pipe_s, coin_s, count, initial, rst : out std_logic;
-        pipe_on_out                                         : out std_logic
-    );
+	port (clk, horiz_sync, vert_sync, enable, reset, pause, collision_in   : in std_logic;
+		pixel_row, pixel_column, pipe_height                  : in std_logic_vector(9 downto 0);
+		speed                                                 : in std_logic_vector(8 downto 0);
+		init                                                  : in std_logic_vector(10 downto 0);
+		col                                                   : in std_logic;
+		Red, Green, Blue, pipe_s, coin_s, count, initial, rst : out std_logic;
+		life_count: out std_logic_vector(3 downto 0);
+		pipe_on_out                                           : out std_logic);
 end entity;
 
 architecture b1 of pipes is
 
-    signal width1                                            : std_logic_vector(9 downto 0);
-    signal pipeA_on, pipeB_on, power, pipe_on, c_R, c_G, c_B : std_logic;
-    signal pipe_x                                            : std_logic_vector(10 downto 0);
-    signal pipe_h, c_row, c_column                           : std_logic_vector(9 downto 0);
-    signal timer1                                            : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0,10); 
-    signal t_power                                           : std_logic_vector(8 downto 0);  
-    Signal Font_R                                            : std_logic := '0'; 
-    Signal Font_G                                            : std_logic := '1';
-    Signal Font_B                                            : std_logic := '0';
-    Signal Multiplier                                        : integer := 3;
-    signal c_address                                         : std_logic_vector(5 downto 0) := "100111";
-    type position is record
-        y_pos : std_logic_vector(9 downto 0);
-        x_pos : std_logic_vector (10 downto 0);
-    end record;
+	signal width1                                            : std_logic_vector(9 downto 0);
+	signal pipeA_on, pipeB_on, power, pipe_on, c_R, c_G, c_B : std_logic;
+	signal pipe_x                                            : std_logic_vector(10 downto 0);
+	signal pipe_h, c_row, c_column                           : std_logic_vector(9 downto 0);
+	signal timer1                                            : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0,10); 
+	signal t_power                                           : std_logic_vector(8 downto 0);  
+	Signal Font_R                                            : std_logic := '0'; 
+	Signal Font_G                                            : std_logic := '1';
+	Signal Font_B                                            : std_logic := '0';
+	Signal Multiplier                                        : integer := 3;
+	signal c_address                                         : std_logic_vector(5 downto 0) := "100111";
+	signal reset_pipe                                       : std_logic := '0';
+	signal life_count1 : std_logic_vector(3 downto 0):="0000"; 
+	signal t_ball_reset :std_logic := '0';
+    
+	type position is record
+		y_pos : std_logic_vector(9 downto 0);
+	  x_pos : std_logic_vector (10 downto 0);
+	end record;
 
 component SPRITE_PRINTER is
     port(
@@ -97,6 +100,7 @@ begin
     heightGen: rand_gen port map(clk, reset, t_power);
     --C_S: sprite_printer port map(pixel_row, pixel_column, c_row, c_column, Font_R, Font_G, Font_B, Multiplier, c_address, power, clk, c_R, c_G, c_B);
 
+	 
     pipe_M: process (horiz_sync, reset)
         variable pipe_position: position;
     begin
@@ -107,7 +111,7 @@ begin
                     power <= '1';
                 end if;
 
-                if timer1 = speed then
+                if timer1 = speed and pause = '0' then
                     pipe_position := update_position(pipe_h, pipe_x, pipe_height);
                     pipe_x <= pipe_position.x_pos;
                     pipe_h <= pipe_position.y_pos;
@@ -115,17 +119,17 @@ begin
                 else
                     timer1 <= timer1 + 1;
                 end if;
-            elsif reset = '1' then
+            elsif reset = '1' or enable = '0' then
                 power <= '0';
                 pipe_x <= init;
                 pipe_h <= CONV_STD_LOGIC_VECTOR(700,10);
                 initial <= '1';
             end if;
-                
-                if col = '1' then
-                pipe_x <= CONV_STD_LOGIC_VECTOR(0,11);  -- Move pipe off screen
-            end if;
+      
         end if;
     end process;
+	 
+	
+	life_count <= life_count1;
 
 end architecture;

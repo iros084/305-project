@@ -24,7 +24,7 @@ architecture structural of cs305_project is
 	end component;
 	
 	component bouncy_ball is
-		port (clk, vert_sync, mouse_click, enable_in : in std_logic;
+		port (clk, vert_sync, mouse_click, enable_in, pause_in : in std_logic;
 			left_button, right_button : in std_logic;
 			pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
 			pipe_on                   : in std_logic;
@@ -57,15 +57,16 @@ architecture structural of cs305_project is
 		port (clk, reset           	                    : in std_logic;
 			h_sync, v_sync          	                : in std_logic;
 			pixel_row, pixel_column	                    : in std_logic_vector(9 downto 0);
-			game, pause, lose                           : in std_logic; -- state inputs
+			game, pause, lose,ending1                           : in std_logic; -- state inputs
 			bouncy_ball_r, bouncy_ball_g, bouncy_ball_b : in std_logic; -- rgb inputs (bouncy_ball)
 			pipes_r, pipes_g, pipes_b                   : in std_logic; -- rgb inputs (pipes)
 			start_r, start_g, start_b                   : in std_logic; -- rgb inputs (start screen)
 			l_r, l_g, l_b                               : in std_logic;
+			live_count : in std_logic_vector(3 downto 0);
 			endgame_r, endgame_g, endgame_b             : in std_logic; -- rgb inputs (game over screen)
 			pause_r, pause_g, pause_b                   : in std_logic; -- rgb inputs (pause screen)
 			select1                                     : in std_logic;
-			enable                                      : out std_logic;
+			enable, pause_out                                      : out std_logic;
 			red, green, blue 				            : out std_logic);
 	end component;
 	
@@ -75,12 +76,13 @@ architecture structural of cs305_project is
    	end component;
 	
 	component pipes is
-		port(clk, horiz_sync, vert_sync, enable, reset            : in std_logic;
+		port(clk, horiz_sync, vert_sync, enable, reset, pause, collision_in            : in std_logic;
 			pixel_row, pixel_column, pipe_height                  : in std_logic_vector(9 downto 0);
 			speed                                                 : in std_logic_vector(8 downto 0);
 			init                                                  : in std_logic_vector(10 downto 0);
 			col                                                   : in std_logic;
 			Red, Green, Blue, pipe_s, coin_s, count, initial, rst : out std_logic;
+			life_count: out std_logic_vector(3 downto 0);
 			pipe_on_out                                           : out std_logic);
 	end component;
 	
@@ -113,7 +115,7 @@ architecture structural of cs305_project is
 	signal t_h                  : std_logic_vector(9 downto 0);
 	signal t_p                  : std_logic_vector(8 downto 0);
 	signal t_horz, t_vert       : std_logic;
-	signal t_tens, t_ones, t_t  : std_logic_vector(3 downto 0);
+	signal t_tens, t_ones, t_t,t_l  : std_logic_vector(3 downto 0);
 	signal e1, e2, e3           : std_logic;
 	signal s33, s35             : std_logic_vector(10 downto 0);
 	signal s34, s36             : std_logic_vector(9 downto 0);
@@ -124,17 +126,25 @@ architecture structural of cs305_project is
 	signal sn1, sn2, sn3        : std_logic;
 	--s20 <= '1';
 	
-	signal s_l, s_out, s_enable, s_e : std_logic;
+	signal s_l, s_out, s_enable, s_e, s_pause, button_pause : std_logic;
 	
 begin
 
-	t_reset <= '1' when (pb3 = '0') else '0';
+	t_reset <= '1' when (pb3 = '0') or (sw0 = '0' ) else '0';
 	 
 	--s_l <= '0' when t_reset <= '1';
 
 	horiz_sync_out <= t_horz;
 	vert_sync_out <= s8;
 	t_h <= '0' & t_p;
+	
+	process(pb2)
+	begin
+		if (rising_edge(pb2)) then
+			button_pause <= not button_pause;
+		end if;
+	end process;
+	
 	
 	C1: cs305_pll
 		port map(
@@ -163,6 +173,7 @@ begin
 			clk          => s1,
 			vert_sync    => s8,
 			enable_in    => s_enable,
+			pause_in     => s_pause,
 			mouse_click  => s14,
 			left_button  => s14,
 			right_button => s15,
@@ -214,6 +225,8 @@ begin
 			vert_sync    => s8,
 			enable       => s_e,
 			reset        => t_reset,
+			pause        => s_pause,
+			collision_in => s_l,
 			pixel_row    => s9,
 			pixel_column => s10,
 			pipe_height  => t_h,
@@ -228,6 +241,7 @@ begin
 			initial      => s31,
 			col          => s_l,
 			rst          => s32,
+			life_count   => t_l,
 			pipe_on_out  => s_out
 	);
 
@@ -240,8 +254,9 @@ begin
 			pixel_row     => s9,
 			pixel_column  => s10,
 			game          => pb1,
-			pause         => pb2,
+			pause         => button_pause,
 			lose          => s_l,
+			ending1       => t_ending,
 			bouncy_ball_r => s2,
 			bouncy_ball_g => s3,
 			bouncy_ball_b => s4,
@@ -254,6 +269,7 @@ begin
 			l_r           => sn1,
 			l_g           => sn2,
 			l_b           => sn3,
+			live_count    => t_l,
 			endgame_r     => e1,
 			endgame_g     => e2,
 			endgame_b     => e3,
@@ -262,6 +278,7 @@ begin
 			pause_b       => '1',
 			select1       => sw0,
 			enable        => s_enable,
+			pause_out     => s_pause,
 			red           => s5,
 			green         => s6,
 			blue          => s7
@@ -312,7 +329,8 @@ begin
 			pixel_col  => s10,
 			red        => sn1,
 			green      => sn2,
-			blue       => sn3
+			blue       => sn3,
+			ending => t_ending
 	);
 		
 end architecture;

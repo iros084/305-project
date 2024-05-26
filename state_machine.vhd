@@ -4,19 +4,20 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_signed.all;
 
 entity state_machine is
-	port (clk, reset           	                    : in std_logic;
-		h_sync, v_sync          	                : in std_logic;
+	port (clk, reset           	                 : in std_logic;
+		h_sync, v_sync          	                 : in std_logic;
 		pixel_row, pixel_column	                    : in std_logic_vector(9 downto 0);
-		game, pause, lose                           : in std_logic; -- state inputs
+		game, pause, lose,ending1                   : in std_logic; -- state inputs
 		bouncy_ball_r, bouncy_ball_g, bouncy_ball_b : in std_logic; -- rgb inputs (bouncy_ball)
 		pipes_r, pipes_g, pipes_b                   : in std_logic; -- rgb inputs (pipes)
 		start_r, start_g, start_b                   : in std_logic; -- rgb inputs (start screen)
-		l_r,l_g,l_b: in std_logic;
+		l_r, l_g, l_b                               : in std_logic;
+		live_count                                  : in std_logic_vector(3 downto 0);
 		endgame_r, endgame_g, endgame_b             : in std_logic; -- rgb inputs (game over screen)
 		pause_r, pause_g, pause_b                   : in std_logic; -- rgb inputs (pause screen)
-		select1                                      : in std_logic; -- mode select fron switch
-		enable                                      : out std_logic; -- for bouncy_ball and pipes components
-		red, green, blue 				            : out std_logic);
+		select1                                     : in std_logic; -- mode select fron switch
+		enable, pause_out                           : out std_logic; -- for bouncy_ball and pipes components
+		red, green, blue 				                 : out std_logic);
 end entity;
 
 architecture moore of state_machine is
@@ -45,11 +46,13 @@ begin
 				green <= start_g;
 				blue  <= start_b;
 				enable <= '0';
+				pause_out <= '0';
 			when game_1 =>
-				red   <= bouncy_ball_r and pipes_r and l_r;
-				green <= bouncy_ball_g and pipes_g and l_g;
-				blue  <= bouncy_ball_b and pipes_b and l_b;
+				red   <= bouncy_ball_r and pipes_r;
+				green <= bouncy_ball_g and pipes_g; 
+				blue  <= bouncy_ball_b and pipes_b;
 				enable <= '1';
+				pause_out <= '0';
 --			when game_2 =>
 --				red   <= bouncy_ball_r and pipes_r and l_r ;
 --				green <= bouncy_ball_g and pipes_g and l_g;
@@ -65,26 +68,29 @@ begin
 				green <= bouncy_ball_g and pipes_g and l_g;
 				blue  <= bouncy_ball_b and pipes_b and l_b;
 				enable <= '1';
+				pause_out <= '0';
 			when pause_1 =>
 				red   <= pause_r;
 				green <= pause_g;
 				blue  <= pause_b;
-				enable <= '0';
-			when pause_2 =>
-				red   <= pause_r;
-				green <= pause_g;
-				blue  <= pause_b;
-				enable <= '0';
-			when pause_3 =>
-				red   <= pause_r;
-				green <= pause_g;
-				blue  <= pause_b;
-				enable <= '0';
+				enable <= '1';
+				pause_out <= '1';
+--			when pause_2 =>
+--				red   <= pause_r;
+--				green <= pause_g;
+--				blue  <= pause_b;
+--				enable <= '0';
+--			when pause_3 =>
+--				red   <= pause_r;
+--				green <= pause_g;
+--				blue  <= pause_b;
+--				enable <= '0';
 			when pause_t =>
 				red   <= pause_r;
 				green <= pause_g;
 				blue  <= pause_b;
-				enable <= '0';
+				enable <= '1';
+				pause_out <= '1';
 			when game_over =>
 				red   <= endgame_r;
 				green <= endgame_g;
@@ -132,8 +138,10 @@ begin
 --					next_state <= pause_3;
 --				end if;
 			when training =>
-				if (lose = '1') then
-					next_state <= game_over;
+				--if (ending1 = '1') then
+					--next_state <= game_over;
+			   if(lose = '1' and live_count = "0011") then
+				    next_state <= game_over;
 				elsif (pause = '0') then
 					next_state <= pause_t;
 				else
