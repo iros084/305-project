@@ -28,7 +28,7 @@ architecture structural of cs305_project is
 			left_button, right_button : in std_logic;
 			pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
 			pipe_on                   : in std_logic;
-			red, green, blue          : out std_logic;
+			red, green, blue,ball_state          : out std_logic;
 			collision, enable_out     : out std_logic);
 	end component;
 	
@@ -131,7 +131,7 @@ architecture structural of cs305_project is
 	signal t_reset              : std_logic;
 	signal speed11              : std_logic_vector(8 downto 0); -- Speed signal
 	signal t_ending             : std_logic;
-	signal sn1, sn2, sn3,t_out,t_pipe_ball_reset        : std_logic;
+	signal sn1, sn2, sn3,t_out,t_pipe_ball_reset,t_ball        : std_logic;
 	--s20 <= '1';
 	
 	signal s_l, s_out, s_enable, s_e, s_pause, button_pause : std_logic;
@@ -161,7 +161,7 @@ begin
 			rst      => '0',
 			outclk_0 => s1
 	);
-	cc2:  coll_detect port map(s1,s_l,s28,t_out);
+	cc2:  coll_detect port map(s1,t_ball,s28,t_out);
 
 	V1: vga_sync
 		port map(
@@ -193,6 +193,7 @@ begin
 			red          => s2,
 			green        => s3,
 			blue         => s4,
+			ball_state => t_ball,
 			collision    => s_l,
 			enable_out   => s_e
 	);

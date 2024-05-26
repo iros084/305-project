@@ -8,7 +8,7 @@ entity bouncy_ball is
 		left_button, right_button : in std_logic;
 		pixel_row, pixel_column	  : in std_logic_vector(9 downto 0);
 		pipe_on                   : in std_logic;
-		red, green, blue          : out std_logic;
+		red, green, blue,ball_state          : out std_logic;
 		collision, enable_out     : out std_logic);
 end entity;
 
@@ -76,6 +76,10 @@ begin
 	
 	enable_out <= enable;
 	collision <= enable and ball_on and (pipe_on or ground_on);
+	
+	
+	ball_state <= ball_on when (pixel_column > conv_std_logic_vector(311, 10) and pixel_column < conv_std_logic_vector(329, 10)) else
+              '0';
    
 --	process(collision_in)
 --	begin
