@@ -103,7 +103,13 @@ pipe_M: process (horiz_sync, reset)
 		variable pipe_position: position;
 	begin
 		if rising_edge(horiz_sync) then
-			if enable = '1' then
+		 if reset = '1'then
+				power <= '0';
+				pipe_x <= init;
+				pipe_h <= CONV_STD_LOGIC_VECTOR(700,10);
+				initial <= '1';
+			
+			elsif enable = '1' then
 				initial <= '0';
 				if pipe_x = CONV_STD_LOGIC_VECTOR(0,11) then
 					power <= '1';
@@ -128,12 +134,7 @@ pipe_M: process (horiz_sync, reset)
 				else
 					timer1 <= timer1 + 1;
 				end if;
-			elsif reset = '1'then
-				power <= '0';
-				pipe_x <= init;
-				pipe_h <= CONV_STD_LOGIC_VECTOR(700,10);
-				initial <= '1';
-			end if;
+         end if;
 		end if;
 	end process;
 	life_count <= life_count1;

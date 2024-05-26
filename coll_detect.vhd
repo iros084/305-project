@@ -13,7 +13,7 @@ end coll_detect;
 
 ARCHITECTURE Behaviour of coll_detect is  
 
- signal input_latch, coin_latch1, coin_latch2, coin_latch3 : std_logic := '0';
+ signal input_latch: std_logic := '0';
  
 begin
   

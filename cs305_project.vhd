@@ -119,7 +119,7 @@ architecture structural of cs305_project is
 	signal s1, s2, s3, s4, s5, s6, s7, s8, s11, s14, s15, s16, s17, s18, s19, s20, s25, s26, s27, s28, s29, s30, s31, s32: std_logic;
 	signal s9, s10, s12, s13    : std_logic_vector(9 downto 0);
 	signal s22                  : std_logic_vector(8 downto 0);
-	signal s24                  : std_logic_vector(10 downto 0);
+	signal s24                  : std_logic_vector(10 downto 0) :=  conv_std_logic_vector(678, 11);
 	signal t_h                  : std_logic_vector(9 downto 0);
 	signal t_p                  : std_logic_vector(8 downto 0);
 	signal t_horz, t_vert       : std_logic;
@@ -237,7 +237,7 @@ begin
 			enable       => s_e,
 			reset        => t_pipe_ball_reset,
 			pause        => s_pause,
-			collision_in => s_l,
+			collision_in => t_out,
 			pixel_row    => s9,
 			pixel_column => s10,
 			pipe_height  => t_h,
@@ -335,7 +335,7 @@ begin
 			clk        => s1, 
 			rst        => t_reset,
 			dir        => '0',
-			col_detect => s_l,
+			col_detect => t_out,
 			pixel_row  => s9,
 			pixel_col  => s10,
 			red        => sn1,
