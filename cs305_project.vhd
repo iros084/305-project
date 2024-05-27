@@ -114,6 +114,12 @@ architecture structural of cs305_project is
 		input: OUT std_logic
 	);	
   end component;
+  
+	component pausegame is
+		port(pixel_row, pixel_col          : in std_logic_vector(9 downto 0);
+			Clk, enable, mode               : in std_logic;
+			Red_out2, Green_out2, Blue_out2 : out std_logic);
+	end component;
 
 	
 	signal s1, s2, s3, s4, s5, s6, s7, s8, s11, s14, s15, s16, s17, s18, s19, s20, s25, s26, s27, s28, s29, s30, s31, s32: std_logic;
@@ -135,6 +141,7 @@ architecture structural of cs305_project is
 	--s20 <= '1';
 	
 	signal s_l, s_out, s_enable, s_e, s_pause : std_logic;
+	signal s_p1, s_p2, s_p3 : std_logic;
 	signal button_pause: std_logic := '0';
 	
 begin
@@ -293,9 +300,9 @@ begin
 			endgame_r     => e1,
 			endgame_g     => e2,
 			endgame_b     => e3,
-			pause_r       => '1', -- temp
-			pause_g       => '1',
-			pause_b       => '1',
+			pause_r       => s_p1,
+			pause_g       => s_p2,
+			pause_b       => s_p3,
 			select1       => sw0,
 			enable        => s_enable,
 			pause_out     => s_pause,
@@ -316,6 +323,18 @@ begin
 			Red_out2    => e1,
 			Green_out2  => e2,
 			Blue_out2   => e3
+	);
+	
+	ps1: pausegame
+		port map(
+			pixel_row  => s9,
+			pixel_col  => s10,
+			Clk        => s1,
+			enable     => s_enable,
+			mode       => sw0,
+			Red_out2   => s_p1,
+			Green_out2 => s_p2,
+			Blue_out2  => s_p3
 	);
 
 	seg: Two_Digit_Counter 
