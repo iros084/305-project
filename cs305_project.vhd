@@ -141,7 +141,7 @@ architecture structural of cs305_project is
 	
 begin
 
-	t_reset <= '1' when (pb3 = '0') else '0';
+	t_reset <= '1' when (pb0 = '0') else '0';
 	horiz_sync_out <= t_horz;
 	vert_sync_out <= s8;
 	t_h <= '0' & t_p;

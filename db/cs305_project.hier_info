@@ -1,24 +1,24 @@
 |cs305_project
 Clk => cs305_pll:C1.refclk
 pb0 => state_machine:R1.reset
+pb0 => ball_reset.IN1
+pb0 => Two_Digit_Counter:seg.Init
+pb0 => speed_control:sc.rst
+pb0 => life:lc.rst
 pb1 => state_machine:R1.game
 pb2 => button_pause.CLK
 pb2 => button_pause.ENA
 pb3 => rand_gen:Rn1.rand_st
 pb3 => rand_gen:Rn2.rand_st
-pb3 => ball_reset.IN1
-pb3 => Two_Digit_Counter:seg.Init
-pb3 => speed_control:sc.rst
-pb3 => life:lc.rst
 sw0 => state_machine:R1.select1
 sw0 => endgame:o1.mode
 sw0 => pausegame:ps1.mode
 sw0 => speed_control:sc.mode
-red_out << vga_sync:V1.red_out
-green_out << vga_sync:V1.green_out
-blue_out << vga_sync:V1.blue_out
-horiz_sync_out << vga_sync:V1.horiz_sync_out
-vert_sync_out << vga_sync:V1.vert_sync_out
+red_out <= vga_sync:V1.red_out
+green_out <= vga_sync:V1.green_out
+blue_out <= vga_sync:V1.blue_out
+horiz_sync_out <= vga_sync:V1.horiz_sync_out
+vert_sync_out <= vga_sync:V1.vert_sync_out
 mouse_data <> mouse:M1.mouse_data
 mouse_clk <> mouse:M1.mouse_clk
 
