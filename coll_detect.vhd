@@ -26,9 +26,9 @@ begin
             input_latch <= '0';
           else
               input <= '0';
-				  if bouncy_ball_on = '0' and pipe_on = '0' then
+				if bouncy_ball_on = '0' and pipe_on = '0' then
               input_latch <= '1';
-				  end if;
+				end if;
           end if;
         end if;     
     end process;

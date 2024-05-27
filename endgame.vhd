@@ -176,23 +176,14 @@ begin
     one_text: sprite_printer port map(pixel_row, pixel_col,first_row,first_col,Font_R, Font_G, Font_B,Multiplier1,s_first,enable,CLK,first_R, first_G, first_B);
 
     hh: sprite_printer port map(pixel_row, pixel_col, h_s_row, h_s_col,Font_R, Font_G, Font_B,Multiplier1,h_s,enable,CLK,h_s_R,h_s_G,h_s_B);
-			 
     ii: sprite_printer port map(pixel_row, pixel_col, i_s_row, i_s_col,Font_R, Font_G, Font_B,Multiplier1,i_s,enable,CLK,i_s_R,i_s_G,i_s_B);	 
-			 
-    gg: sprite_printer port map(pixel_row, pixel_col, g_s_row, g_s_col,Font_R, Font_G, Font_B,Multiplier1,g_s,enable,CLK,g_s_R,g_s_G,g_s_B);
-			 
+    gg: sprite_printer port map(pixel_row, pixel_col, g_s_row, g_s_col,Font_R, Font_G, Font_B,Multiplier1,g_s,enable,CLK,g_s_R,g_s_G,g_s_B);	 
     hh1: sprite_printer port map(pixel_row, pixel_col, h1_s_row, h1_s_col,Font_R, Font_G, Font_B,Multiplier1,h1_s,enable,CLK,h1_s_R,h1_s_G,h1_s_B);
-		
-		
-		
     S11: sprite_printer port map(pixel_row, pixel_col, s11_row, s11_col,Font_R, Font_G, Font_B,Multiplier1,s1_ad,enable,CLK,s1_s_R,s1_s_G,s1_s_B);
     C11: sprite_printer port map(pixel_row, pixel_col, c11_row, c11_col,Font_R, Font_G, Font_B,Multiplier1,c1_ad,enable,CLK,c1_s_R,c1_s_G,c1_s_B);
     O11: sprite_printer port map(pixel_row, pixel_col, o11_row, o11_col,Font_R, Font_G, Font_B,Multiplier1,o1_ad,enable,CLK,o1_s_R,o1_s_G,o1_s_B);
     R11: sprite_printer port map(pixel_row, pixel_col, r11_row, r11_col,Font_R, Font_G, Font_B,Multiplier1,r1_ad,enable,CLK,r1_s_R,r1_s_G,r1_s_B);
     E12: sprite_printer port map(pixel_row, pixel_col, e21_row, e21_col,Font_R, Font_G, Font_B,Multiplier1,e1_ad,enable,CLK,e1_s_R,e1_s_G,e1_s_B);
-		
-
-		
     ht_text :sprite_printer port map(pixel_row, pixel_col,ht_row,ht_col,Font_R, Font_G, Font_B,Multiplier1,h_tenth, enable,CLK,ht_r,ht_g,ht_b);
     hf_text :sprite_printer port map(pixel_row, pixel_col,hf_row,hf_col,Font_R, Font_G, Font_B,Multiplier1,h_first,enable,CLK,hf_r,hf_g,hf_b);
 		

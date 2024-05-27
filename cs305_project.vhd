@@ -76,13 +76,12 @@ architecture structural of cs305_project is
    	end component;
 	
 	component pipes is
-		port(clk, horiz_sync, vert_sync, enable, reset, pause, collision_in            : in std_logic;
+		port(clk, horiz_sync, vert_sync, enable, reset, pause           : in std_logic;
 			pixel_row, pixel_column, pipe_height,coin_height                  : in std_logic_vector(9 downto 0);
 			speed                                                 : in std_logic_vector(8 downto 0);
 			init                                                  : in std_logic_vector(10 downto 0);
 			col                                                   : in std_logic;
 			Red, Green, Blue, pipe_s, coin_s, count, initial, rst : out std_logic;
-			life_count: out std_logic_vector(3 downto 0);
 			pipe_on_out                                           : out std_logic);
 	end component;
 	
@@ -131,34 +130,29 @@ architecture structural of cs305_project is
 	signal t_horz, t_vert       : std_logic;
 	signal t_tens, t_ones, t_t,t_l  : std_logic_vector(3 downto 0);
 	signal e1, e2, e3           : std_logic;
-	signal s33, s35             : std_logic_vector(10 downto 0);
-	signal s34, s36             : std_logic_vector(9 downto 0);
 	signal display11, display22 : std_logic_vector(6 downto 0);
 	signal t_reset              : std_logic;
 	signal speed11              : std_logic_vector(8 downto 0); -- Speed signal
 	signal t_ending             : std_logic;
-	signal sn1, sn2, sn3,t_out,t_pipe_ball_reset,t_ball        : std_logic;
-	--s20 <= '1';
-	
+	signal sn1, sn2, sn3,t_out,ball_reset,t_ball        : std_logic;
 	signal s_l, s_out, s_enable, s_e, s_pause : std_logic;
 	signal s_p1, s_p2, s_p3 : std_logic;
-	signal button_pause: std_logic := '0';
+	signal button_pause: std_logic := '1';
 	
 begin
 
 	t_reset <= '1' when (pb3 = '0') else '0';
-	 
-	--s_l <= '0' when t_reset <= '1';
-
 	horiz_sync_out <= t_horz;
 	vert_sync_out <= s8;
 	t_h <= '0' & t_p;
-	t_pipe_ball_reset <= '1' when (t_reset = '1' or t_out = '1') else '0' when s31 = '1';
+	ball_reset <= '1' when (t_reset = '1' or t_out = '1') else '0' when s31 = '1';
 	
 	process(pb2)
 	begin
-		if (pb2 = '0') then
+	if(rising_edge(pb2)) then
+	if (pb2 = '0') then
 			button_pause <= not button_pause;
+		end if;
 		end if;
 	end process;
 	
@@ -250,9 +244,8 @@ begin
 			horiz_sync   => t_horz,
 			vert_sync    => s8,
 			enable       => s_e,
-			reset        => t_pipe_ball_reset,
+			reset        => ball_reset,
 			pause        => s_pause,
-			collision_in => t_out,
 			pixel_row    => s9,
 			pixel_column => s10,
 			pipe_height  => t_h,
@@ -268,7 +261,6 @@ begin
 			initial      => s31,
 			col          => s_l,
 			rst          => s32,
-			life_count   => t_l,
 			pipe_on_out  => s_out
 	);
 
