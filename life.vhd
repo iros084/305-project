@@ -24,7 +24,7 @@ component SPRITE_PRINTER is
 end component;
     
     component Four_bit_Counter is
-       port (clk, Direction, Init, Enable : in std_logic;
+       port (clk, Dir, Initial, Enable : in std_logic;
        Q_out : out std_logic_vector(3 downto 0));
     end component Four_bit_Counter;
     

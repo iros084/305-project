@@ -63,6 +63,8 @@ begin
         p1.x_pos := CONV_STD_LOGIC_VECTOR(760,11);
         if pipe_height > CONV_STD_LOGIC_VECTOR(336,10) then
             p1.y_pos := CONV_STD_LOGIC_VECTOR(336,10);
+		  elsif(pipe_height < CONV_STD_LOGIC_VECTOR(90,10)) then
+		       p1.y_pos := CONV_STD_LOGIC_VECTOR(90,10);
         else
             p1.y_pos := pipe_height;
         end if;
@@ -83,7 +85,7 @@ begin
 
     pipeA_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row <= pipe_h) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
-    pipeB_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row >= pipe_h + conv_std_logic_vector(224,10)) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
+    pipeB_on <= '1' when ('0' & pixel_column <= '0' & pipe_x) and (('0' & pipe_x <= '0' & pixel_column + width1) and ('0' & pixel_row >= pipe_h + conv_std_logic_vector(200,10)) and (pipe_h < CONV_STD_LOGIC_VECTOR(700,10))) else '0';
 
     pipe_on <= pipeB_on or pipeA_on;
     pipe_s <= pipe_on when (pixel_column < conv_std_logic_vector(329, 10) and pixel_column > conv_std_logic_vector(311, 10)) else '0';
@@ -117,20 +119,20 @@ pipe_M: process (horiz_sync, reset)
 
 				if timer1 = speed and pause = '0' then
 				
-				   if collision_in = '1' then
-						collision_state <= '1';
-					end if;
-
-					if collision_state = '1' then
-					   timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
-						pipe_x <= CONV_STD_LOGIC_VECTOR(760, 11);
-						collision_state <= '0'; -- Reset the state after moving the pipe
-					else
+				 --  if collision_in = '1' then
+					--	collision_state <= '1';
+					--end if;
+--
+					--if collision_state = '1' then
+					--   timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
+					--	pipe_x <= CONV_STD_LOGIC_VECTOR(760, 11);
+					--	collision_state <= '0'; -- Reset the state after moving the pipe
+					--else
 					pipe_position := update_position(pipe_h, pipe_x, pipe_height);
 					pipe_x <= pipe_position.x_pos;
 					pipe_h <= pipe_position.y_pos;
 					timer1 <= CONV_STD_LOGIC_VECTOR(0,10);
-					end if;
+					--end if;
 				else
 					timer1 <= timer1 + 1;
 				end if;

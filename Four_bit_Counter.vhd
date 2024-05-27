@@ -2,13 +2,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-entity bit_Counter is
+entity Four_bit_Counter is
     port (clk, Dir, Initial, Enable : in std_logic;
           Q_out : out std_logic_vector(3 downto 0)
     );
 end entity;
 
-architecture behaviour of bit_Counter is
+architecture behaviour of Four_bit_Counter is
 
   signal enable_l : std_logic;
 

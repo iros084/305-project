@@ -475,7 +475,6 @@ set_global_assignment -name VHDL_FILE Two_Digit_Counter.vhd
 set_global_assignment -name VHDL_FILE Four_bit_Counter.vhd
 set_global_assignment -name MIF_FILE lappy.mif
 set_global_assignment -name MIF_FILE TCGROM.MIF
-set_global_assignment -name VHDL_FILE counter.vhd
 set_global_assignment -name VHDL_FILE vga_sync.vhd
 set_global_assignment -name VHDL_FILE state_machine.vhd
 set_global_assignment -name VHDL_FILE start.vhd

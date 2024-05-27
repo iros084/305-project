@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cs305_project
-Mon May 27 09:18:26 2024
+Mon May 27 14:12:31 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -217,13 +217,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 27 09:18:26 2024           ;
+; Analysis & Synthesis Status     ; Successful - Mon May 27 14:12:31 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; cs305_project                                   ;
 ; Top-level Entity Name           ; cs305_project                                   ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 223                                             ;
+; Total registers                 ; 222                                             ;
 ; Total pins                      ; 13                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 7,440                                           ;
@@ -341,8 +341,7 @@ refer to the applicable agreement for further details.
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processors 7-16        ;   0.0%      ;
+;     Processors 6-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -392,16 +391,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 520                                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 523                                                                               ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 799                                                                               ;
-;     -- 7 input functions                    ; 84                                                                                ;
-;     -- 6 input functions                    ; 131                                                                               ;
-;     -- 5 input functions                    ; 121                                                                               ;
-;     -- 4 input functions                    ; 145                                                                               ;
-;     -- <=3 input functions                  ; 318                                                                               ;
+; Combinational ALUT usage for logic          ; 808                                                                               ;
+;     -- 7 input functions                    ; 83                                                                                ;
+;     -- 6 input functions                    ; 128                                                                               ;
+;     -- 5 input functions                    ; 120                                                                               ;
+;     -- 4 input functions                    ; 175                                                                               ;
+;     -- <=3 input functions                  ; 302                                                                               ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 223                                                                               ;
+; Dedicated logic registers                   ; 222                                                                               ;
 ;                                             ;                                                                                   ;
 ; I/O pins                                    ; 13                                                                                ;
 ; Total MLAB memory bits                      ; 0                                                                                 ;
@@ -414,8 +413,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; cs305_pll:C1|cs305_pll_0002:cs305_pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 536                                                                               ;
-; Total fan-out                               ; 5793                                                                              ;
-; Average fan-out                             ; 3.99                                                                              ;
+; Total fan-out                               ; 5813                                                                              ;
+; Average fan-out                             ; 3.98                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -424,22 +423,22 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Entity Name       ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |cs305_project                                  ; 799 (5)             ; 223 (1)                   ; 7440              ; 0          ; 13   ; 0            ; |cs305_project                                                                                                                         ; cs305_project     ; work         ;
+; |cs305_project                                  ; 808 (5)             ; 222 (1)                   ; 7440              ; 0          ; 13   ; 0            ; |cs305_project                                                                                                                         ; cs305_project     ; work         ;
 ;    |MOUSE:M1|                                   ; 50 (50)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|MOUSE:M1                                                                                                                ; MOUSE             ; work         ;
 ;    |Two_Digit_Counter:seg|                      ; 17 (5)              ; 14 (4)                    ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|Two_Digit_Counter:seg                                                                                                   ; Two_Digit_Counter ; work         ;
 ;       |Four_bit_Counter:first_counter|          ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|Two_Digit_Counter:seg|Four_bit_Counter:first_counter                                                                    ; Four_bit_Counter  ; work         ;
 ;       |Four_bit_Counter:tenth_counter|          ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|Two_Digit_Counter:seg|Four_bit_Counter:tenth_counter                                                                    ; Four_bit_Counter  ; work         ;
-;    |bouncy_ball:B1|                             ; 119 (119)           ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|bouncy_ball:B1                                                                                                          ; bouncy_ball       ; work         ;
+;    |bouncy_ball:B1|                             ; 117 (117)           ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|bouncy_ball:B1                                                                                                          ; bouncy_ball       ; work         ;
 ;    |coll_detect:cc2|                            ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|coll_detect:cc2                                                                                                         ; coll_detect       ; work         ;
 ;    |cs305_pll:C1|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|cs305_pll:C1                                                                                                            ; cs305_pll         ; cs305_pll    ;
 ;       |cs305_pll_0002:cs305_pll_inst|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|cs305_pll:C1|cs305_pll_0002:cs305_pll_inst                                                                              ; cs305_pll_0002    ; cs305_pll    ;
 ;          |altera_pll:altera_pll_i|              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|cs305_pll:C1|cs305_pll_0002:cs305_pll_inst|altera_pll:altera_pll_i                                                      ; altera_pll        ; work         ;
-;    |endgame:o1|                                 ; 214 (16)            ; 17 (17)                   ; 5520              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1                                                                                                              ; endgame           ; work         ;
+;    |endgame:o1|                                 ; 217 (16)            ; 17 (17)                   ; 5520              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1                                                                                                              ; endgame           ; work         ;
 ;       |SPRITE_PRINTER:C11|                      ; 8 (6)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C11                                                                                           ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C11|char_rom:SPRITE_ROM                                                                       ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C11|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C11|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated        ; altsyncram_d5g1   ; work         ;
-;       |SPRITE_PRINTER:C1|                       ; 8 (6)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C1                                                                                            ; SPRITE_PRINTER    ; work         ;
+;       |SPRITE_PRINTER:C1|                       ; 9 (7)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C1                                                                                            ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C1|char_rom:SPRITE_ROM                                                                        ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                        ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:C1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated         ; altsyncram_d5g1   ; work         ;
@@ -447,7 +446,7 @@ refer to the applicable agreement for further details.
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E12|char_rom:SPRITE_ROM                                                                       ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E12|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E12|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated        ; altsyncram_d5g1   ; work         ;
-;       |SPRITE_PRINTER:E2|                       ; 8 (6)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E2                                                                                            ; SPRITE_PRINTER    ; work         ;
+;       |SPRITE_PRINTER:E2|                       ; 9 (7)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E2                                                                                            ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E2|char_rom:SPRITE_ROM                                                                        ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E2|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                        ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:E2|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated         ; altsyncram_d5g1   ; work         ;
@@ -471,7 +470,7 @@ refer to the applicable agreement for further details.
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S11|char_rom:SPRITE_ROM                                                                       ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S11|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S11|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated        ; altsyncram_d5g1   ; work         ;
-;       |SPRITE_PRINTER:S1|                       ; 13 (11)             ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S1                                                                                            ; SPRITE_PRINTER    ; work         ;
+;       |SPRITE_PRINTER:S1|                       ; 12 (10)             ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S1                                                                                            ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S1|char_rom:SPRITE_ROM                                                                        ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                        ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:S1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated         ; altsyncram_d5g1   ; work         ;
@@ -495,7 +494,7 @@ refer to the applicable agreement for further details.
 ;          |char_rom:SPRITE_ROM|                  ; 1 (1)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:g|char_rom:SPRITE_ROM                                                                         ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:g|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                         ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:g|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated          ; altsyncram_d5g1   ; work         ;
-;       |SPRITE_PRINTER:hf_text|                  ; 9 (7)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hf_text                                                                                       ; SPRITE_PRINTER    ; work         ;
+;       |SPRITE_PRINTER:hf_text|                  ; 10 (8)              ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hf_text                                                                                       ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hf_text|char_rom:SPRITE_ROM                                                                   ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hf_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                   ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hf_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated    ; altsyncram_d5g1   ; work         ;
@@ -503,11 +502,11 @@ refer to the applicable agreement for further details.
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh1|char_rom:SPRITE_ROM                                                                       ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated        ; altsyncram_d5g1   ; work         ;
-;       |SPRITE_PRINTER:hh|                       ; 11 (9)              ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh                                                                                            ; SPRITE_PRINTER    ; work         ;
+;       |SPRITE_PRINTER:hh|                       ; 10 (8)              ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh                                                                                            ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh|char_rom:SPRITE_ROM                                                                        ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                        ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:hh|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated         ; altsyncram_d5g1   ; work         ;
-;       |SPRITE_PRINTER:ht_text|                  ; 9 (7)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ht_text                                                                                       ; SPRITE_PRINTER    ; work         ;
+;       |SPRITE_PRINTER:ht_text|                  ; 10 (8)              ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ht_text                                                                                       ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ht_text|char_rom:SPRITE_ROM                                                                   ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ht_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                   ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ht_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated    ; altsyncram_d5g1   ; work         ;
@@ -531,7 +530,7 @@ refer to the applicable agreement for further details.
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:r|char_rom:SPRITE_ROM                                                                         ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:r|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                         ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:r|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated          ; altsyncram_d5g1   ; work         ;
-;       |SPRITE_PRINTER:ten_text|                 ; 9 (7)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ten_text                                                                                      ; SPRITE_PRINTER    ; work         ;
+;       |SPRITE_PRINTER:ten_text|                 ; 10 (8)              ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ten_text                                                                                      ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ten_text|char_rom:SPRITE_ROM                                                                  ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ten_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                  ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |cs305_project|endgame:o1|SPRITE_PRINTER:ten_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated   ; altsyncram_d5g1   ; work         ;
@@ -548,10 +547,10 @@ refer to the applicable agreement for further details.
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM                                                                ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1   ; work         ;
-;    |pipes:d1|                                   ; 87 (87)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|pipes:d1                                                                                                                ; pipes             ; work         ;
+;    |pipes:d1|                                   ; 93 (93)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|pipes:d1                                                                                                                ; pipes             ; work         ;
 ;    |rand_gen:Rn1|                               ; 17 (17)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|rand_gen:Rn1                                                                                                            ; rand_gen          ; work         ;
 ;    |speed_control:sc|                           ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|speed_control:sc                                                                                                        ; speed_control     ; work         ;
-;    |start:P1|                                   ; 213 (11)            ; 0 (0)                     ; 1408              ; 0          ; 0    ; 0            ; |cs305_project|start:P1                                                                                                                ; start             ; work         ;
+;    |start:P1|                                   ; 214 (12)            ; 0 (0)                     ; 1408              ; 0          ; 0    ; 0            ; |cs305_project|start:P1                                                                                                                ; start             ; work         ;
 ;       |SPRITE_PRINTER:play_a|                   ; 9 (7)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|start:P1|SPRITE_PRINTER:play_a                                                                                          ; SPRITE_PRINTER    ; work         ;
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|start:P1|SPRITE_PRINTER:play_a|char_rom:SPRITE_ROM                                                                      ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|start:P1|SPRITE_PRINTER:play_a|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                      ; altsyncram        ; work         ;
@@ -640,7 +639,7 @@ refer to the applicable agreement for further details.
 ;          |char_rom:SPRITE_ROM|                  ; 2 (2)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|start:P1|SPRITE_PRINTER:tut_u|char_rom:SPRITE_ROM                                                                       ; char_rom          ; work         ;
 ;             |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|start:P1|SPRITE_PRINTER:tut_u|char_rom:SPRITE_ROM|altsyncram:altsyncram_component                                       ; altsyncram        ; work         ;
 ;                |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |cs305_project|start:P1|SPRITE_PRINTER:tut_u|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated        ; altsyncram_d5g1   ; work         ;
-;    |state_machine:R1|                           ; 12 (12)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|state_machine:R1                                                                                                        ; state_machine     ; work         ;
+;    |state_machine:R1|                           ; 13 (13)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|state_machine:R1                                                                                                        ; state_machine     ; work         ;
 ;    |vga_sync:V1|                                ; 47 (47)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |cs305_project|vga_sync:V1                                                                                                             ; vga_sync          ; work         ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -829,9 +828,9 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 223   ;
+; Total registers                              ; 222   ;
 ; Number of registers using Synchronous Clear  ; 30    ;
-; Number of registers using Synchronous Load   ; 38    ;
+; Number of registers using Synchronous Load   ; 28    ;
 ; Number of registers using Asynchronous Clear ; 27    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 110   ;
@@ -844,7 +843,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; coll_detect:cc2|input                  ; 8       ;
+; coll_detect:cc2|input                  ; 7       ;
 ; MOUSE:M1|send_char                     ; 3       ;
 ; MOUSE:M1|SHIFTOUT[3]                   ; 1       ;
 ; MOUSE:M1|SHIFTOUT[5]                   ; 1       ;
@@ -869,33 +868,33 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_h[7]                                            ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_h[6]                                            ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |cs305_project|vga_sync:V1|v_count[6]                                        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |cs305_project|Two_Digit_Counter:seg|Four_bit_Counter:first_counter|Q_out[0] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |cs305_project|Two_Digit_Counter:seg|Four_bit_Counter:tenth_counter|Q_out[1] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |cs305_project|life:lc|Four_bit_Counter:counter|Q_out[2]                     ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |cs305_project|bouncy_ball:B1|ball_y_pos[7]                                  ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_x[2]                                            ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_x[0]                                            ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |cs305_project|vga_sync:V1|v_count[2]                                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |cs305_project|Two_Digit_Counter:seg|Four_bit_Counter:first_counter|Q_out[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |cs305_project|Two_Digit_Counter:seg|Four_bit_Counter:tenth_counter|Q_out[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |cs305_project|life:lc|Four_bit_Counter:counter|Q_out[3]                     ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_x[5]                                            ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_x[0]                                            ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_h[3]                                            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |cs305_project|pipes:d1|pipe_h[6]                                            ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |cs305_project|bouncy_ball:B1|ball_y_pos[9]                                  ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_f|s_font_row                    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_l|s_font_row                    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_a|s_font_row                    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_p|s_font_row                    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_p1|s_font_row                   ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_y|s_font_col                    ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_y|s_font_row                    ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:tut_t|s_font_col                      ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:tut_u|s_font_row                      ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:tut_a|s_font_row                      ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:tut_l|s_font_col                      ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:R11|s_font_col                      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:R11|s_font_row                      ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:E12|s_font_row                      ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:ht_text|s_font_row                  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:ht_text|s_font_col                  ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:hf_text|s_font_col                  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|s_font_row               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cs305_project|life:lc|SPRITE_PRINTER:sprite_design|s_font_col               ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_b|char_rom:SPRITE_ROM|Mux0      ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:a|char_rom:SPRITE_ROM|Mux0          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:m|char_rom:SPRITE_ROM|Mux0          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_i|char_rom:SPRITE_ROM|Mux0      ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |cs305_project|start:P1|SPRITE_PRINTER:title_r|char_rom:SPRITE_ROM|Mux0      ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |cs305_project|endgame:o1|SPRITE_PRINTER:e|char_rom:SPRITE_ROM|Mux0          ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |cs305_project|state_machine:R1|Selector2                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
@@ -5209,11 +5208,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +--------------------------------------------------------------+
 ; Port Connectivity Checks: "life:lc|Four_bit_Counter:counter" ;
-+-----------+-------+----------+-------------------------------+
-; Port      ; Type  ; Severity ; Details                       ;
-+-----------+-------+----------+-------------------------------+
-; direction ; Input ; Info     ; Stuck at GND                  ;
-+-----------+-------+----------+-------------------------------+
++------+-------+----------+------------------------------------+
+; Port ; Type  ; Severity ; Details                            ;
++------+-------+----------+------------------------------------+
+; dir  ; Input ; Info     ; Stuck at GND                       ;
++------+-------+----------+------------------------------------+
 
 
 +------------------------------------------------------------------+
@@ -5251,20 +5250,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +----------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Two_Digit_Counter:seg|Four_bit_Counter:first_counter" ;
-+-----------+-------+----------+---------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                           ;
-+-----------+-------+----------+---------------------------------------------------+
-; direction ; Input ; Info     ; Stuck at VCC                                      ;
-+-----------+-------+----------+---------------------------------------------------+
++------+-------+----------+--------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                ;
++------+-------+----------+--------------------------------------------------------+
+; dir  ; Input ; Info     ; Stuck at VCC                                           ;
++------+-------+----------+--------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Two_Digit_Counter:seg|Four_bit_Counter:tenth_counter" ;
-+-----------+-------+----------+---------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                           ;
-+-----------+-------+----------+---------------------------------------------------+
-; direction ; Input ; Info     ; Stuck at VCC                                      ;
-+-----------+-------+----------+---------------------------------------------------+
++------+-------+----------+--------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                ;
++------+-------+----------+--------------------------------------------------------+
+; dir  ; Input ; Info     ; Stuck at VCC                                           ;
++------+-------+----------+--------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -6622,37 +6621,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 223                         ;
+; arriav_ff             ; 222                         ;
 ;     CLR               ; 12                          ;
-;     ENA               ; 65                          ;
+;     ENA               ; 75                          ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 20                          ;
-;     ENA SLD           ; 10                          ;
 ;     SCLR              ; 10                          ;
 ;     SLD               ; 28                          ;
-;     plain             ; 63                          ;
+;     plain             ; 62                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 799                         ;
+; arriav_lcell_comb     ; 808                         ;
 ;     arith             ; 109                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 93                          ;
 ;         2 data inputs ; 14                          ;
-;     extend            ; 84                          ;
-;         7 data inputs ; 84                          ;
-;     normal            ; 606                         ;
+;     extend            ; 83                          ;
+;         7 data inputs ; 83                          ;
+;     normal            ; 616                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 45                          ;
-;         3 data inputs ; 153                         ;
-;         4 data inputs ; 145                         ;
-;         5 data inputs ; 121                         ;
-;         6 data inputs ; 131                         ;
+;         2 data inputs ; 52                          ;
+;         3 data inputs ; 130                         ;
+;         4 data inputs ; 175                         ;
+;         5 data inputs ; 120                         ;
+;         6 data inputs ; 128                         ;
 ; boundary_port         ; 13                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 400                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 4.70                        ;
+; Average LUT depth     ; 4.60                        ;
 +-----------------------+-----------------------------+
 
 
@@ -6671,7 +6669,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 27 09:18:18 2024
+    Info: Processing started: Mon May 27 14:12:23 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cs305_project -c cs305_project
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -6693,9 +6691,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file two_dig
 Info (12021): Found 2 design units, including 1 entities, in source file four_bit_counter.vhd
     Info (12022): Found design unit 1: Four_bit_Counter-behaviour File: C:/Users/iros084/Documents/GitHub/305-project/Four_bit_Counter.vhd Line: 11
     Info (12023): Found entity 1: Four_bit_Counter File: C:/Users/iros084/Documents/GitHub/305-project/Four_bit_Counter.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file counter.vhd
-    Info (12022): Found design unit 1: counter-Behavioral File: C:/Users/iros084/Documents/GitHub/305-project/counter.vhd Line: 16
-    Info (12023): Found entity 1: counter File: C:/Users/iros084/Documents/GitHub/305-project/counter.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file vga_sync.vhd
     Info (12022): Found design unit 1: vga_sync-behaviour File: C:/Users/iros084/Documents/GitHub/305-project/vga_sync.vhd Line: 12
     Info (12023): Found entity 1: vga_sync File: C:/Users/iros084/Documents/GitHub/305-project/vga_sync.vhd Line: 6
@@ -6755,8 +6750,8 @@ Warning (10036): Verilog HDL or VHDL warning at cs305_project.vhd(120): object "
 Warning (10540): VHDL Signal Declaration warning at cs305_project.vhd(122): used explicit default value for signal "s24" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 122
 Warning (10036): Verilog HDL or VHDL warning at cs305_project.vhd(130): object "display11" assigned a value but never read File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 130
 Warning (10036): Verilog HDL or VHDL warning at cs305_project.vhd(130): object "display22" assigned a value but never read File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 130
-Info (10041): Inferred latch for "t_pipe_ball_reset" at cs305_project.vhd(148) File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 148
-Info (12128): Elaborating entity "cs305_pll" for hierarchy "cs305_pll:C1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 158
+Info (10041): Inferred latch for "t_pipe_ball_reset" at cs305_project.vhd(149) File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 149
+Info (12128): Elaborating entity "cs305_pll" for hierarchy "cs305_pll:C1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 159
 Info (12128): Elaborating entity "cs305_pll_0002" for hierarchy "cs305_pll:C1|cs305_pll_0002:cs305_pll_inst" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_pll.vhd Line: 32
 Info (12128): Elaborating entity "altera_pll" for hierarchy "cs305_pll:C1|cs305_pll_0002:cs305_pll_inst|altera_pll:altera_pll_i" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_pll/cs305_pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -6822,20 +6817,20 @@ Info (12133): Instantiated megafunction "cs305_pll:C1|cs305_pll_0002:cs305_pll_i
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "coll_detect" for hierarchy "coll_detect:cc2" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 164
-Info (12128): Elaborating entity "vga_sync" for hierarchy "vga_sync:V1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 166
-Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:B1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 181
+Info (12128): Elaborating entity "coll_detect" for hierarchy "coll_detect:cc2" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 165
+Info (12128): Elaborating entity "vga_sync" for hierarchy "vga_sync:V1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 167
+Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:B1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 182
 Warning (10036): Verilog HDL or VHDL warning at bouncy_ball.vhd(18): object "size_x" assigned a value but never read File: C:/Users/iros084/Documents/GitHub/305-project/bouncy_ball.vhd Line: 18
 Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(93): signal "pause_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/bouncy_ball.vhd Line: 93
 Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(95): signal "ball_y_pos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/bouncy_ball.vhd Line: 95
 Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(95): signal "size_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/bouncy_ball.vhd Line: 95
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:M1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 201
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:M1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 202
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(22): object "CHARIN" assigned a value but never read File: C:/Users/iros084/Documents/GitHub/305-project/mouse.vhd Line: 22
 Warning (10492): VHDL Process Statement warning at mouse.vhd(148): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/mouse.vhd Line: 148
 Warning (10492): VHDL Process Statement warning at mouse.vhd(152): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/mouse.vhd Line: 152
 Warning (10492): VHDL Process Statement warning at mouse.vhd(153): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/mouse.vhd Line: 153
 Warning (10492): VHDL Process Statement warning at mouse.vhd(154): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/mouse.vhd Line: 154
-Info (12128): Elaborating entity "start" for hierarchy "start:P1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 213
+Info (12128): Elaborating entity "start" for hierarchy "start:P1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 214
 Warning (10540): VHDL Signal Declaration warning at start.vhd(16): used explicit default value for signal "title_f_address" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/start.vhd Line: 16
 Warning (10540): VHDL Signal Declaration warning at start.vhd(17): used explicit default value for signal "title_l_address" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/start.vhd Line: 17
 Warning (10540): VHDL Signal Declaration warning at start.vhd(18): used explicit default value for signal "title_a_address" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/start.vhd Line: 18
@@ -6942,8 +6937,8 @@ Info (12133): Instantiated megafunction "start:P1|SPRITE_PRINTER:title_f|char_ro
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
     Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "start:P1|SPRITE_PRINTER:title_f|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "rand_gen" for hierarchy "rand_gen:Rn1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 225
-Info (12128): Elaborating entity "pipes" for hierarchy "pipes:d1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 232
+Info (12128): Elaborating entity "rand_gen" for hierarchy "rand_gen:Rn1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 226
+Info (12128): Elaborating entity "pipes" for hierarchy "pipes:d1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 233
 Warning (10541): VHDL Signal Declaration warning at pipes.vhd(12): used implicit default value for signal "rst" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/iros084/Documents/GitHub/305-project/pipes.vhd Line: 12
 Warning (10036): Verilog HDL or VHDL warning at pipes.vhd(20): object "power" assigned a value but never read File: C:/Users/iros084/Documents/GitHub/305-project/pipes.vhd Line: 20
 Warning (10541): VHDL Signal Declaration warning at pipes.vhd(20): used implicit default value for signal "c_R" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/iros084/Documents/GitHub/305-project/pipes.vhd Line: 20
@@ -6951,7 +6946,7 @@ Warning (10036): Verilog HDL or VHDL warning at pipes.vhd(22): object "c_row" as
 Warning (10036): Verilog HDL or VHDL warning at pipes.vhd(22): object "c_column" assigned a value but never read File: C:/Users/iros084/Documents/GitHub/305-project/pipes.vhd Line: 22
 Warning (10036): Verilog HDL or VHDL warning at pipes.vhd(24): object "t_power" assigned a value but never read File: C:/Users/iros084/Documents/GitHub/305-project/pipes.vhd Line: 24
 Warning (10540): VHDL Signal Declaration warning at pipes.vhd(31): used explicit default value for signal "life_count1" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/pipes.vhd Line: 31
-Info (12128): Elaborating entity "state_machine" for hierarchy "state_machine:R1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 259
+Info (12128): Elaborating entity "state_machine" for hierarchy "state_machine:R1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 260
 Warning (10492): VHDL Process Statement warning at state_machine.vhd(45): signal "start_r" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/state_machine.vhd Line: 45
 Warning (10492): VHDL Process Statement warning at state_machine.vhd(46): signal "start_g" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/state_machine.vhd Line: 46
 Warning (10492): VHDL Process Statement warning at state_machine.vhd(47): signal "start_b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/state_machine.vhd Line: 47
@@ -6988,7 +6983,7 @@ Warning (10492): VHDL Process Statement warning at state_machine.vhd(143): signa
 Warning (10492): VHDL Process Statement warning at state_machine.vhd(143): signal "live_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/state_machine.vhd Line: 143
 Warning (10492): VHDL Process Statement warning at state_machine.vhd(175): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/iros084/Documents/GitHub/305-project/state_machine.vhd Line: 175
 Info (10041): Inferred latch for "pause_out" at state_machine.vhd(41) File: C:/Users/iros084/Documents/GitHub/305-project/state_machine.vhd Line: 41
-Info (12128): Elaborating entity "endgame" for hierarchy "endgame:o1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 298
+Info (12128): Elaborating entity "endgame" for hierarchy "endgame:o1" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 299
 Warning (10540): VHDL Signal Declaration warning at endgame.vhd(15): used explicit default value for signal "g_a" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/endgame.vhd Line: 15
 Warning (10540): VHDL Signal Declaration warning at endgame.vhd(16): used explicit default value for signal "a_a" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/endgame.vhd Line: 16
 Warning (10540): VHDL Signal Declaration warning at endgame.vhd(17): used explicit default value for signal "m_a" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/endgame.vhd Line: 17
@@ -7069,13 +7064,13 @@ Warning (10540): VHDL Signal Declaration warning at endgame.vhd(108): used expli
 Warning (10540): VHDL Signal Declaration warning at endgame.vhd(109): used explicit default value for signal "first_col" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/endgame.vhd Line: 109
 Warning (10540): VHDL Signal Declaration warning at endgame.vhd(117): used explicit default value for signal "Multiplier1" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/endgame.vhd Line: 117
 Info (12128): Elaborating entity "ram" for hierarchy "endgame:o1|ram:highscore_ram" File: C:/Users/iros084/Documents/GitHub/305-project/endgame.vhd Line: 141
-Info (12128): Elaborating entity "Two_Digit_Counter" for hierarchy "Two_Digit_Counter:seg" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 312
+Info (12128): Elaborating entity "Two_Digit_Counter" for hierarchy "Two_Digit_Counter:seg" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 313
 Warning (10541): VHDL Signal Declaration warning at Two_Digit_Counter.vhd(8): used implicit default value for signal "display1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/iros084/Documents/GitHub/305-project/Two_Digit_Counter.vhd Line: 8
 Warning (10541): VHDL Signal Declaration warning at Two_Digit_Counter.vhd(8): used implicit default value for signal "display2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/iros084/Documents/GitHub/305-project/Two_Digit_Counter.vhd Line: 8
 Warning (10540): VHDL Signal Declaration warning at Two_Digit_Counter.vhd(14): used explicit default value for signal "f_d" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/Two_Digit_Counter.vhd Line: 14
 Info (12128): Elaborating entity "Four_bit_Counter" for hierarchy "Two_Digit_Counter:seg|Four_bit_Counter:tenth_counter" File: C:/Users/iros084/Documents/GitHub/305-project/Two_Digit_Counter.vhd Line: 32
-Info (12128): Elaborating entity "speed_control" for hierarchy "speed_control:sc" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 323
-Info (12128): Elaborating entity "life" for hierarchy "life:lc" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 333
+Info (12128): Elaborating entity "speed_control" for hierarchy "speed_control:sc" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 324
+Info (12128): Elaborating entity "life" for hierarchy "life:lc" File: C:/Users/iros084/Documents/GitHub/305-project/cs305_project.vhd Line: 334
 Warning (10540): VHDL Signal Declaration warning at life.vhd(33): used explicit default value for signal "t_sprite_enable" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/life.vhd Line: 33
 Warning (10540): VHDL Signal Declaration warning at life.vhd(34): used explicit default value for signal "multiplier" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/life.vhd Line: 34
 Warning (10540): VHDL Signal Declaration warning at life.vhd(35): used explicit default value for signal "t_red" because signal was never assigned a value File: C:/Users/iros084/Documents/GitHub/305-project/life.vhd Line: 35
@@ -7429,17 +7424,19 @@ Warning (13004): Presettable and clearable registers converted to equivalent cir
     Warning (13310): Register "bouncy_ball:B1|ball_y_motion[8]" is converted into an equivalent circuit using register "bouncy_ball:B1|ball_y_motion[8]~_emulated" and latch "bouncy_ball:B1|ball_y_motion[9]~1" File: C:/Users/iros084/Documents/GitHub/305-project/bouncy_ball.vhd Line: 93
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 6 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_i|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_r|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_i|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_d|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_b|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:a|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:m|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:a|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:e|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:g|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_p|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:tut_a|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:tut_l|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_l|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_a|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_p|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:tut_t|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:tut_u|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:tut_t1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
@@ -7447,8 +7444,6 @@ Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SP
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:tut_r|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:tut_i|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_f|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_l|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_a|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_p1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:title_y|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "start:P1|SPRITE_PRINTER:play_p|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
@@ -7461,22 +7456,22 @@ Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:E12|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:ht_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:hf_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:r|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:ten_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:S11|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:one_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:hh|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:ii|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:gg|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:hh1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
-Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:o|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:S11|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:v|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:e1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:r|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:o|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:S1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:C1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:O1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:R1|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 6 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:E2|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
+Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "endgame:o1|SPRITE_PRINTER:ten_text|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 3 MSB VCC or GND address nodes from RAM block "life:lc|SPRITE_PRINTER:sprite_design|char_rom:SPRITE_ROM|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_d5g1.tdf Line: 31
 Info (17036): Removed 3 MSB VCC or GND address nodes from RAM block "endgame:o1|ram:highscore_ram|altsyncram:ram_rtl_0|altsyncram_dgr1:auto_generated|ALTSYNCRAM" File: C:/Users/iros084/Documents/GitHub/305-project/db/altsyncram_dgr1.tdf Line: 157
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
@@ -7714,16 +7709,16 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance cs305_pll:C1|cs305_pll_0002:cs305_pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 1295 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1304 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 5 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 881 logic cells
+    Info (21061): Implemented 890 logic cells
     Info (21064): Implemented 400 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 763 warnings
     Info: Peak virtual memory: 5001 megabytes
-    Info: Processing ended: Mon May 27 09:18:26 2024
+    Info: Processing ended: Mon May 27 14:12:31 2024
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:05
 

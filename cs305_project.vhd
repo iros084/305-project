@@ -134,7 +134,8 @@ architecture structural of cs305_project is
 	signal sn1, sn2, sn3,t_out,t_pipe_ball_reset,t_ball        : std_logic;
 	--s20 <= '1';
 	
-	signal s_l, s_out, s_enable, s_e, s_pause, button_pause : std_logic;
+	signal s_l, s_out, s_enable, s_e, s_pause : std_logic;
+	signal button_pause: std_logic := '0';
 	
 begin
 
