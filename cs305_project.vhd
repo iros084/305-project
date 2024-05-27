@@ -77,7 +77,7 @@ architecture structural of cs305_project is
 	
 	component pipes is
 		port(clk, horiz_sync, vert_sync, enable, reset, pause, collision_in            : in std_logic;
-			pixel_row, pixel_column, pipe_height                  : in std_logic_vector(9 downto 0);
+			pixel_row, pixel_column, pipe_height,coin_height                  : in std_logic_vector(9 downto 0);
 			speed                                                 : in std_logic_vector(8 downto 0);
 			init                                                  : in std_logic_vector(10 downto 0);
 			col                                                   : in std_logic;
@@ -121,7 +121,7 @@ architecture structural of cs305_project is
 	signal s22                  : std_logic_vector(8 downto 0);
 	signal s24                  : std_logic_vector(10 downto 0) :=  conv_std_logic_vector(678, 11);
 	signal t_h                  : std_logic_vector(9 downto 0);
-	signal t_p                  : std_logic_vector(8 downto 0);
+	signal t_p,t_coin                  : std_logic_vector(8 downto 0);
 	signal t_horz, t_vert       : std_logic;
 	signal t_tens, t_ones, t_t,t_l  : std_logic_vector(3 downto 0);
 	signal e1, e2, e3           : std_logic;
@@ -229,6 +229,13 @@ begin
 			rand_st => pb3,
 			psudo   => t_p
 	);
+	
+	Rn2: rand_gen
+		port map(
+			clk     => s1,
+			rand_st => pb3,
+			psudo   => t_coin
+	);
 
 	d1: pipes
 		port map(
@@ -242,6 +249,7 @@ begin
 			pixel_row    => s9,
 			pixel_column => s10,
 			pipe_height  => t_h,
+			coin_height => '0'&t_coin,
 			speed        => speed11,
 			init         => s24,
 			Red          => s25,

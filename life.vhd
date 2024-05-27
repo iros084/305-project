@@ -37,7 +37,8 @@ end component;
     signal t_blue : std_logic := '1';
     signal t_row : std_logic_vector(9 downto 0) := conv_std_logic_vector(68, 10);
     signal t_col : std_logic_vector(9 downto 0) := conv_std_logic_vector(540, 10); 
-    signal t_red_out, t_green_out, t_blue_out : std_logic;           
+    signal t_red_out, t_green_out, t_blue_out : std_logic;      
+    signal life_counter : std_logic_vector(3 downto 0) := "0011";	 
     
 begin
    sprite_design: sprite_printer port map(pixel_row, pixel_col, 
@@ -46,16 +47,31 @@ begin
                                            multiplier, t_add_in,
                                            t_sprite_enable, clk,                           
                                            t_red_out, t_green_out, t_blue_out);
+														 
+														 
                                            
-   counter : Four_bit_Counter port map(clk, '0', rst, col_detect, t_count_out);
+  -- counter : Four_bit_Counter port map(clk, '0', rst, col_detect, t_count_out);
+	
+	process (clk)
+   begin
+    if rising_edge(clk) then
+        if rst = '1' then
+            life_counter <= "0011"; -- or initial life value
+        elsif (col_detect = '1') then
+            if life_counter > "0000" then
+                life_counter <= life_counter - 1;
+            end if;
+        end if;
+    end if;
+   end process;
      
    red <= t_red_out;
    green <= t_green_out;
    blue <= t_blue_out;
    
-   t_add_in <= "11" & t_count_out;
+   t_add_in <= "11" & life_counter;
         
-   ending <= '1' when (t_count_out = "0000") else '0';   
+   ending <= '1' when (life_counter = "0000") else '0';   
 	
                                                                                                                               
 end architecture;

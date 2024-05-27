@@ -78,7 +78,7 @@ begin
 	collision <= enable and ball_on and (pipe_on or ground_on);
 	
 	
-	ball_state <= ball_on when (pixel_column > conv_std_logic_vector(311, 10) and pixel_column < conv_std_logic_vector(329, 10)) else
+	ball_state <= ball_on when (pixel_column > conv_std_logic_vector(312, 10) and pixel_column < conv_std_logic_vector(327, 10)) else
               '0';
    
 --	process(collision_in)

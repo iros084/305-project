@@ -140,7 +140,7 @@ begin
 			when training =>
 				--if (ending1 = '1') then
 					--next_state <= game_over;
-			   if(lose = '1' and live_count = "0011") then
+			   if(ending1 = '1') then
 				    next_state <= game_over;
 				elsif (pause = '0') then
 					next_state <= pause_t;

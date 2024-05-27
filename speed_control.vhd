@@ -22,7 +22,7 @@ begin
             speed1 <= CONV_STD_LOGIC_VECTOR(100, 9); -- Default speed
         elsif rising_edge(clk) then
             if (mode = '1') then
-                if tens_digit1 > "0000" then
+                if tens_digit1 > "0000" and tens_digit1 <= "0001" then
                     speed1 <= CONV_STD_LOGIC_VECTOR(75, 9);
                 elsif(tens_digit1 > "0001") then
                         speed1 <= CONV_STD_LOGIC_VECTOR(50, 9); 

@@ -21,8 +21,6 @@ begin
     begin
       
         if (rising_edge(clk)) then
-       
-          
           if(bouncy_ball_on = '1' and pipe_on = '1' and input_latch = '1') then 
             input <= '1';
             input_latch <= '0';
