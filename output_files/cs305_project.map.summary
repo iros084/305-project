@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Mon May 27 18:03:26 2024
+Analysis & Synthesis Status : Successful - Tue May 28 10:28:31 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : cs305_project
 Top-level Entity Name : cs305_project
@@ -7,7 +7,7 @@ Logic utilization (in ALMs) : N/A
 Total registers : 225
 Total pins : 13
 Total virtual pins : 0
-Total block memory bits : 7,760
+Total block memory bits : 8,272
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
