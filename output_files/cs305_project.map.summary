@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon May 27 15:40:28 2024
+Analysis & Synthesis Status : Successful - Mon May 27 16:51:49 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : cs305_project
 Top-level Entity Name : cs305_project
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 225
+Total registers : 226
 Total pins : 13
 Total virtual pins : 0
-Total block memory bits : 7,504
+Total block memory bits : 7,824
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

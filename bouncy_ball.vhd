@@ -75,9 +75,9 @@ begin
 	
    -- Colours for pixel data on video signal
 	-- Changing the background and ball colour by pushbuttons
-	red <= ball_on or p_R;
-	green <= ground_on or p_G;
-	blue <= background_on or p_B;
+	red <= ball_on; -- or p_R;
+	green <= ground_on;-- or p_G;
+	blue <= background_on;-- or p_B;
 	
 	p_row <= ball_y_pos - CONV_STD_LOGIC_VECTOR(50, 10);
 	p_col <= CONV_STD_LOGIC_VECTOR(320 - 50, 10);
